@@ -1,180 +1,192 @@
 # BECA — Bounded Evolutionary Commit Architecture
 
-> **A theory proposal for evolutionary multi-agent systems:** one initial agent state first differentiates into multiple identical agents. Those agents then evolve continuously in different local regions of one shared world, may communicate during that evolution, and expose information to higher-level integration only after the relevant local state has stopped changing.
+> **A theory proposal for an evolvable recursive multi-agent system:** a base agent differentiates into identical local agents, those agents evolve through different experiences in one shared world, closed information returns to the base integrator, and when the current round stops changing the accumulated knowledge is used to modify the base layer and form the next-generation base agent.
 
-**Status:** v0.2 conceptual architecture / theory proposal  
+**Status:** v0.3 conceptual architecture / theory proposal  
 **Not:** a software product, benchmark suite, or experimentally validated implementation
 
 ## In one sentence
 
-> **One origin + first differentiation + continuous lineages + local evolution + peer communication + cessation of local change + second-stage integration + root-level structural improvement.**
+> **Differentiate -> experience -> change -> local closure -> integrate knowledge -> round closure -> modify the base layer -> form A(n+1) -> differentiate again.**
 
-## Core distinction
+## The recursive model
 
-BECA does **not** isolate agents from one another.
-
-Agents may communicate observations, questions, hypotheses, warnings, and unfinished ideas while they evolve. Those messages become part of the receiver's local experience.
-
-The decisive boundary is not whether an agent has produced a semantic result. It is whether the relevant local information is **still changing**.
-
-> **While a local state is changing, it remains part of local evolution. Once that local change stops, the state becomes eligible for higher-level integration.**
-
-Closure does not require a solved task, a correct answer, a coherent conclusion, or high confidence.
-
-A closed state may still be incomplete, wrong, contradictory, or unresolved. The defining property is only that the local process no longer changes it.
-
-## First differentiation
-
-BECA begins with one base agent `A`.
-
-The first differentiation creates multiple agents with the **same initial state**:
+Let the base agent in round `n` be:
 
 ```text
-            A
-         /  |  \
-        B   C   D
-
-initially:
-A = B = C = D
+A_n = base layer L_n + knowledge state K_n
 ```
 
-`B`, `C`, and `D` are differentiations of `A`, not independently designed agents with different initial assumptions.
-
-Their later differences arise from different local histories in the same world.
-
-## Continuity after the first differentiation
-
-The first differentiation is special.
-
-After `B`, `C`, and `D` begin evolving, later differentiation must preserve the continuity of those lineages.
-
-BECA therefore does **not** require this pattern:
+At the start of the round, `A_n` differentiates into local agents with the same initial state:
 
 ```text
-A0 -> B0 / C0 / D0
-      closed information -> A1
-A1 -> reset B1 / C1 / D1
+A_n = B_n = C_n = D_n   at differentiation
 ```
 
-That would repeatedly erase accumulated local history and recreate the environment from a new template.
+`B_n`, `C_n`, and `D_n` then enter different local regions and accumulate different experiences while remaining in the same world. They may communicate with one another.
 
-Instead, existing branches continue from their own evolved states and may themselves differentiate further:
+During the round, information remains local while it is still changing. When some local information stops changing, it becomes eligible to return to `A_n`.
+
+`A_n` first acts as an **integration database**: it accumulates and reorganizes closed information from the differentiated agents.
+
+The round does **not** advance because a target amount of knowledge has been reached. It advances when the relevant state of the current round **stops changing**.
+
+At that point, the accumulated knowledge is used to modify the underlying base layer:
 
 ```text
-             A
-          /  |  \
-         B   C   D
-        / \     / \
-       ...     ...
-
-local histories continue along the branches
+(L_n, K_n) -- round closure --> modify L_n using integrated knowledge --> A_(n+1)
 ```
 
-The evolutionary tree therefore grows outward continuously rather than being rebuilt from the root after every integration cycle.
+`A_(n+1)` then begins a new round by differentiating again into identical local agents.
 
-## Root-level improvement
+## Two kinds of closure
 
-As branch states stop changing, information from those closed local states can return to `A` for second-stage processing.
+BECA contains two related boundaries.
+
+### Local closure
+A piece of local information can move upward only after the local process no longer changes it.
 
 ```text
-closed information from B --+
-closed information from C ---+--> A: second-stage integration
-closed information from D --+             |
-                                           v
-                                modification of A's base structure
+changing local information
+        -> remains local
+
+local change stops
+        -> may enter A_n's integration database
 ```
 
-This improvement is stronger than merely appending facts to a knowledge store.
+Local closure does not require correctness, task completion, high confidence, or a semantic conclusion.
 
-The integrated information may modify the **underlying structure** of `A`: rules, weights, defaults, relations, processing structure, or other foundational mechanisms.
+### Round closure
+The current recursive round ends when its integrated state no longer changes.
 
-However, improving `A` does **not** imply resetting the already-evolving branches from the new `A` state.
+Only then does the system move from knowledge accumulation to **base-layer evolution**.
 
-The mechanism by which later changes to `A` may influence existing continuous lineages is intentionally left open until specified more precisely.
+```text
+local agents continue changing
+        +
+A_n knowledge state continues changing
+        -> stay in round n
+
+current round stops changing
+        -> modify base layer
+        -> form A_(n+1)
+        -> start round n+1
+```
+
+## Why this is not repeated premature reset
+
+A reset during active change would destroy continuity.
+
+BECA therefore does not repeatedly recreate agents while the current round is still evolving.
+
+Continuity is preserved **inside the round**:
+
+- local agents retain their histories;
+- relationships and environmental adaptation can accumulate;
+- peer communication can change later experience;
+- the integration database can continue receiving newly closed information.
+
+A new differentiation occurs only after the current round has stopped changing and its knowledge has been used to create a new base agent.
+
+The next round is therefore not a simple restart of the old system. It begins from an **evolved base layer**.
 
 ## Architecture
 
 ```text
-                 Root agent A
-              initial base state
+                    A_n
+          base layer L_n + knowledge K_n
                      |
-          first differentiation only
-          +----------+----------+
-          |          |          |
-          v          v          v
-          B          C          D
-      local world local world local world
-          |          |          |
-          +<--- peer communication --->+
-          |          |          |
-       continuous continuous continuous
-       evolution  evolution  evolution
-          |          |          |
-     state stops state stops state stops
-          |          |          |
-          +----------+----------+
-                     |
-                     v
-             second-stage integration
-                     |
-                     v
-            modify A's base structure
-
-Meanwhile, existing branches continue from their own histories
-and may differentiate further without being reset from A.
+                 differentiate
+           +---------+---------+
+           |         |         |
+           v         v         v
+          B_n       C_n       D_n
+           |         |         |
+        different local experience
+           |<------ communication ------>|
+           |         |         |
+        dynamic local evolution
+           |         |         |
+       local change eventually stops
+           \         |         /
+            \        |        /
+             closed information
+                    |
+                    v
+             A_n integration database
+                    |
+          knowledge continues changing?
+             /                 \
+           yes                 no
+            |                   |
+       remain in round n        v
+                        round closure
+                              |
+                              v
+                     modify base layer L_n
+                              |
+                              v
+                           A_(n+1)
+                              |
+                         differentiate
+                              |
+                          next round
 ```
 
-## Five principles
+## Core principles
 
-### 1. One shared origin
-The first differentiated agents begin from the same initial state. Their differences come from experience, not different initialization.
+1. **Same-state differentiation** — each round begins by differentiating the current base agent into identical local agents.
+2. **Situated evolution** — the local agents become different through different experiences, not different initialization.
+3. **Communication is allowed** — peer communication is part of local evolution.
+4. **Changing information stays local** — information becomes eligible for upward integration only after its relevant local change stops.
+5. **A acts as an integration database during the round** — closed information is accumulated and reorganized before base evolution.
+6. **Round transition is triggered by cessation of change** — not by a predefined knowledge quota or task target.
+7. **Base evolution happens between rounds** — integrated knowledge is used to modify the underlying base layer and create `A_(n+1)`.
+8. **Recursion** — `A_(n+1)` repeats the same process by differentiating again.
 
-### 2. Continuous situated evolution
-Each branch preserves its accumulated local history. Later differentiation extends existing lineages rather than recreating them from the updated root.
+## Knowledge update versus base-layer update
 
-### 3. Communicating boundaries
-The local boundary protects mutable evolution; it is not a communication wall. Peer messages may influence local change without automatically entering higher-level integration.
+These are different operations.
 
-### 4. Local evolutionary closure
-A local state can enter higher-level integration only after the relevant local process no longer changes it. Closure may arise through fixation, redundancy, finite lifetime, resource limits, or external termination.
+During a round:
 
-### 5. Root-level structural integration
-The root integrates information from closed branch states and may use it to modify its own underlying structure. This root improvement is distinct from resetting the branch lineages.
+```text
+K_n changes
+L_n remains the current base layer
+```
 
-## Why continuity matters
+At round closure:
 
-If every integration cycle created fresh agents from the newest root state, the system would repeatedly lose:
+```text
+integrated K_n
+    -> used to modify L_n
+    -> produces new base agent A_(n+1)
+```
 
-- accumulated local experience;
-- environmental continuity;
-- long-term relationships;
-- path-dependent adaptation;
-- historical differences created by earlier evolution.
-
-The system would be performing repeated reinitialization rather than continuous evolution.
-
-BECA therefore treats **lineage continuity** as essential after the first differentiation.
+This is why BECA is more than a shared-memory architecture. The system does not only accumulate knowledge; accumulated knowledge can eventually alter the structure from which the next recursive round begins.
 
 ## What BECA is not
 
-BECA is not a theory of non-communicating agents.
+BECA is not a theory of isolated agents.
 
-BECA is not a theory in which every branch must solve a task before contributing upward.
+BECA is not a system in which every local state is immediately fused upward.
 
-BECA is not a repeated-reset architecture in which every new cycle clones the newest root state into fresh agents.
+BECA is not a system that waits for a predefined knowledge maximum before evolving.
 
-BECA does not require permanent source tracking. The higher layer needs closed information; source identity and provenance are optional engineering additions.
+BECA is not a system that repeatedly resets active local processes.
 
-## Current contribution
+BECA does not require permanent source tracking once closed information has entered the integration process.
 
-The current theory proposes the following structure:
+## Current theoretical sequence
 
-> **one initial agent -> first identical differentiation -> continuous situated lineages -> local change -> local closure -> upward integration -> root-level structural improvement, while branch continuity is preserved.**
+> **A_n -> identical differentiation -> situated local evolution -> local closure -> knowledge integration in A_n -> cessation of round-level change -> base-layer modification -> A_(n+1) -> identical differentiation -> ...**
+
+This recursive sequence is the current core of BECA.
 
 ## Repository map
 
 - [`SPEC.md`](SPEC.md) — terminology and minimum architectural invariants
-- [`ARCHITECTURE.md`](ARCHITECTURE.md) — detailed system structure and lifecycle
+- [`ARCHITECTURE.md`](ARCHITECTURE.md) — detailed recursive system structure
 - [`TESTABLE_PREDICTIONS.md`](TESTABLE_PREDICTIONS.md) — observations that could support, narrow, or contradict the theory
 - [`PRIOR_ART.md`](PRIOR_ART.md) — adjacent architectures and candidate distinctions
 - [`CONTRIBUTING.md`](CONTRIBUTING.md) — how to critique or extend the proposal
@@ -183,18 +195,18 @@ The current theory proposes the following structure:
 
 ## Open questions
 
-BECA currently leaves several mechanisms open intentionally:
+The current theory intentionally leaves several mechanisms open:
 
-- how local fixation should be recognized;
-- how finite lifetime or external termination should be represented;
-- how later differentiation occurs along an existing lineage;
-- how modification of A's underlying structure should be represented;
-- whether and how later changes to A influence already-continuous branches without resetting them;
-- how much of a closed local state should cross the integration boundary;
-- how the higher layer should combine incompatible closed states.
+- how local cessation of change is detected;
+- how round-level cessation of change is detected;
+- exactly which closed information is retained in `K_n`;
+- how conflicting closed information is integrated;
+- how integrated knowledge modifies the base layer;
+- which parts of the base layer are mutable between rounds;
+- whether the integrator itself requires additional constraints to avoid introducing distortion.
 
 ## Invitation
 
 This is a theory proposal, not a claim of completed validation.
 
-If you see an equivalent prior architecture, a contradiction, a better formalization, or a domain where the distinction clearly fails, open an Issue. If you implement or test it, negative results are as useful as positive ones.
+Equivalent prior architectures, counterexamples, formalizations, implementations, and negative results are welcome.
