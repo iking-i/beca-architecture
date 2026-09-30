@@ -1,7 +1,7 @@
 # BECA — Perfect Recursion
 ## Bidirectionally Unbounded Evolution and the Creation of New Recursive Origins
 
-**Draft version:** 0.5  
+**Draft version:** 0.6  
 **Status:** Conceptual architecture / theory proposal
 
 ## Abstract
@@ -11,6 +11,8 @@ We propose **Perfect Recursion**, formally described here as **Bidirectional Evo
 The present theory separates this mechanism from **information convergence**. When a local process stops changing, its processed information may become transferable or absorbable by another process. Earlier versions incorrectly treated this cessation-gated information flow as upward recursion itself. The current theory instead defines upward recursion by **new-origin creation**.
 
 The theory does not require global synchronization, universal cessation of change, one permanent root, one final leaf, or a fixed data quota. Old and new recursive processes may coexist and evolve asynchronously.
+
+A further implication concerns temporal representation. A lower process may experience time sequentially, while a higher-order recursive structure may simultaneously represent reconstructed past states, the present state, and simulated future states. In this limited representational sense, a higher level may treat time itself as structured state rather than only as an experienced sequence.
 
 The candidate contribution is not recursion, evolution, branching, aggregation, or self-improvement individually. It is the exact combined mechanism in which **recursion can continue itself and can also generate new recursion**.
 
@@ -310,26 +312,42 @@ recursive origin
 
 Information convergence may support this process, but does not define it.
 
-## 14. Temporal implication
+## 14. Temporal and dimensional implication
 
-A lower recursive process may experience states sequentially:
+A lower recursive process experiences local time sequentially:
 
 ```text
 past -> present -> future
 ```
 
-A higher-order recursive structure may model, encode, or contain a whole lower-level trajectory as a structured object.
+From the perspective of that process, the past has already been traversed, the present is the currently occupied state, and the future has not yet been locally experienced.
 
-In this representational sense, states corresponding to different lower-level times may coexist inside a higher-level description.
-
-This suggests a possible recursive form of dimensional abstraction:
+A higher-order recursive structure may represent the same process differently. Using current conditions together with traces, records, constraints, models, and learned dynamics, it may simultaneously construct:
 
 ```text
-lower level: time is experienced as sequence
-higher level: a lower trajectory is represented as structure
+reconstructed past  <-  present  ->  simulated future
 ```
 
-This is a conceptual implication only. It does not prove block-universe metaphysics, a predetermined future, or any specific physical interpretation of spacetime.
+These representations need not be unique.
+
+The past may have several candidate reconstructions if information has been lost or is ambiguous. The future may branch into several candidate continuations because present conditions do not uniquely determine what happens next.
+
+```text
+past A ─┐
+past B ─┼─> present ─┬─> future A
+past C ─┘             ├─> future B
+                      └─> future C
+```
+
+In this representational sense, **past, present, and future can coexist inside a higher-order structure even while the lower-level process experiences time sequentially**.
+
+This suggests a form of recursive dimensional abstraction:
+
+> **the lower level experiences time as sequence; the higher level can treat time-indexed states, reconstructed trajectories, and simulated continuations as simultaneously addressable structure.**
+
+The higher level therefore does not need to "live through" every represented state in the same manner as the lower process. It can reason over temporal relations as structure.
+
+This section makes a representational claim only. It does **not** establish that the physical future already exists, that the future is predetermined, or that any specific block-universe interpretation of spacetime is correct.
 
 ## 15. Minimal invariants
 
@@ -383,6 +401,7 @@ Important unresolved questions include:
 - Can information convergence accelerate or transform origin creation?
 - What limits are imposed by finite physical resources?
 - Which existing formal systems are equivalent to this model?
+- Under what assumptions can higher-order temporal reconstruction and simulation be useful without being mistaken for literal physical simultaneity?
 
 ## 18. Conclusion
 
