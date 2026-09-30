@@ -1,44 +1,44 @@
 # Bounded Evolutionary Commit Architecture
-## Shared-Origin Agents, Local Evolution, and Stable Knowledge Integration
+## Same-Origin Agents, Situated Evolution, Local Closure, and Second-Stage Integration
 
-**Draft version:** 0.2  
+**Draft version:** 0.3  
 **Status:** Conceptual architecture / theory proposal
 
 ## Abstract
 
-We propose **Bounded Evolutionary Commit Architecture (BECA)**, a conceptual architecture for systems composed of multiple agents that begin from the same or mutually compatible initial worldview, evolve in different local regions of one shared world, communicate during that evolution, and expose only stabilized conclusions to higher-level knowledge integration.
+We propose **Bounded Evolutionary Commit Architecture (BECA)**, a conceptual architecture in which multiple agents begin from the same initial state, evolve in different local regions of one shared world, communicate during that evolution, and pass only the results of completed local evolutionary processes into a higher-level integration stage.
 
-The central distinction is not between communicating and non-communicating agents. It is between **dynamic local cognition** and **authoritative higher-level knowledge integration**. Agents may exchange observations, provisional hypotheses, critiques, warnings, and partial interpretations. Such communication becomes input to the receiving agent's own evolving local state. It does not automatically become shared authoritative knowledge.
+The central distinction is not between communicating and non-communicating agents. Agents may exchange observations, provisional hypotheses, critiques, warnings, and partial interpretations throughout their evolution. Such communication becomes input to the receiving agent's own local state.
 
-When a local processing cycle reaches a stabilization criterion, the agent publishes a versioned immutable commit. A higher integration layer then performs second-stage processing across multiple source-preserving commits, including comparison, scope analysis, conflict resolution, deduplication, abstraction, and generalization.
+BECA instead separates **active local evolution** from **second-stage integration**. While a local process remains active, its information may continue to change. When that process ends—through internal fixation, diminishing informational change, finite lifetime, resource limits, time limits, or external termination—it yields a determinate result. The higher layer integrates these completed results rather than every intermediate local mutation.
 
-BECA therefore combines six ideas: **common origin, one shared world, different situated trajectories, peer communication, stable commit, and second-stage integration**. The intended contribution is architectural: to distinguish the mutable evolution of local experience from the later integration of stabilized source conclusions.
+Source identity is not a theoretical requirement. Provenance may be retained for engineering reasons, but BECA only requires the higher layer to receive the results of completed local evolution.
+
+The architecture can repeat generationally: a shared state `M0` is distributed into multiple agents, their local histories diverge, completed results are integrated, and the resulting state `M1` can become the shared initial state of a later generation.
 
 ## 1. Introduction
 
-A population of intelligent agents can be understood in more than one way.
+A population of intelligent agents can be understood as more than parallel workers.
 
-One design treats agents mainly as parallel workers. Another treats them as isolated reasoners. BECA proposes a different interpretation: agents are **common-origin systems situated in different parts of the same world**.
+BECA begins from a stronger premise: multiple agents are instantiated from **the same initial state** and then placed in different local regions of one shared world.
 
-They share a baseline worldview, but they do not share identical histories.
+They do not remain identical because they do not share identical histories.
 
-One agent may encounter evidence that another never sees. One may experience a failure that another avoids. One may receive a warning from a peer and reinterpret it differently because of its own history. Over time, agents that began from the same baseline can become meaningfully different.
+One agent may encounter evidence another never sees. One may fail where another succeeds. One may receive a peer message and interpret it differently because its local history has already shaped its internal structure.
 
-This divergence is not a defect. It is the source of new information.
+This divergence is not an implementation error. It is the mechanism by which one common starting state explores multiple trajectories.
 
-BECA asks a specific architectural question:
+The architectural question is:
 
-> How should a higher-level system learn from multiple evolving agents without collapsing every temporary local change into one continuously mutating shared state?
+> How should a higher-level system learn from several evolving local processes without treating every temporary local change as already-finished shared knowledge?
 
-The proposed answer is:
+BECA's answer is:
 
-> **Allow rich communication during local evolution, but reserve higher-level integration for stabilized source conclusions.**
+> **Allow local information to remain dynamic while the local process is alive. Allow agents to communicate during that evolution. When a local process ends, pass its determinate result upward for second-stage integration.**
 
-## 2. Common origin and divergent evolution
+## 2. Same origin, different local histories
 
-Let `M0` denote a common initial worldview. It may include shared rules, ontology, prior knowledge, protocols, and a basic model of the world.
-
-Agents begin from this baseline:
+Let `M0` denote one common initial state.
 
 ```text
 A0 = M0
@@ -46,7 +46,7 @@ B0 = M0
 C0 = M0
 ```
 
-They then occupy different positions or histories in a shared world:
+The agents then occupy different local regions and accumulate different histories:
 
 ```text
 A(t) = M0 + HA(t) + peer influence
@@ -54,50 +54,44 @@ B(t) = M0 + HB(t) + peer influence
 C(t) = M0 + HC(t) + peer influence
 ```
 
-where `HA`, `HB`, and `HC` differ because the agents encounter different local events, evidence, constraints, and relations.
+The differences between `HA`, `HB`, and `HC` arise from position, event order, relationships, opportunities, failures, constraints, and communication.
 
-The system therefore seeks differentiated experience without losing a common frame of reference.
+The purpose of the population is therefore not duplication. It is **differentiated evolution from one shared origin**.
 
 ## 3. Communication is part of evolution
 
-BECA does not prohibit agent-to-agent communication.
+BECA does not require agents to remain isolated before producing a result.
 
 Agents may exchange:
 
 - observations;
-- warnings;
 - questions;
-- critiques;
+- warnings;
 - hypotheses;
+- critiques;
 - partial interpretations;
 - requests for verification;
 - coordination signals.
 
-A peer message can substantially change another agent's local trajectory.
+A message from Agent A may immediately change Agent B.
 
-This is important: BECA is not based on sealed agents. Social and informational interaction can itself be part of the environment through which an agent evolves.
-
-The architectural boundary instead determines **what a message is allowed to become**.
-
-A message from Agent A to Agent B may immediately affect B's local state. However, it does not automatically become an authoritative update to the parent/shared knowledge base.
+However, the message does not automatically become a completed input to the higher-level integration layer. It becomes part of B's continuing local evolution.
 
 The distinction is:
 
 ```text
 peer communication
-      -> local input
-      -> local revision
+    -> local input
+    -> further local evolution
 
-stable commit
-      -> higher-level source input
-      -> cross-source integration
+local evolutionary closure
+    -> determinate result
+    -> second-stage integration
 ```
 
 ## 4. Dynamic local information
 
-Inside an agent, information may remain incomplete and change repeatedly.
-
-A local cognitive trajectory may look like:
+Inside an active local process, information may remain incomplete and change repeatedly.
 
 ```text
 observation
@@ -106,180 +100,196 @@ observation
   -> peer message
   -> interpretation V2
   -> new evidence
+  -> reinforcement / weakening
   -> relation-building
   -> interpretation V3
-  -> compression
-  -> stabilized conclusion
+  -> ...
 ```
 
-The intermediate states are useful precisely because they are allowed to change.
+These intermediate states are useful precisely because they are allowed to change.
 
-Prematurely treating them as parent-level conclusions creates a semantic problem: the larger system may integrate a state that its source itself later rejects.
+BECA therefore treats them as belonging to an active process rather than as final contributions to the higher layer.
 
-BECA therefore treats the agent as a bounded environment in which information is allowed to evolve before becoming a source contribution to higher-level knowledge.
+## 5. Local evolutionary closure
 
-## 5. Stable commit
+A local process does not require one explicit life task in order to end.
 
-A local conclusion becomes eligible for higher-level integration only after an explicit stabilization condition is satisfied.
+Its evolution may close for several reasons:
 
-The architecture does not prescribe one universal stabilization rule. A domain may use repeated consistency, task completion, bounded deliberation, confidence thresholds, contradiction reduction, human approval, or another criterion.
+- repeated experience produces no meaningful new change;
+- existing structure dominates low-weight new information;
+- new evidence becomes redundant with already-formed experience;
+- the system reaches a practical fixed point;
+- finite lifetime ends;
+- time or resource budget ends;
+- a human or external controller terminates the process.
 
-Once stabilized, the agent publishes a commit.
+This is analogous to a biological lifespan: a person does not need one explicit life objective for life to be finite. A finite lifetime itself defines a boundary after which that individual's local evolution stops.
 
-A commit should be:
+The important architectural fact is simply:
 
-- source-attributed;
-- versioned;
-- immutable as a historical result;
-- scoped;
-- capable of being superseded later by a new commit.
+> **the local process has ended.**
 
-A later change does not modify the old commit in place. It creates a new source result.
+## 6. Determinate result
 
-This allows the higher layer to integrate well-defined versions rather than moving targets.
+When local evolution ends, the state produced by that process becomes a **determinate result**.
 
-## 6. Second-stage integration
+Determinate does not mean eternally true.
 
-The parent/integration layer solves a different problem from local cognition.
+It means:
 
-Local cognition asks:
+- the local process that produced it is no longer changing it;
+- it can now be treated as the output of that completed process;
+- later change belongs to another process, another generation, or another shared state.
 
-- What does this local history imply?
-- Which signals were noise?
-- How should peer input be interpreted?
-- What conclusion survives local revision?
+A finite process therefore converts dynamic information into a result by ending.
+
+## 7. Result commit
+
+A commit is the transfer of that determinate result into the higher-level integration stage.
+
+At theoretical minimum, the upper layer needs only:
+
+```text
+Result {
+  conclusion
+}
+```
+
+An implementation may attach metadata such as evidence, confidence, scope, source identity, or history, but these are not required by BECA itself.
+
+The theory does not require the local agent to remain available after the result has been submitted.
+
+## 8. Second-stage integration
+
+The higher layer performs a different process from local evolution.
+
+Local evolution asks:
+
+- What did this local history produce?
+- Which inputs were reinforced or weakened?
+- How did interaction change the local structure?
+- What state remained when the process ended?
 
 Second-stage integration asks:
 
-- Which evolved sources agree?
-- Which disagreements are caused by different local conditions?
-- Which conclusions are duplicates, refinements, or contradictions?
-- What knowledge is transferable beyond one local region?
-- What higher-level abstraction emerges only after comparing several sources?
+- Which completed results agree?
+- Which conflict?
+- Which are duplicates or complementary?
+- Which relations appear only when several results are considered together?
+- What abstraction or generalization can be formed from them?
 
 The structure is:
 
 ```text
-common initial worldview
-          |
-          v
-     shared world
-   /      |       \
-Agent A Agent B Agent C
-  <---- peer communication ---->
-   |       |       |
- local   local   local
- evolve  evolve  evolve
-   |       |       |
- Final A Final B Final C
-    \      |      /
-     \     |     /
+same initial state M0
+        |
+   shared world
+  /     |      \
+ A      B       C
+ <--- peer communication --->
+ |      |       |
+local  local   local
+ evolve evolve evolve
+ |      |       |
+close  close   close
+ |      |       |
+RA     RB      RC
+  \     |      /
    second-stage integration
             |
             v
-      shared knowledge update
+           M1
 ```
 
-The integration layer works on stabilized source contributions, not on every local mutation that occurred during evolution.
+The higher layer does not need to replay each local process in order to use its result.
 
-## 7. Why the boundary exists
+## 9. Source identity is optional
 
-The boundary serves several roles.
+Many distributed architectures emphasize provenance. BECA does not make provenance a theoretical requirement.
 
-### 7.1 State ownership
-Each agent owns its currently mutable local state.
+Source identity can be useful for:
 
-### 7.2 Local interpretation
-The same peer message may lead to different changes in different agents because their histories differ.
+- debugging;
+- auditing;
+- trust management;
+- security;
+- research analysis.
 
-### 7.3 Source differentiation
-Different conclusions remain attributable to different evolved trajectories.
+But the conceptual model only requires that the higher layer receives multiple determinate results.
 
-### 7.4 Controlled authority
-Communication can influence agents without instantly becoming globally authoritative.
+If an individual local agent disappears after its process ends, the integration stage can still use the result it produced.
 
-### 7.5 Higher-quality integration inputs
-The parent layer receives conclusions that have already undergone one stage of local interpretation and revision.
+## 10. Generational evolution
 
-## 8. Data, experience, and shared knowledge
-
-BECA distinguishes four stages:
-
-### Data
-Raw observation or transmitted information.
-
-### Local experience
-Data transformed through the history and dynamic state of one agent.
-
-### Stabilized conclusion
-A result the source agent currently considers complete enough to commit.
-
-### Shared knowledge
-A higher-level result produced by integrating several source commits.
-
-Thus:
+BECA naturally supports a repeated cycle:
 
 ```text
-world data
-   -> local evolving experience
-   -> stable source conclusion
-   -> cross-source integration
-   -> shared knowledge
+M0
+ -> same-origin agents
+ -> different local histories
+ -> peer communication
+ -> local closure
+ -> determinate results
+ -> second-stage integration
+ -> M1
+ -> later generation begins from M1
+ -> ...
 ```
 
-This is a two-stage processing architecture: first within individuals, then across individuals.
+This allows the whole system to evolve without globally ingesting every local intermediate mutation.
 
-## 9. Relation to adjacent architectures
+The shared system changes through **differentiation followed by reintegration**.
 
-### 9.1 Federated learning
-Federated learning also begins with common model structure and aggregates results from distributed participants. BECA differs in emphasis: its central object is not merely a locally computed parameter update, but the lifecycle of information from mutable local interpretation to stabilized source conclusion.
+## 11. Relation to adjacent architectures
 
-### 9.2 Blackboard systems
-Blackboard systems allow multiple knowledge sources to post partial results to a shared workspace. BECA places a stronger semantic distinction between peer interaction and parent-level learned knowledge. Partial local states may circulate among agents without automatically entering the authoritative shared knowledge layer.
+### 11.1 Federated learning
+Federated learning also distributes a shared model and aggregates local outputs. BECA differs in the semantic boundary it proposes: the relevant transfer happens after a local evolutionary process has ended, rather than simply after a scheduled optimization round.
 
-### 9.3 Actor-style isolation
-Actor models preserve local state ownership while allowing message passing. BECA is compatible with this idea but adds a knowledge lifecycle distinction between ordinary messages and stabilized commits intended for higher-level integration.
+### 11.2 Blackboard systems
+Blackboard systems use a shared evolving workspace. BECA permits provisional ideas to circulate among agents, but distinguishes that circulation from second-stage integration of completed local results.
 
-### 9.4 Event sourcing
-Event sourcing preserves immutable historical events. BECA similarly avoids rewriting past committed source results, but it does not require every internal local state change to become a shared event. Much of the dynamic evolution may remain local.
+### 11.3 Actor-style systems
+Actor models preserve local state ownership while allowing message passing. BECA adds a lifecycle distinction between an active local process and the result produced when that process ends.
 
-## 10. Central theoretical claims
+### 11.4 Event sourcing
+Event sourcing preserves state-changing events. BECA does not require the upper layer to retain the sequence of local mutations. It may receive only the final result of the completed process.
 
-BECA proposes the following conceptual claims:
+## 12. Central theoretical claims
 
-1. **common initial state and different local histories are complementary, not contradictory**;
-2. **communication does not require shared mutable authority**;
-3. **peer influence can occur without direct parent-level fusion**;
-4. **local information should be allowed to change before it is treated as a finalized source contribution**;
-5. **higher-level integration is a distinct processing stage that operates across stabilized conclusions from multiple evolved sources**;
-6. **the useful output of a population is the differentiated knowledge produced by its trajectories, not simple duplication of the initial system**.
+BECA proposes the following claims:
 
-## 11. Open theoretical questions
+1. **multiple agents should begin from the same initial state if their later differences are intended to reflect local evolution**;
+2. **agents can communicate while retaining locally mutable state**;
+3. **peer influence does not require direct higher-level fusion**;
+4. **a local process can end through internal fixation or finite external boundaries even without an explicit life task**;
+5. **the result of an ended local process is categorically different from an intermediate state of an active process**;
+6. **the higher layer can integrate completed results without requiring permanent reconstruction of the individuals that produced them**;
+7. **second-stage integration is a distinct processing stage rather than a continuation of one local agent's unfinished cognition**;
+8. **the integrated state can become the common initial state of a later generation**.
+
+## 13. Open theoretical questions
 
 Several mechanisms remain intentionally open:
 
-- How identical must the initial worldview be?
-- How should local position or perspective be represented?
-- When does communication enrich diversity, and when does it collapse agents into correlated copies?
-- What makes a conclusion stable enough to commit?
-- How much provenance from peer influence should a commit preserve?
-- How should the higher layer integrate conclusions that are each locally stable but mutually incompatible?
-- Should integrated knowledge become the initialization of a later generation of agents?
-- Can the same architecture recurse, with higher-level integrations themselves acting as local agents in a larger system?
+- How should internal fixation be detected?
+- How should finite lifetime or resource boundaries be chosen in artificial systems?
+- When does peer communication enrich diversity, and when does it collapse trajectories into correlated copies?
+- How should the higher layer combine mutually incompatible completed results?
+- How much information must a determinate result contain for useful second-stage integration?
+- Can the same architecture recurse, with an integrated system itself acting as a local process inside a larger system?
 
-These are part of the theory's future development rather than implementation obligations for the original proposal.
+These are future theory questions, not implementation obligations for the original proposal.
 
-## 12. Conclusion
+## 14. Conclusion
 
-BECA is best summarized as:
+BECA can be summarized as:
 
-> **The same initial worldview is distributed into multiple agents that evolve in different parts of one shared world. They may communicate throughout that evolution. Their mutable states remain locally owned. Once an agent reaches a stabilized conclusion, it commits that result to a higher layer, where multiple source conclusions undergo second-stage integration.**
+> **One initial state is distributed into multiple agents. They evolve in different parts of one shared world and may communicate throughout that evolution. Their local information remains dynamic while their local processes are active. When those processes end, their determinate results are passed upward. A higher layer performs second-stage integration across those results and may form a new shared state for a later generation.**
 
-The theory therefore does not seek isolated intelligence. It seeks **differentiated intelligence with a common origin**.
+Its core sequence is:
 
-Its core architectural sequence is:
-
-> **common origin -> situated divergence -> communication -> local evolution -> stable commit -> second-stage integration -> shared knowledge evolution**
+> **same origin -> situated divergence -> communication -> local evolution -> local closure -> determinate result -> second-stage integration -> shared-state evolution**
 
 This repository presents that sequence as a theory and architecture proposal for others to formalize, implement, criticize, or test.
 
