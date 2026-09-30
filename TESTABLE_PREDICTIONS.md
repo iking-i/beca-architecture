@@ -1,141 +1,146 @@
-# BECA — Testable Predictions for Bidirectional Evolutionary Recursion
+# BECA — Testable Predictions for Perfect Recursion
 
 BECA is presented as a conceptual theory proposal. This document states observations that could support, narrow, revise, or contradict the current mechanism.
 
 ## 1. Theoretical setup
 
-The current theory assumes a recursive hierarchy in which:
+The current theory distinguishes:
 
-1. nodes may generate lower-level descendants or branches;
-2. only some descendants need to continue reproducing;
-3. descendants may differ from predecessors;
-4. each node may continue changing while processing local information;
-5. cessation of change gates upward transfer;
-6. upward transfer carries processed information;
-7. upper nodes may change from lower-level transferred information;
-8. when an upper node later stops changing, the same upward-transfer rule applies again;
-9. a converged or improved upper state may later initiate new downward expansion.
+1. **downward recursion** — continuation of an existing recursive path;
+2. **upward recursion** — generation of a new autonomous recursive origin;
+3. **information convergence** — optional transfer or absorption of processed information after a local process stops changing.
 
-The central distinction is:
+The central claim is:
 
-> **Downward expansion generates variation; cessation of change enables upward convergence; upward convergence can modify the state that generates the next downward expansion.**
+> **A recursive process may continue itself while also generating new recursion-capable origins.**
 
-## 2. Prediction: downward branching can create useful variation
+The theory does not require global synchronization, universal cessation of change, one permanent root, or one final depth.
 
-If lower-level descendants encounter different histories or contain inherited variation, their processed states should diverge in ways that expose information unavailable to a single trajectory.
+## 2. Prediction: old and new recursive paths can coexist
 
-If branching never produces any useful diversity, the downward half of the architecture adds little value.
+If upward recursion is genuinely distinct from ordinary descent, then creating a new recursive origin should not require the original recursive path to terminate.
 
-## 3. Prediction: active and closed local states should behave differently
-
-A node may change repeatedly:
+Characteristic pattern:
 
 ```text
-V1 -> V2 -> V3 -> ... -> cessation
+R continues --------------------->
+│
+└----> creates R'
+          └----> R' continues --->
 ```
 
-BECA predicts that treating each intermediate `Vn` as equivalent to a closed upward contribution will sometimes cause the upper layer to act on states that would later have changed materially.
+If every supposed new origin is only a replacement state in the same lineage, the upward-recursion claim should be narrowed.
 
-If active and closed states are operationally indistinguishable in a target domain, the closure boundary contributes little.
+## 3. Prediction: a new origin can outlive its generator
 
-## 4. Prediction: cessation can be defined without task completion
-
-The theory predicts that useful upward transfer can be triggered by cessation of change rather than explicit task completion.
-
-Possible implementation-specific causes include internal fixation, repeated redundancy, resource boundaries, time boundaries, or externally imposed termination.
-
-If no meaningful cessation boundary can be defined, this part of the theory is weakened.
-
-## 5. Prediction: processed information should be sufficient in some domains
-
-BECA does not require every lower-level intermediate state to be replayed upward.
-
-It predicts that, in at least some systems, locally processed information from a closed node is sufficient for useful higher-level change.
-
-If higher-level improvement always requires full reconstruction of every lower-level trajectory, the abstraction is too strong.
-
-## 6. Prediction: upward transfer can change the upper node
-
-A defining claim is that upper nodes are not passive collectors.
-
-They may change their own state or structure using information transferred from below.
-
-Therefore a system implementing only:
+A structurally autonomous recursive origin should be able to continue its own recursion even if the process that generated it later stops.
 
 ```text
-lower results -> static archive
+R creates R'
+R stops
+R' continues
 ```
 
-would not capture the full theory.
+If continued recursion always requires the original generator to remain the active recursive center, the autonomy criterion is too strong.
 
-The stronger predicted pattern is:
+## 4. Prediction: recursion can generate recursion repeatedly
+
+The same rule should be reusable:
 
 ```text
-lower closure
-    -> upward processed information
-    -> upper-node change
+R creates R'
+R' creates R''
+R'' creates R'''
+...
 ```
 
-## 7. Prediction: upward recursion can repeat
+If origin creation can occur only once and cannot meaningfully repeat, the claim of upward recursion as a recursive mechanism should be narrowed.
 
-The same boundary should remain meaningful one level higher:
+## 5. Prediction: downward recursion need not converge globally
+
+An existing recursive process may continue changing indefinitely without violating the architecture.
+
+Therefore the theory predicts that global cessation is not required for recursive validity.
+
+If the mechanism fundamentally requires all active paths to terminate before any higher-order event can occur, the current asynchronous formulation is wrong.
+
+## 6. Prediction: new-origin creation and information convergence are separable
+
+A key distinction is that upward recursion and information convergence are not the same operation.
+
+The theory predicts that there can be cases where:
 
 ```text
-C stops changing -> B changes
-B stops changing -> A changes
-A stops changing -> higher level changes
+new recursive origin is created
+while
+source process is still changing
 ```
 
-If the mechanism only works once and cannot be meaningfully re-applied at the next level, the claim of self-similar recursive structure should be narrowed.
-
-## 8. Prediction: convergence can alter future expansion
-
-The strongest current claim is not merely that information moves upward.
-
-It is that a state changed through upward convergence can later become the source of new downward expansion.
-
-Therefore later descendants should, in principle, differ from those that would have been generated before convergence.
-
-The characteristic loop is:
+and separately:
 
 ```text
-expand
- -> vary
- -> cease
- -> converge
- -> modify upper state
- -> expand again from modified state
+some local process stops changing
+-> processed information becomes transferable
 ```
 
-If upward convergence never affects later downward generation, the architecture reduces to a much weaker aggregation model.
+If every new recursive origin necessarily requires prior cessation and upward information transfer, the current separation should be revised.
 
-## 9. Prediction: bidirectional coupling can outperform one-way inheritance in some domains
+## 7. Prediction: no unique permanent root is necessary
 
-A conventional one-way lineage allows descendants to replace or continue predecessors without feeding stabilized lower-level information back into upper levels.
+The model predicts that recursive organization can remain coherent without one globally privileged root.
 
-BECA predicts that, in some complex domains, allowing stabilized lower-level information to modify upper-level generators can preserve useful discoveries across many lineages more effectively than purely downward inheritance.
+A new recursive origin may itself become a center for further recursion.
 
-This is a comparative hypothesis, not an established result.
+If all recursion must remain logically subordinate to one original root forever, the upward-origin interpretation is weakened.
 
-## 10. Prediction: no privileged final root is necessary
+## 8. Prediction: bidirectional unboundedness is structurally possible
 
-Because any node may be both parent and descendant, the mechanism should remain coherent even if a supposed "root" is embedded inside a larger hierarchy.
+The theory claims no predefined structural bottom for downward continuation and no predefined structural top for new-origin creation.
 
-If the architecture fundamentally requires one unique top-level node that cannot itself participate in the same rule, then the current no-privileged-center claim should be revised.
+This is a logical, not physical, claim.
 
-## 11. What would count against the theory?
+Finite implementations may stop because of energy, storage, computation, time, or other resource constraints. Such limits do not by themselves falsify the recursive structure.
 
-The theory should be narrowed if evidence repeatedly shows that:
+The theory would be weakened if a contradiction appears that forces a final recursive bottom or top even in the abstract model.
 
-- lower-level branching produces no useful variation;
-- active and closed states are not meaningfully distinguishable;
-- cessation of change cannot be operationalized;
-- processed closed information is insufficient for useful upper-level change;
-- upper nodes cannot be improved from lower-level information without replaying full trajectories;
-- the cessation-and-transfer rule cannot recurse upward;
-- upward convergence does not affect later downward expansion;
-- a privileged final root is unavoidable.
+## 9. Prediction: new recursive origins can introduce a new generative regime
 
-## 12. Current status
+A genuine new recursive origin should be capable of producing trajectories that are not merely ordinary continuation of the generating lineage.
 
-These are falsifiable directions for a conceptual architecture. They are not claims that the predicted advantages have already been demonstrated experimentally.
+This does not require total independence or no shared history.
+
+It requires a meaningful change in recursive generative role: the produced system becomes a source of its own future recursive structure.
+
+If every candidate `R'` can be fully described as just the next ordinary state `R_(n+1)` of the same recursion, the "new origin" distinction may be unnecessary.
+
+## 10. Prediction: information convergence can occur without halting independent recursion
+
+When one local process stops changing, its processed information may become usable elsewhere.
+
+The theory predicts this need not block, terminate, or synchronize other ongoing recursive paths.
+
+If information transfer necessarily creates a global barrier, the current non-blocking architecture should be revised.
+
+## 11. Temporal implication to test formally
+
+A lower process may experience states sequentially, while a higher-order model may represent an entire lower trajectory as one structured object.
+
+A future formalization should test whether this representational relation can be expressed without contradiction and whether it adds explanatory power beyond ordinary history/state models.
+
+This is not currently a physical prediction about spacetime.
+
+## 12. What would count against the theory?
+
+The current theory should be narrowed if evidence or formal analysis shows that:
+
+- a supposed new recursive origin cannot be distinguished from ordinary lineage continuation;
+- a new origin cannot continue after its generator stops;
+- recursive-origin creation cannot itself recurse;
+- all recursive paths must globally synchronize or terminate before new origins can appear;
+- one permanent root is logically unavoidable;
+- information convergence and origin creation cannot be separated;
+- the abstract structure necessarily requires a final top or final bottom.
+
+## 13. Current status
+
+These are falsifiable directions for a conceptual architecture. They are not claims that the proposed advantages have already been demonstrated experimentally.
