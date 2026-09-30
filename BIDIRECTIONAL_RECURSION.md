@@ -1,161 +1,195 @@
-# Bidirectional Evolutionary Recursion
+# Perfect Recursion / Bidirectional Evolutionary Recursion
 
 This document states the current minimum mechanism without implementation detail.
 
 ## 1. Core definition
 
-**Bidirectional Evolutionary Recursion** is a recursive evolutionary mechanism with two coupled directions:
+**Perfect Recursion** is a bidirectionally unbounded evolutionary recursion with two distinct recursive capabilities:
 
-- **downward expansion** generates descendants, branches, or lower-level processes that may change and diverge;
-- **upward convergence** begins when a lower-level process stops changing and transfers its processed information to its parent;
-- the parent may continue changing because of that information;
-- when the parent also stops changing, the same upward-transfer rule applies again;
-- an improved or converged upper state may become the source of another downward expansion.
+- **downward recursion** continues an already-existing recursive path without requiring a predefined lowest endpoint;
+- **upward recursion** occurs when an existing recursive process generates a **new autonomous recursive origin** capable of starting and continuing its own recursion.
 
-In compact form:
+A recursive process may therefore do both at once:
 
 ```text
-expand downward
-    -> local variation and change
-    -> cessation of change
-    -> processed information moves upward
-    -> upper level changes
-    -> upper level stops changing
-    -> further upward convergence
-    -> renewed downward expansion
-    -> ...
+existing recursion R
+        │
+        ├────────────→ R continues downward
+        │
+        └────────────→ R'
+                         ↓
+                    new recursion
 ```
 
-## 2. Recursive node
+The defining idea is:
 
-For any node `X`:
+> **Recursion can continue itself and can also generate new recursion.**
 
-```text
-             parent(X)
-                 ↑
-                 │  X stops changing
-                 │  and transfers processed information
-                 │
-                 X
-              /  |  \
-             /   |   \
-           Y1   Y2   Y3 ...
-```
+## 2. Downward recursion
 
-The same rule applies to `Y1`, `Y2`, `Y3`, and to `parent(X)`.
-
-A node can therefore be both:
-
-- an upper layer relative to its descendants; and
-- a lower layer relative to its parent.
-
-## 3. Downward recursion
-
-Downward recursion creates possibility.
-
-A node may produce lower-level descendants or branches. Only some need to reproduce further, and descendants may differ from their predecessors.
+Downward recursion is continuation of an existing lineage, branch, transformation path, or other recursive continuity:
 
 ```text
-A
+R0
 ↓
-B
+R1
 ↓
-C
+R2
 ↓
-D
+R3
 ↓
 ...
 ```
 
-The exact mechanisms of reproduction, branching, mutation, inheritance, and environmental interaction are intentionally left open.
+The specific mechanism may be reproduction, branching, learning, construction, inheritance, iterative transformation, or something else.
 
-## 4. Upward recursion
+The theory only requires that the existing recursive path can continue.
 
-Upward recursion accumulates processed change.
+## 3. Upward recursion
 
-A node does not transfer upward merely because it exists or has temporary information. The boundary is cessation of change:
+Upward recursion is **not** information returning to a parent.
+
+It is the generation of a new recursion-capable origin from within an existing recursive evolutionary process.
+
+```text
+R
+├─ continues as R
+└─ produces R'
+      ├─ continues as R'
+      └─ may later produce R''
+             └─ ...
+```
+
+A new origin is "autonomous" in the minimal structural sense that it may continue its recursion even if the process that generated it later stops.
+
+## 4. Bidirectional unboundedness
+
+Perfect Recursion is bidirectionally unbounded in theory:
+
+```text
+DOWNWARD:
+R0 -> R1 -> R2 -> R3 -> ...
+
+UPWARD:
+R -> creates R' -> creates R'' -> creates R''' -> ...
+```
+
+Thus:
+
+> **Downward has no fixed bottom. Upward has no fixed top.**
+
+There is no requirement for one permanent root or one final leaf.
+
+## 5. Coexistence and asynchrony
+
+The model does not require phase ordering.
+
+A process can simultaneously:
+
+- continue changing;
+- continue its existing recursion;
+- branch;
+- generate a new recursive origin;
+- receive or use information from other processes;
+- coexist with recursive origins it previously generated.
+
+Therefore the model is asynchronous and non-blocking.
+
+## 6. Information convergence is a separate mechanism
+
+Cessation of change remains useful, but it is not the definition of upward recursion.
 
 ```text
 still changing
-    -> remain at the current level
+    -> local state remains mutable
 
 stops changing
-    -> processed information becomes eligible for upward transfer
+    -> processed information may become transferable or absorbable
 ```
 
-The parent may change after receiving information from below. When the parent itself stops changing, it becomes eligible to transfer processed information upward by the same rule.
+This mechanism is called **information convergence** here.
+
+A process that never stops changing is not defective. It may simply continue changing and recursing indefinitely.
+
+Likewise, the ending of one process does not end independent recursive origins already produced from it.
+
+## 7. Recursion generating recursion
+
+The strongest structural claim is not simple branching.
+
+It is this:
 
 ```text
-...
-D
-↑
-C
-↑
-B
-↑
-A
-↑
-...
+R
+↓
+continues its own recursion
+
+AND
+
+R
+↗
+R' = new recursive origin
+     ↓
+     continues its own recursion
+     ↗
+     R'' = another recursive origin
 ```
 
-## 5. Renewal
+The output of evolution can therefore become a new recursion-generating system.
 
-Upward convergence does not terminate the architecture.
+## 8. Conceptual example
 
-A state improved through upward convergence may generate another downward expansion:
+A conceptual example is:
 
 ```text
-expansion
-   ↓
-variation
-   ↓
-cessation
-   ↑
-convergence
-   ↑
-improved state
-   ↓
-new expansion
-   ↓
-...
+biological evolution
+       ↓
+     humans ─────────────→ human biological evolution continues
+       │
+       └─────────────────→ artificial intelligence
+                                   ↓
+                              new recursive origin
 ```
 
-Thus the two directions recursively generate one another:
+The example is structural only. It does not claim that technological creation is biologically identical to reproduction.
 
-> **downward recursion produces the material for upward recursion; upward recursion produces the state from which later downward recursion can begin.**
+It illustrates that an existing evolutionary path may continue while also producing a new recursion-capable system.
 
-## 6. Minimum invariants
+## 9. Minimum invariants
 
-A mechanism conforms to this minimum definition if:
+A mechanism conforms to the current minimum definition if:
 
-1. a node can recursively generate lower-level processes or descendants;
-2. lower-level descendants may differ from their predecessors;
-3. only some descendants are required to continue the lineage;
-4. changing local information remains local to the changing process;
-5. cessation of change is the boundary for upward transfer;
-6. what moves upward is information already processed by the lower-level process;
-7. an upper node may change itself using information received from below;
-8. when that upper node stops changing, the same transfer rule applies again;
-9. an upper state formed or improved through convergence may initiate a new downward expansion.
+1. an existing recursive process can continue its own path;
+2. that continuation does not require a predefined terminal depth;
+3. an existing recursive process can generate a new autonomous recursive origin;
+4. generation of a new origin does not require the old recursion to stop;
+5. old and new recursive processes may coexist;
+6. the new origin can continue its own recursion;
+7. the new origin can itself generate further recursive origins;
+8. no unique final top or bottom is required;
+9. information convergence after cessation of change is optional and distinct from upward recursion;
+10. recursive paths may progress asynchronously.
 
-## 7. What the concept does not yet specify
+## 10. Temporal implication
 
-The theory does not yet fix:
+A lower recursive process may experience states sequentially:
 
-- the number of descendants;
-- the reproduction criterion;
-- the mutation or divergence mechanism;
-- the representation of transferred information;
-- conflict resolution at upper levels;
-- a numerical definition of cessation of change;
-- maximum recursion depth;
-- a specific physical or software implementation.
+```text
+past -> present -> future
+```
 
-These may be formalized later without changing the minimal recursive core.
+A higher-order structure may represent an entire lower trajectory as one structured object or model.
 
-## 8. Working terminology
+In that representational sense, lower-level past, present, and future states may coexist inside a higher-level description.
 
-- **Bidirectional Evolutionary Recursion** — current formal working name.
-- **Perfect Recursion** — informal name for the closed two-direction recursive form.
+This is a conceptual implication of the model, not a proof of a particular physical theory of time.
 
-The second term is descriptive, not a claim of mathematical optimality.
+## 11. Working terminology
+
+- **Perfect Recursion** — informal concept name for the bidirectionally unbounded form.
+- **Bidirectional Evolutionary Recursion (BER)** — formal working name.
+- **Information convergence** — cessation-gated transfer or absorption of processed information; separate from upward recursion.
+
+## 12. Compact definition
+
+> **Perfect Recursion is a bidirectionally unbounded evolutionary recursion in which existing recursive paths may continue indefinitely while their evolution may also generate new autonomous recursive origins, each capable of repeating the same two recursive capabilities.**
