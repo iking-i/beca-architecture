@@ -2,200 +2,220 @@
 
 BECA is a conceptual architecture. This document exists to keep novelty claims narrow and testable.
 
-The current question is **not** whether recursion, evolution, branching, aggregation, folding, unfolding, or recursive self-improvement already exist. They do.
+The current question is **not** whether recursion, evolution, branching, aggregation, folding, unfolding, open-ended evolution, artificial life, or recursive self-improvement already exist. They do.
 
-The narrower question is whether an existing framework already defines the same coupled mechanism:
+The narrower question is whether an existing framework already defines the same bidirectionally unbounded mechanism:
 
-> **downward recursive expansion -> local variation/change -> cessation of change -> processed-information transfer upward -> upper-node change -> upper-node cessation -> further upward transfer -> renewed downward expansion from the changed upper state.**
+> **an existing recursive process can continue its own recursion while its evolution can also generate a new autonomous recursive origin; the new origin can itself continue recursively and can generate further recursive origins.**
+
+Information convergence after cessation of change is treated as a separate mechanism, not as the definition of upward recursion.
 
 ## 1. Evolutionary algorithms
 
 ### Similarity
 
-- descendants or candidate states may differ from predecessors;
-- only some trajectories continue;
-- variation can accumulate over generations.
+- descendants may differ from predecessors;
+- some lineages continue while others do not;
+- variation can accumulate over time.
 
 ### Difference to investigate
 
-Conventional evolutionary descriptions usually emphasize forward inheritance or replacement.
+Conventional evolutionary descriptions usually treat later descendants as continuation, replacement, or variation within an existing evolutionary regime.
 
-BECA additionally treats stabilized lower-level processes as information sources that can modify higher-level generators, and it recursively repeats that upward rule.
+BECA asks a different question:
 
-The candidate distinction is therefore not variation itself, but **evolutionary information moving upward through the same recursive hierarchy that generated variation downward**.
+> Can evolution produce a system that becomes a new recursive origin rather than merely another state in the same lineage?
 
-## 2. Cultural algorithms and hierarchical evolutionary systems
+The candidate distinction is therefore not variation itself, but **recursive-origin creation**.
 
-Cultural-algorithm families and related hierarchical evolutionary systems are important comparison targets because they separate population-level processes from higher-level knowledge structures and can include information flow between them.
+## 2. Open-ended evolution and artificial life
+
+Open-ended evolution is a major comparison target because it explicitly studies systems capable of producing continuing novelty and unbounded evolutionary change.
 
 ### Similarity
 
-- lower-level experience may influence a higher-level knowledge structure;
-- higher-level structures may influence later evolution;
-- evolutionary processing can exist at more than one level.
+- no predefined final solution is required;
+- evolutionary processes may continue indefinitely;
+- new structures, organizations, or levels may emerge.
 
 ### Difference to investigate
 
-BECA's current minimum rule is specifically based on:
+BECA's current core distinguishes two recursive capabilities:
 
-1. recursive descendant generation;
-2. cessation of change as the boundary for upward transfer;
-3. processed information changing the parent itself;
-4. the parent later applying the same cessation-and-transfer rule to its own parent;
-5. an upward-converged state becoming the source of renewed downward expansion.
+1. continuation of an existing recursive path;
+2. creation of a new autonomous recursive origin that can itself repeat the same two capabilities.
 
-Whether an existing cultural or hierarchical evolutionary architecture already implements this exact self-similar rule remains an open prior-art question.
+The key prior-art question is whether open-ended evolution frameworks already formalize this exact distinction as a bidirectionally unbounded recursive mechanism.
 
-## 3. Fold, unfold, hylomorphism, and metamorphism
-
-Recursion-scheme literature already contains well-established ideas corresponding broadly to:
-
-- **unfolding** a structure from a seed;
-- **folding** a recursive structure into a result;
-- composing unfold and fold;
-- composing fold and later unfold.
+## 3. Recursive self-improvement
 
 ### Similarity
 
-BECA also contains two complementary directions:
+Recursive self-improvement allows a system to produce a modified successor capable of further improvement.
+
+### Difference to investigate
+
+A sequential self-improvement chain can be written as:
 
 ```text
-downward expansion
-upward convergence
+R0 -> R1 -> R2 -> R3 -> ...
 ```
 
-### Candidate distinction
+That may still be one recursive lineage.
 
-BECA is not claiming that bidirectional structural transformation itself is new.
-
-Its candidate contribution is the evolutionary coupling between the two directions:
+BECA additionally distinguishes:
 
 ```text
-expand
- -> locally change
- -> stop changing
- -> transfer processed information upward
- -> change the upper node
- -> let that node later stop changing and transfer again
- -> use a converged upper state to generate another expansion
+R continues
+AND
+R creates R'
+      ↓
+R' becomes a new recursive origin
 ```
 
-Thus the object performing the next expansion may itself have been modified by the preceding convergence.
+The original and new recursive systems may coexist rather than one simply replacing the other.
 
-## 4. Recursive self-improvement
+## 4. Cultural algorithms and hierarchical evolutionary systems
 
 ### Similarity
 
-Recursive self-improvement architectures allow a system to alter a later version of itself, potentially repeating the process.
+- population-level experience may affect higher-order structures;
+- higher-order structures may influence later evolution;
+- multiple evolutionary levels may coexist.
 
 ### Difference to investigate
 
-BECA does not begin from a single self-edit loop alone. It explicitly couples:
+Earlier BECA versions treated upward information flow as the defining upward recursion. That is no longer the current theory.
 
-- downward production of lower-level variation;
-- cessation-gated upward information flow;
-- parent modification from lower-level processed information;
-- recursive repetition of the same upward boundary;
-- renewed downward expansion.
+Information transfer remains relevant, but the present candidate contribution is **new recursive-origin formation**, not merely population-to-belief-space or child-to-parent information flow.
 
-The question is whether an existing recursive self-improvement architecture already uses this same bidirectional hierarchy rather than a primarily sequential self-modification loop.
+The comparison question is whether an existing hierarchical evolutionary framework lets an evolving process create a new recursion-capable origin that can continue independently and recursively create further origins.
 
-## 5. Hierarchical aggregation and tree reduction
+## 5. Fold, unfold, hylomorphism, and metamorphism
 
-Tree reductions and hierarchical aggregation move lower-level values upward through a hierarchy.
+Recursion-scheme literature already formalizes structural expansion, reduction, and compositions of the two.
 
 ### Similarity
 
-- information can converge upward through multiple levels;
-- intermediate nodes can combine lower-level contributions.
+- recursive structures can be generated;
+- recursive structures can be summarized or transformed;
+- outputs can seed later structure generation.
 
 ### Difference to investigate
 
-A static reduction does not by itself require:
+BECA does not claim that expansion and contraction are new.
 
-- descendants to evolve;
-- cessation of change as the upward boundary;
-- the intermediate node to keep changing because of incoming information;
-- that intermediate node to later become a lower node relative to its parent under the same rule;
-- the final converged state to generate a new downward evolutionary expansion.
+Its current candidate distinction is:
 
-## 6. Federated and distributed learning
+```text
+recursive process R
+    ├─ continues its existing recursion
+    └─ produces R' as another recursive origin
+```
+
+The key issue is whether standard recursion schemes already capture **origin creation as a recursively repeatable evolutionary event**, rather than merely a transformation of data structures.
+
+## 6. Hierarchical aggregation, tree reduction, and information convergence
+
+Hierarchical aggregation moves lower-level information upward through a tree or graph.
 
 ### Similarity
 
-- local processes produce information used by a higher-level model;
-- higher-level aggregation can influence later local computation.
+- processed information can be combined across levels;
+- intermediate structures can transform lower-level inputs.
+
+### Difference
+
+This corresponds to BECA's **information convergence** mechanism, not its definition of upward recursion.
+
+A static or dynamic reduction does not by itself imply that the resulting system becomes a new autonomous recursive origin.
+
+## 7. Federated and distributed learning
+
+### Similarity
+
+- local processes can produce information used elsewhere;
+- multiple local processes can progress in parallel;
+- aggregation can alter later computation.
 
 ### Difference to investigate
 
-Federated systems commonly aggregate according to scheduled optimization rounds or protocol boundaries.
+Federated learning generally retains one shared optimization regime or model family.
 
-BECA instead proposes **cessation of relevant local change** as the conceptual transfer boundary and recursively applies the same rule to upper nodes.
+BECA's current question is whether a distributed evolutionary process can create a new recursive origin with its own future recursion, while the generating recursion continues.
 
-## 7. Biological analogy
+## 8. Biological and technological analogy
 
-Biological descent is a useful analogy for downward expansion:
-
-```text
-parent -> offspring -> later descendants
-```
-
-But BECA adds an abstract upward evolutionary channel:
+Biological descent illustrates downward continuation:
 
 ```text
-stabilized descendant information
-        -> parent changes
-        -> parent stabilizes
-        -> information moves further upward
+organism / lineage
+    -> descendants
+    -> later descendants
 ```
 
-This is not a claim that biological ancestors literally update themselves from descendant experience. The biological analogy is only a way to visualize branching, variation, and selective continuation.
+The human-to-AI example is used only as a structural analogy for upward origin creation:
 
-## 8. Current candidate contribution
+```text
+human evolution continues
+AND
+humans create AI
+        ↓
+possible new recursive origin
+```
+
+This is not a claim that AI is a biological descendant or that current AI is already fully autonomous in every physical sense.
+
+The analogy exists to distinguish **continuation of one lineage** from **creation of a new recursion-generating system**.
+
+## 9. Current candidate contribution
 
 The present candidate contribution is the following combined mechanism:
 
-1. any node may generate lower-level descendants or branches;
-2. only some descendants need continue the lineage;
-3. descendants may differ from predecessors;
-4. active change remains local;
-5. cessation of change gates upward transfer;
-6. the upward payload is locally processed information;
-7. the parent may alter itself using that information;
-8. when the parent stops changing, the same upward rule applies again;
-9. a converged or improved upper state may generate another downward expansion;
-10. no theoretically privileged final center is required.
+1. an existing recursive path can continue without a predefined final depth;
+2. evolution within that path can generate a new autonomous recursive origin;
+3. generation of a new origin does not require the old recursion to terminate;
+4. old and new recursive systems may coexist asynchronously;
+5. the new origin can continue its own recursion;
+6. the new origin can itself generate further recursive origins;
+7. no unique final top or final bottom is theoretically required;
+8. cessation of change governs optional information convergence rather than all recursion.
 
-The compact formulation is:
+Compactly:
 
-> **Expand downward. Converge upward. Convergence changes the state that can expand again.**
+> **Recursion continues downward; recursion generates new recursion upward.**
 
-## 9. Novelty status
+Or:
+
+> **Downward has no fixed bottom. Upward has no fixed top.**
+
+## 10. Novelty status
 
 Current status: **unverified architectural originality**.
 
-It is reasonable to treat Bidirectional Evolutionary Recursion as a distinct working concept inside this repository.
+It is reasonable to use **Perfect Recursion** and **Bidirectional Evolutionary Recursion** as working concepts inside this repository.
 
-It is **not** yet reasonable to claim that no mathematically, computationally, or evolutionarily equivalent framework exists.
+It is not yet reasonable to claim that no mathematically, computationally, biologically, or evolutionarily equivalent framework exists.
 
 A formal novelty claim requires systematic comparison across at least:
 
-- recursion schemes;
+- recursion theory and recursion schemes;
 - evolutionary computation;
+- open-ended evolution;
+- artificial life;
+- recursive self-improvement;
 - cultural algorithms;
 - hierarchical evolutionary systems;
-- recursive self-improvement;
 - developmental and evolutionary robotics;
 - multi-level selection and learning;
-- hierarchical aggregation;
-- distributed and federated learning;
-- recursive multi-agent systems.
+- systems that generate new computational agents or organizations;
+- recursive multi-agent architectures.
 
-## 10. Strongest prior-art question
+## 11. Strongest prior-art question
 
 The key question is:
 
-> **Has an existing architecture already defined a self-similar hierarchy in which variation expands downward, cessation of local change gates processed-information transfer upward, every upper node may itself evolve from that transferred information and later transfer upward by the same rule, and the converged upper state can initiate a new downward expansion?**
+> **Has an existing formal or computational architecture already defined a recursively repeatable mechanism in which an existing recursive evolutionary process can continue its own path while also generating a new autonomous recursive origin, and each new origin can itself both continue downward and generate further origins upward without requiring a final top or bottom?**
 
 If yes, BECA should cite and build on it.
 
