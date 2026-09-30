@@ -1,26 +1,27 @@
 # BECA — Bounded Evolutionary Commit Architecture
 
-> A conceptual architecture in which multiple agents share a common initial worldview, evolve in different local regions of the same world, communicate during that evolution, and expose only stabilized conclusions to higher-level knowledge integration.
+> **A theory proposal for multi-agent knowledge systems:** agents share a common initial worldview, evolve in different local regions of the same world, communicate during that evolution, and submit only stabilized conclusions for higher-level integration.
 
-**Status:** v0.1 conceptual specification — open for critique, implementation, and falsification.
+**Status:** v0.1 conceptual architecture / theory proposal  
+**Not:** a software product, benchmark suite, or experimentally validated implementation
 
-## Core idea
+## In one sentence
 
-BECA separates three things that are often mixed together:
+> **Common origin + shared world + local evolution + peer communication + stable commit + second-stage integration.**
 
-1. **shared origin** — agents begin from the same or compatible initial state, rules, ontology, and world model;
-2. **local evolution** — each agent occupies a different position in the same world and develops through its own local experience;
-3. **higher-level integration** — the parent system integrates stabilized conclusions from multiple evolved agents rather than continuously fusing every temporary internal change.
+## Core distinction
 
-The key rule is:
+BECA does **not** isolate agents from one another.
 
-> **Dynamic information may evolve and be communicated between agents, but it does not become authoritative shared knowledge until it is stabilized and committed.**
+Agents may communicate observations, questions, hypotheses, warnings, and unfinished ideas while they evolve. Those messages become part of the receiver's local experience.
 
-Communication is therefore not forbidden. The boundary protects ownership and mutability of local cognition; it is not a wall that prevents interaction.
+What BECA delays is something narrower:
 
-## Shared world, different local trajectories
+> **An unfinished local cognitive state should not automatically become authoritative shared knowledge.**
 
-BECA does not assume that agents live in unrelated environments. A stronger formulation is:
+Only a stabilized local conclusion becomes eligible for higher-level integration.
+
+## Architecture
 
 ```text
                  Common initial state M0
@@ -37,145 +38,112 @@ BECA does not assume that agents live in unrelated environments. A stronger form
        local            local            local
       evolution        evolution        evolution
           |               |               |
-      Final A         Final B         Final C
-          \               |               /
+      Commit A         Commit B         Commit C
            \              |              /
-            +------ stable COMMIT --------+
+            +-------------+-------------+
                           |
                           v
                 Second-stage integration
-             compare / validate / dedupe /
-          resolve conflict / abstract / generalize
+          compare / resolve conflict / abstract /
+          preserve scope / generalize / update
                           |
                           v
-                    shared-state update
+                    shared state M1
 ```
 
-The agents are not copies performing the same computation. They are common-origin systems exposed to different parts, events, relations, and histories within one larger world.
+The same process can repeat:
 
-## Why the boundary matters
+```text
+M0 -> differentiated local evolution -> commits -> integration -> M1 -> ...
+```
 
-An agent boundary does **not** mean "do not talk to other agents." It means:
+## Why propose this?
 
-- the agent owns its mutable internal state;
-- outside messages enter as new input and may change that state;
-- the agent may send provisional messages to peers;
-- provisional peer messages are not automatically treated as global truth;
-- only an explicit commit makes a conclusion eligible for higher-level integration.
-
-This preserves local evolution without requiring social or informational isolation.
-
-## Information lifecycle
-
-Inside one agent, information may change repeatedly:
+A local intelligent process may change its interpretation many times before reaching a conclusion:
 
 ```text
 observation
   -> provisional interpretation
-  -> peer message / contradiction / new evidence
+  -> peer input / contradiction / new evidence
   -> revision
-  -> new relation
-  -> compression
-  -> locally stabilized conclusion
+  -> relation-building
+  -> stabilized conclusion
 ```
 
-That entire changing process can be rich, interactive, and social.
+BECA treats this changing process as different from the task of integrating several already-stabilized source conclusions.
 
-The higher layer receives a different kind of object:
+The proposal is that these two stages should have different mutability rules:
 
-```text
-Agent A -> committed conclusion A
-Agent B -> committed conclusion B
-Agent C -> committed conclusion C
-                 |
-                 v
-        second-stage integration
-```
-
-The point is not to eliminate communication. The point is to prevent **unfinished local change from being fused as if it were already a settled cross-source conclusion**.
+- **inside an agent:** information may remain dynamic;
+- **between agents:** communication may remain dynamic;
+- **at the higher knowledge-integration layer:** source contributions should arrive as explicit stable commits.
 
 ## Five principles
 
 ### 1. Common initial worldview
-Agents begin from the same or mutually compatible baseline: shared rules, ontology, inherited knowledge, protocols, and basic model of the world.
+Agents begin from the same or mutually compatible baseline: rules, ontology, inherited knowledge, protocols, and a basic model of the world.
 
 ### 2. Situated local evolution
-Agents experience different local parts of the same world. Their histories therefore diverge even though their origin is shared.
+Agents occupy different positions in the same larger world. Their histories diverge because their local observations, relations, events, and interactions differ.
 
 ### 3. Communicating boundaries
-Agents may exchange observations, questions, hypotheses, warnings, and provisional interpretations. Communication becomes input to local evolution; it does not erase local state ownership.
+The local boundary protects ownership of mutable cognition; it is not a communication wall. Peer messages can influence an agent without directly overwriting the parent knowledge state.
 
 ### 4. Stable commit
-Only a locally stabilized conclusion is eligible for higher-level knowledge integration. A commit is versioned and immutable for that completed processing cycle.
+A locally stabilized conclusion is published as an explicit, versioned source contribution. Later corrections create later commits rather than silently rewriting the earlier source state.
 
 ### 5. Second-stage integration
-The parent/integration layer compares multiple committed sources, resolves conflicts, removes duplication, identifies scope, abstracts common structure, and decides what should modify shared knowledge.
+The higher layer works across multiple source-preserving commits: identifying agreement, conflict, scope, duplication, exceptions, and higher-level common structure.
 
-## Data, experience, and shared knowledge
+## Data, experience, conclusion, knowledge
 
-BECA distinguishes:
+BECA distinguishes four levels:
 
-- **data** — observations or messages that can be transmitted directly;
-- **experience** — information transformed through a local agent's changing history;
-- **committed conclusion** — a locally stabilized result;
-- **shared knowledge** — the result of second-stage processing across multiple committed sources.
-
-This gives a two-stage knowledge process:
-
-```text
-same world
-   |
-   +--> local agent evolution --> stable conclusion --+
-   +--> local agent evolution --> stable conclusion --+--> second-stage integration --> shared knowledge
-   +--> local agent evolution --> stable conclusion --+
-```
+- **data** — an observation or received message;
+- **experience** — information transformed through a local evolutionary history;
+- **committed conclusion** — a locally stabilized source result;
+- **shared knowledge** — a result produced by second-stage integration across multiple source conclusions.
 
 ## What BECA is not
 
-BECA is **not** an architecture of isolated agents.
+BECA is not a theory of non-communicating agents.
 
-Agents may communicate frequently. They may influence one another. They may cooperate on tasks. They may exchange unfinished ideas.
+A message from Agent A may change Agent B. But that message first enters B as input. It does not automatically become parent-level truth simply because A transmitted it.
 
-The restriction is narrower:
+BECA is also not a claim that stabilized conclusions are permanently true. A later local cycle may produce a new commit that supersedes an earlier one.
 
-> **A changing local cognitive state must not be mistaken for a finalized source contribution to the higher-level shared knowledge base.**
+## Current contribution
 
-A message from Agent A can change Agent B. But that message does not directly overwrite the parent system. Agent B still processes it within B's own evolving state; A and B later submit their stabilized results as distinguishable sources.
+This repository proposes the architectural separation itself:
 
-## Central hypothesis
+> **common origin + shared world + situated local evolution + peer communication + stable source commits + second-stage multi-source integration**
 
-> A multi-agent system can preserve rich interaction while reducing cross-source fusion errors by separating **peer communication during local evolution** from **stable knowledge commits used for higher-level integration**.
-
-BECA therefore treats the agent as both:
-
-- a participant in a shared world, and
-- a bounded evolutionary processor whose internal state remains locally mutable.
-
-## Open questions
-
-BECA v0.1 intentionally leaves several mechanisms open:
-
-- how much of the common initial worldview must be identical;
-- how agents should represent local position or perspective in the shared world;
-- which peer messages should be retained, ignored, trusted, or challenged;
-- how an agent decides that a conclusion is stable enough to commit;
-- whether a commit should contain a conclusion, evidence, confidence, scope, model delta, or some combination;
-- how the higher layer should integrate individually stable but mutually incompatible conclusions;
-- how integrated knowledge should influence future generations or future initialization states.
+The aim is to define the theory clearly enough that others can critique it, formalize it, implement it, compare it with adjacent architectures, or test where it fails.
 
 ## Repository map
 
-- [`SPEC.md`](SPEC.md) — normative concepts, invariants, and terminology
-- [`ARCHITECTURE.md`](ARCHITECTURE.md) — system structure and information lifecycle
-- [`EXPERIMENTS.md`](EXPERIMENTS.md) — optional ways others could test the theory
-- [`PRIOR_ART.md`](PRIOR_ART.md) — adjacent architectures and distinctions
-- [`CONTRIBUTING.md`](CONTRIBUTING.md) — how to critique, implement, or extend BECA
+- [`SPEC.md`](SPEC.md) — terminology and minimum architectural invariants
+- [`ARCHITECTURE.md`](ARCHITECTURE.md) — detailed system structure and lifecycle
+- [`TESTABLE_PREDICTIONS.md`](TESTABLE_PREDICTIONS.md) — observations that could support, narrow, or contradict the theory
+- [`PRIOR_ART.md`](PRIOR_ART.md) — adjacent architectures and candidate distinctions
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — how to critique or extend the proposal
 - [`paper/BECA_v0.1.md`](paper/BECA_v0.1.md) — conceptual paper draft
+- [`CITATION.cff`](CITATION.cff) — citation metadata
+
+## Open questions
+
+BECA v0.1 leaves several mechanisms open intentionally:
+
+- how identical the common initial worldview must be;
+- how local position/perspective should be represented;
+- how agents should evaluate provisional peer messages;
+- how stabilization should be defined;
+- what metadata a commit should carry;
+- how the integration layer should combine stable but mutually incompatible conclusions;
+- how integrated state should become the basis for later generations.
 
 ## Invitation
 
-BECA is presented as a theory and architecture proposal. Others are welcome to implement it, challenge it, formalize it, or test where it fails.
+This is a theory proposal, not a claim of completed validation.
 
-The intended contribution is the architectural separation itself:
-
-> **common origin + shared world + local evolutionary boundaries + peer communication + stable commit + second-stage multi-source integration**.
+If you see an equivalent prior architecture, a contradiction, a better formalization, or a domain where the distinction clearly fails, open an Issue. If you implement or test it, negative results are as useful as positive ones.
