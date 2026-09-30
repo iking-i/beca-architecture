@@ -193,19 +193,38 @@ Too little data need not force premature closure. Too much data need not be sent
 
 The core control variable is therefore not a global data quota or a mandatory global convergence event.
 
-## Temporal implication
+## Temporal and dimensional implication
 
-The theory also suggests a possible higher-order representation of time.
-
-A lower recursive process may experience states sequentially:
+A lower recursive process experiences its local time sequentially:
 
 ```text
 past -> present -> future
 ```
 
-A higher-order process may be able to treat a completed or modeled lower trajectory as one structured object. In that representational sense, past, present, and future states can coexist inside a higher-level description.
+A higher-order recursive structure may instead use the current state and available information to represent all three temporal directions at once:
 
-This is a conceptual implication of the architecture, **not** a claim that physical spacetime has been proven to contain a predetermined future.
+```text
+reconstructed past  <-  present  ->  simulated future
+```
+
+The past may be reconstructed from traces, records, constraints, and the current state. The present is directly represented. The future may be simulated as one or more possible continuations under current conditions.
+
+In that representational sense, **past, present, and future can coexist inside the higher-order structure even though the lower-level process experiences them sequentially**.
+
+This can be interpreted as a form of representational dimensional lift:
+
+> **the lower level experiences time as a sequence; the higher level can treat time-indexed states and trajectories as simultaneously addressable structure.**
+
+Neither side has to be unique. A higher-order model may contain several candidate reconstructions of the past and several branching futures:
+
+```text
+past A ─┐
+past B ─┼─> present ─┬─> future A
+past C ─┘             ├─> future B
+                      └─> future C
+```
+
+This is a conceptual implication of the architecture, **not** a claim that the physical future is predetermined or that block-universe metaphysics has been proven.
 
 ## Novelty status
 
