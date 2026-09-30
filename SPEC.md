@@ -1,245 +1,263 @@
-# BECA Specification v0.2
+# BECA Specification v0.3
 
 This document defines the minimum concepts and invariants required for a system to meaningfully claim compatibility with **Bounded Evolutionary Commit Architecture (BECA)**.
 
 ## 1. Terminology
 
 ### 1.1 Parent system
-A shared or higher-level system that provides common initialization and later learns from multiple agents.
+A shared or higher-level system that distributes one common initial state into multiple agents and later integrates the results of their local evolution.
 
-### 1.2 Common initial worldview
-The baseline state inherited by agents before their local trajectories diverge. It may include shared rules, ontology, prior knowledge, protocols, and a common model of the world.
+### 1.2 Common initial state
+The same baseline state inherited by all agents before their trajectories diverge.
 
-BECA assumes that agents are meaningfully comparable because they originate from the same or mutually compatible baseline.
+It may include rules, ontology, prior knowledge, protocols, default behavior, constraints, and a model of the world.
+
+BECA assumes **one shared origin**, not merely several compatible but independently initialized systems.
 
 ### 1.3 Shared world
-The larger environment within which multiple agents exist. Agents may occupy different local regions, receive different events, or experience different histories while still operating inside one coherent world model.
+The larger environment within which multiple agents exist.
+
+Agents occupy different local regions, receive different events, form different relationships, and accumulate different histories while remaining inside one coherent world.
 
 ### 1.4 Agent boundary
 A logical boundary inside which information may remain mutable, provisional, contradictory, incomplete, or under active revision.
 
-The boundary protects **local state ownership and mutability**. It is not a prohibition on communication.
+The boundary protects local state ownership and local evolution. It is not a prohibition on communication.
 
 ### 1.5 Dynamic local state
-Any representation inside an agent that is still allowed to change as a consequence of observation, peer communication, contradiction, reinterpretation, local learning, or model revision.
+Any information inside an agent that is still changing as a consequence of observation, peer communication, contradiction, reinterpretation, learning, repetition, forgetting, weighting, or structural revision.
 
 ### 1.6 Peer communication
-Messages exchanged between agents during local evolution. These messages may contain observations, questions, hypotheses, warnings, or provisional interpretations.
+Messages exchanged between agents during local evolution.
 
-Peer communication becomes input to the receiving agent's local dynamic state. It does not automatically become authoritative parent-level knowledge.
+Peer communication may include observations, questions, hypotheses, warnings, partial interpretations, requests, or coordination signals.
 
-### 1.7 Stabilized conclusion
-A locally produced result that the agent currently considers complete enough to expose as a source contribution to higher-level integration.
+A peer message becomes input to the receiving agent's local evolution. It does not automatically become authoritative parent-level knowledge.
 
-A stabilized conclusion does not mean metaphysical certainty. It means the local processing cycle has reached an explicit commit condition.
+### 1.7 Local evolutionary closure
+The point at which a local evolutionary process ends for the information being considered.
 
-### 1.8 Commit
-A versioned, immutable publication of a stabilized conclusion and associated metadata from one source agent to the higher-level integration process.
+Closure does **not** mean absolute truth or maximal confidence.
 
-### 1.9 Integration layer
-The higher-level process that consumes committed outputs from multiple agents and performs cross-source operations such as validation, comparison, deduplication, conflict resolution, abstraction, and generalization.
+It may occur because:
 
-### 1.10 Useful delta
-The novel, transferable change produced by an agent relative to the common initialization or previously shared knowledge.
+- further local experience no longer materially changes the result;
+- repeated experience becomes redundant;
+- new information receives too little weight to alter the established structure;
+- the local system reaches a practical fixed point;
+- a finite lifetime, time budget, resource budget, or externally imposed boundary ends the process;
+- a human or external controller declares the local process complete.
+
+A finite lifetime therefore acts as a natural or artificial boundary on local evolution. A system does not need an explicit "life task" in order for its accumulated information to eventually become fixed enough, or its processing window finite enough, that the local process ends.
+
+### 1.8 Determinate result
+The result that exists when a local evolutionary process has ended.
+
+A determinate result is final **for that completed local process**. It may still be superseded in a later generation or by a later higher-level state, but the original local process no longer continues to modify it.
+
+### 1.9 Commit
+The transfer of a determinate result from the completed local process into the higher-level integration process.
+
+A commit is conceptually about **result transfer**, not about preserving the identity or history of the source agent.
+
+### 1.10 Integration layer
+The higher-level process that consumes determinate results from multiple agents and performs second-stage processing such as comparison, conflict handling, deduplication, abstraction, recombination, and generalization.
+
+### 1.11 Useful delta
+The transferable difference produced by one agent's local history relative to the common initial state.
 
 ## 2. Core invariants
 
-### BECA-I1 — Shared origin, divergent local histories
-Agents participating in the same BECA population SHOULD begin from the same or mutually compatible initial worldview, while being allowed to experience different local regions, events, and histories in the shared world.
+### BECA-I1 — Same origin, divergent local histories
+Agents in one BECA population MUST begin from the same common initial state while being allowed to experience different local regions, events, relationships, and histories in the shared world.
 
 ### BECA-I2 — Mutable local state remains locally owned
-Dynamic cognitive state MUST NOT be treated as authoritative shared knowledge before commit.
+Dynamic local state MUST NOT be treated as authoritative higher-level knowledge while its local evolutionary process is still active.
 
-An agent MAY communicate such state to peers, but the receiving peer treats it as input to its own local evolution rather than as an automatic parent-level truth update.
+An agent MAY communicate provisional information to peers, but the receiving peer treats it as new input to its own local evolution.
 
 ### BECA-I3 — Communication is permitted
 BECA MUST NOT be interpreted as requiring communication isolation.
 
-Agents MAY exchange observations, provisional beliefs, requests, critiques, warnings, and coordination messages during their evolution.
+Agents MAY exchange observations, provisional beliefs, questions, critiques, warnings, coordination signals, and unfinished ideas during evolution.
 
-### BECA-I4 — Peer communication and parent-level knowledge integration are distinct
-A peer message MAY influence another agent immediately.
+### BECA-I4 — Peer communication and higher-level integration are distinct
+A peer message MAY change another agent immediately.
 
-A peer message MUST NOT, merely by being transmitted, count as a finalized contribution to the parent/shared knowledge base.
+That message MUST NOT, merely by being transmitted, count as a completed result entering the higher-level integration process.
 
-### BECA-I5 — Cross-boundary learned knowledge must be versioned
-Every committed conclusion MUST have an identity or version that allows downstream systems to determine which committed state they are integrating.
+### BECA-I5 — Local evolution must end before higher-level fusion
+Information becomes eligible for higher-level integration only after the relevant local evolutionary process has ended.
 
-### BECA-I6 — A commit is immutable
-Once published, a commit MUST NOT be modified in place.
+The end condition may be endogenous (fixation/convergence/redundancy) or exogenous (finite lifetime, time/resource limit, human approval, or another explicit termination boundary).
 
-If an agent later changes its conclusion, it MUST publish a new commit that explicitly supersedes, refines, or contradicts the previous commit.
+### BECA-I6 — A completed local result is not rewritten by the ended process
+Once the local process has ended and its result has been committed, that completed process no longer modifies the submitted result.
 
-### BECA-I7 — Integration consumes commits, not hidden mutable state
-The integration layer SHOULD operate on committed results and their evidence/metadata, rather than on the agent's complete mutable internal process.
+Future change belongs to a new process, a new generation, or a new higher-level state rather than to retroactive mutation of the finished local process.
 
-### BECA-I8 — Local evolution precedes higher-level fusion
-An agent MUST have an opportunity to revise its local state—including revision caused by peer interaction—before its output becomes eligible for shared knowledge integration.
+### BECA-I7 — Integration consumes results, not unfinished local processes
+The integration layer SHOULD operate on determinate results produced by completed local evolution rather than replaying every mutable intermediate state.
 
-### BECA-I9 — Multiple sources remain distinguishable during integration
-The integration layer MUST preserve source identity at least until conflict analysis and provenance-sensitive processing are complete.
+### BECA-I8 — Source identity is optional
+BECA does NOT require the integration layer to preserve the identity of the agent that produced a result.
 
-Prematurely flattening several independent commits into one undifferentiated state defeats the purpose of multi-source evolution.
+In some implementations, provenance may be useful for debugging, auditing, trust, or analysis. These are implementation concerns, not a theoretical invariant.
+
+The theoretical requirement is only that the higher layer receives multiple determinate results that can be integrated.
 
 ## 3. Local lifecycle
 
-A minimal BECA agent lifecycle is:
+A minimal BECA lifecycle is:
 
 ```text
-INITIALIZE FROM COMMON WORLDVIEW
-    |
-    v
-ENTER LOCAL REGION / RECEIVE LOCAL HISTORY
-    |
-    v
+COMMON INITIAL STATE
+        |
+        v
+ENTER LOCAL REGION / LOCAL HISTORY
+        |
+        v
 OBSERVE / COMMUNICATE / RECEIVE PEER INPUT
-    |
-    v
-LOCAL DYNAMIC PROCESSING
-    |
-    +--> revise
-    +--> reject
-    +--> relate
-    +--> compress
-    +--> test
-    +--> incorporate or reject peer messages
-    |
-    v
-STABILIZATION CHECK
-    |
-    +-- not stable --> return to local processing
-    |
-    +-- stable ------> COMMIT
-                          |
-                          v
-                       IMMUTABLE
+        |
+        v
+LOCAL DYNAMIC EVOLUTION
+        |
+        +--> revise
+        +--> reject
+        +--> relate
+        +--> compress
+        +--> reinforce
+        +--> weaken
+        +--> incorporate or reject peer messages
+        |
+        v
+HAS THIS LOCAL EVOLUTION ENDED?
+        |
+        +-- no --> continue local evolution
+        |
+        +-- yes --> DETERMINATE RESULT
+                        |
+                        v
+                      COMMIT
 ```
 
-The architecture intentionally does not prescribe a universal stabilization rule. Stability may be defined by confidence, convergence, contradiction rate, explicit task completion, repeated consistency checks, bounded deliberation, human approval, or a domain-specific criterion.
+The end of local evolution need not be caused by a task being solved.
+
+A finite system can reach closure simply because its lifetime or processing window ends. This is analogous to a biological organism that has no single explicit life objective but nevertheless has a finite lifespan during which its accumulated structure gradually becomes more fixed.
 
 ## 4. World positioning
 
 BECA gains meaning from **same origin + different situated experience**.
 
-A population may be represented as:
-
 ```text
-M0 = common initial worldview
+M0 = common initial state
 
 Agent A = M0 + local history HA
 Agent B = M0 + local history HB
 Agent C = M0 + local history HC
 ```
 
-where `HA`, `HB`, and `HC` arise from different positions, events, relationships, or perspectives within one shared world.
+where `HA`, `HB`, and `HC` arise from different positions, events, relationships, and peer interactions inside one shared world.
 
-The useful result of the system is not simple duplication of `M0`, but the differentiated knowledge produced by these divergent trajectories.
+The purpose of multiple agents is not duplication of `M0`, but differentiated evolution from one common starting point.
 
 ## 5. Communication semantics
 
-BECA recognizes at least three information flows.
+BECA recognizes three distinct flows.
 
 ### 5.1 Environment input
-Observations originating from the world.
+Information originating from the shared world.
 
 ### 5.2 Peer communication
-Messages exchanged among agents during evolution.
+Information exchanged among agents during evolution.
 
-Examples:
+These messages may change the receiver's dynamic local state.
 
-- observations;
-- warnings;
-- hypotheses;
-- questions;
-- partial interpretations;
-- requests for verification;
-- coordination signals.
+### 5.3 Result commit
+A determinate result transferred after the local evolutionary process has ended.
 
-These messages can change the receiver's local state.
-
-### 5.3 Knowledge commit
-A stabilized source contribution submitted for higher-level integration.
-
-The architectural distinction is therefore:
+The distinction is:
 
 ```text
-peer message -> local input -> local change
+peer message -> local input -> further local evolution
 
-commit -> higher-level source input -> cross-source integration
+completed local evolution -> determinate result -> higher-level integration
 ```
 
-## 6. Commit envelope
+## 6. Result envelope
 
-A recommended commit contains:
+A minimal BECA result requires only the result itself.
 
 ```text
-Commit {
-  commit_id
-  source_agent_id
-  base_worldview_version
-  local_cycle_id
-  local_scope
+Result {
   conclusion
-  evidence_summary
-  confidence
-  assumptions
-  known_limitations
-  peer_influences[]
-  supersedes[]
-  contradicts[]
-  created_at
 }
 ```
 
-Only `conclusion` is conceptually mandatory. The additional fields are recommended because second-stage integration is difficult without provenance, scope, and context.
+An implementation MAY attach optional metadata such as:
+
+```text
+scope
+assumptions
+limitations
+evidence summary
+confidence
+source identity
+local history summary
+```
+
+None of these metadata fields are required by the core theory.
+
+The upper layer needs the **result of the completed local evolution**. It does not need to reconstruct the individual that produced it.
 
 ## 7. Second-stage integration
 
-The integration layer receives stable, source-separated commits:
+The integration layer receives multiple determinate results:
 
 ```text
-Commit A_final
-Commit B_final
-Commit C_final
-        |
-        v
-source comparison
-        |
-conflict detection
-        |
-scope analysis
-        |
-evidence weighting
-        |
+Result A
+Result B
+Result C
+    |
+    v
+comparison
+    |
+conflict handling
+    |
 deduplication
-        |
-abstraction / generalization
-        |
-shared update candidate
+    |
+relation discovery
+    |
+abstraction / recombination / generalization
+    |
+new shared state candidate
 ```
 
-The integration layer SHOULD NOT blindly average all commits. A BECA-compatible integrator may reject, quarantine, defer, merge, generalize, or supersede commits.
+The higher layer performs a new type of processing across already-completed local results.
 
-## 8. Stable does not mean permanent
+It is not simply continuing the unfinished cognition of any one agent.
 
-A committed conclusion is immutable as a historical source result, but later knowledge may supersede it.
+## 8. Completed does not mean eternally true
 
-Example:
+A determinate result is final only relative to its ended local process.
+
+Later generations or later system states may produce different results.
+
+For example:
 
 ```text
-A.Commit.12 = "X causes Y under condition C"
+Generation 1 result: X causes Y under condition C
 
-Later local evolution produces:
+Later shared state and new local evolution:
 
-A.Commit.19 = "X causes Y only when C and D hold"
-              supersedes A.Commit.12
+Generation 2 result: X causes Y only when C and D hold
 ```
 
-The earlier commit remains part of provenance history, while the later commit can replace it in active shared knowledge after integration.
+The second result does not mean the first local process "resumed." It means a new evolutionary process produced a new result.
 
 ## 9. What BECA does and does not isolate
 
-BECA isolates **authority and mutability**, not necessarily communication.
+BECA isolates **local dynamic evolution from higher-level fusion**.
 
 It does not require:
 
@@ -247,19 +265,36 @@ It does not require:
 - silent agents;
 - independent universes;
 - absence of collaboration;
-- absence of provisional discussion.
+- absence of provisional discussion;
+- permanent source tracking.
 
-It does require that a changing local state not become authoritative parent-level knowledge merely because it was communicated.
+It does require that unfinished local change not be treated as a completed input to second-stage integration.
 
-## 10. Minimal conformance
+## 10. Generational cycle
+
+A natural BECA cycle is:
+
+```text
+M0
+ |
+ +--> Agent A local evolution --+
+ +--> Agent B local evolution --+--> determinate results --> second-stage integration --> M1
+ +--> Agent C local evolution --+
+
+M1 can then become the common initial state of a later generation.
+```
+
+This allows the shared system to evolve without requiring every local intermediate mutation to become global state.
+
+## 11. Minimal conformance
 
 A system is minimally BECA-like if all of the following hold:
 
-1. agents share the same or a compatible initial worldview;
-2. agents experience different local histories within a coherent shared world;
+1. multiple agents begin from the same initial state;
+2. agents experience different local histories within one shared world;
 3. agents may communicate during local evolution;
-4. mutable local state remains owned by the local agent;
-5. peer messages become local input rather than automatic parent-level truth;
-6. agents publish explicit stabilized commits;
-7. commits are immutable/versioned;
-8. a higher layer integrates multiple commits while preserving source provenance during integration.
+4. mutable local state remains locally owned;
+5. peer messages become local input rather than automatic higher-level truth;
+6. the relevant local evolutionary process ends before its result enters higher-level integration;
+7. the higher layer processes multiple determinate results rather than unfinished local states;
+8. source identity is not required by the theory.
