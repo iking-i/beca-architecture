@@ -2,254 +2,247 @@
 
 ## 1. Design objective
 
-BECA separates three layers that should not be confused:
+BECA separates four things that should not be confused:
 
-1. **common origin**, where multiple agents inherit the same initial state;
-2. **situated local evolution**, where those agents occupy different parts of the same world, communicate, and change through different local histories;
-3. **higher-level integration**, where information from local states that are no longer changing is processed together.
+1. **one initial root state**, from which the first differentiated agents are created;
+2. **continuous branch evolution**, where those agents preserve their own histories and may differentiate further from their current states;
+3. **local closure**, where some local information stops changing and becomes eligible for upward transfer;
+4. **root-level second-stage integration**, where the root system uses closed information from branches to modify its own underlying structure.
 
-The architecture is not based on agent silence. It is based on separating **ongoing local change** from **higher-level integration after that local change stops**.
+The architecture is not based on agent silence, and it is not based on repeatedly recreating agents from the latest root state.
 
-## 2. System structure
+## 2. First differentiation
 
-```text
-+---------------------------------------------------------+
-|                    Parent / Shared Layer                |
-|                                                         |
-|      one common initial state M0                        |
-+------------------------------+--------------------------+
-                               |
-                               v
-+---------------------------------------------------------+
-|                    Shared World                         |
-|                                                         |
-|   region A             region B             region C    |
-|      |                    |                    |         |
-|   Agent A <----------> Agent B <----------> Agent C     |
-|      |       peer communication / influence    |        |
-|      |                    |                    |         |
-|   local evolution     local evolution      local evolution
-+------+--------------------+--------------------+---------+
-       |                    |                    |
- change stops          change stops          change stops
-       |                    |                    |
-       v                    v                    v
- closed state A        closed state B        closed state C
-       \                    |                    /
-        \                   |                   /
-         +------------------+------------------+
-                            |
-                            v
-+---------------------------------------------------------+
-|                 Second-stage Integration                |
-|                                                         |
-| compare -> combine -> conflict -> abstract -> generalize|
-+------------------------------+--------------------------+
-                               |
-                               v
-                     Shared state M1
-```
-
-## 3. Same world, different positions
-
-The agents begin from the same initial state and then experience different local parts of one coherent environment:
+The initial topology is:
 
 ```text
-M0 = common initial state
-
-A(t) = M0 transformed by local history in region A + peer influence
-B(t) = M0 transformed by local history in region B + peer influence
-C(t) = M0 transformed by local history in region C + peer influence
+            A
+         /  |  \
+        B   C   D
 ```
 
-Their value comes from the divergence of those histories.
+At the moment of first differentiation:
 
-Different agents may encounter different:
+```text
+state(A) = state(B) = state(C) = state(D)
+```
 
-- events;
-- local constraints;
+`B`, `C`, and `D` differ only after they begin to experience different local histories.
+
+## 3. Continuous branch evolution
+
+After differentiation, each branch preserves continuity with its own prior state:
+
+```text
+B(t+1) derives from B(t)
+C(t+1) derives from C(t)
+D(t+1) derives from D(t)
+```
+
+If a branch differentiates again, the new branch is derived from that branch's current evolved state, not from the latest root state.
+
+Example:
+
+```text
+             A
+          /  |  \
+         B   C   D
+        / \     / \
+      B1  B2  D1  D2
+```
+
+Here `B1` and `B2` continue the history accumulated in `B`; they are not resets from an updated `A`.
+
+## 4. Why repeated reinitialization is incompatible
+
+The following pattern is **not** the intended architecture:
+
+```text
+A0 -> B0 / C0 / D0
+      closed branch information -> A1
+A1 -> fresh B1 / C1 / D1
+      closed branch information -> A2
+A2 -> fresh ...
+```
+
+That design repeatedly resets the local environment and destroys continuity.
+
+It erases or disrupts:
+
+- accumulated local experience;
 - relationships;
-- evidence ordering;
-- failures;
-- opportunities;
-- messages from peers.
+- path-dependent adaptation;
+- local structural changes;
+- long-term environmental history.
 
-## 4. Why the boundary matters
+BECA instead requires continuity along existing lineages after the first differentiation.
 
-The agent boundary is not a communication wall. It is a boundary around **locally mutable evolution**.
+## 5. Shared world and communication
 
-### 4.1 Mutable-state ownership
-An agent may revise its own internal state repeatedly without every revision becoming higher-level state.
+All branches exist in one shared world.
 
-### 4.2 Peer influence without automatic integration
-A message from Agent A can change Agent B, but the message enters B as input. It does not directly become a higher-level integration input.
+They may occupy different regions and may communicate with one another.
 
-### 4.3 Local interpretation
-Each agent may interpret, reject, combine, reinforce, weaken, or revise information received from both the world and peers.
-
-### 4.4 Finite local lifecycle
-A local process does not need an explicit task in order to end.
-
-It may stop changing because:
-
-- repeated information no longer produces meaningful change;
-- existing structure becomes dominant enough that new low-weight information does not alter it;
-- the process reaches a practical fixed point;
-- the agent reaches a finite lifetime boundary;
-- a time/resource boundary is reached;
-- an external controller or human ends the process.
-
-The important point is not that the system has produced a result, but that the relevant local state is no longer changing.
-
-## 5. Information lifecycle
+A peer message can change a branch's local state, but the message remains part of that branch's ongoing local evolution until the relevant state stops changing.
 
 ```text
-common initialization
-        |
-        v
-local position in shared world
-        |
-        v
-observation / peer communication
-        |
-        v
-local state V1
-        |
-new evidence / disagreement / peer influence
-        |
-        v
-local state V2
-        |
-reframing / reinforcement / weakening / relation-building
-        |
-        v
-local state Vn
-        |
-local change stops
-        |
-        v
-closed local state
-        |
-        v
+peer communication -> local input -> further local change
+```
+
+Communication does not itself create an upward integration event.
+
+## 6. Local closure
+
+A local state is eligible for upward integration when the relevant local process no longer changes it.
+
+Closure does not require:
+
+- task completion;
+- correctness;
+- a semantic conclusion;
+- internal consistency.
+
+A closed state can be incomplete or wrong. The only required property is that the local process has stopped changing it.
+
+Closure may occur through:
+
+- fixation;
+- repeated experience becoming redundant;
+- low effective weight of new information;
+- finite lifetime;
+- time/resource exhaustion;
+- human or external termination.
+
+## 7. Upward transfer
+
+When local change stops, information from that closed state becomes available to the root-level integration process.
+
+```text
+closed state in B --+
+closed state in C ---+--> root-level second-stage integration
+closed state in D --+
+```
+
+The root does not need to reconstruct or preserve the source individual unless an implementation wants provenance for engineering reasons.
+
+## 8. Root-level structural improvement
+
+The root system `A` uses upward-transferred closed information to modify its own underlying structure.
+
+This modification may affect:
+
+- rules;
+- default responses;
+- weights;
+- relations;
+- information-processing structure;
+- other foundational mechanisms.
+
+The important point is that improvement is not merely appending facts to a knowledge list. It may alter the base structure itself.
+
+## 9. Root improvement does not reset branches
+
+Let the root change from `A0` to `A1` after second-stage integration.
+
+This does **not** imply:
+
+```text
+B <- reset from A1
+C <- reset from A1
+D <- reset from A1
+```
+
+The already-evolving branches retain their own continuous histories.
+
+The theory currently leaves open how a later structural change in `A` may influence existing branches, if at all, without destroying continuity.
+
+That mechanism must not be assumed until defined.
+
+## 10. Two simultaneous directions of evolution
+
+The architecture therefore contains two simultaneous processes.
+
+### Outward branch evolution
+
+```text
+A
+├─ B
+│  ├─ B1
+│  └─ B2
+├─ C
+└─ D
+   ├─ D1
+   └─ D2
+```
+
+The tree grows outward by differentiation from existing branch states.
+
+### Inward structural improvement
+
+```text
+closed branch information
+        ↓
 second-stage integration
+        ↓
+modify A's underlying structure
 ```
 
-The critical distinction is that `V1 ... Vn` belong to an active local process. A closed local state may still be incomplete, contradictory, or wrong. Closure only means that the source local process no longer changes it.
+The root becomes more complete while the branch tree preserves continuity.
 
-## 6. Communication during evolution
-
-BECA permits rich peer interaction.
-
-Agents may exchange:
-
-- observations;
-- partial hypotheses;
-- questions;
-- critiques;
-- warnings;
-- requests for verification;
-- coordination messages;
-- provisional interpretations.
-
-A peer message can cause substantial local change.
-
-What it does not do automatically is become a higher-level integration input merely because it was sent.
+## 11. System view
 
 ```text
-communication -> influence local evolution
+                          Root A
+                    underlying structure
+                           /|\
+                          / | \
+             first identical differentiation
+                        /   |   \
+                       B    C    D
+                      /\         /\
+                     /  \       /  \
+             continuous lineage growth
 
-cessation of local change -> closed local state -> higher-level integration
+closed local information from branches
+              \        |        /
+               \       |       /
+                second-stage integration
+                         |
+                         v
+                modify root structure
+
+(existing branches continue; no global reset)
 ```
 
-## 7. Closure does not mean truth, completion, or correctness
+## 12. Core invariants
 
-A closed local state is final only relative to the local process that has ended.
+A BECA-like system therefore preserves the following distinctions:
 
-It may still contain:
+1. first differentiation begins from one identical root state;
+2. later branch evolution is continuous and path-dependent;
+3. later differentiation extends existing lineages rather than cloning the newest root state;
+4. peer communication is allowed during local evolution;
+5. only information that has stopped changing locally becomes eligible for upward integration;
+6. upward integration can modify the root's underlying structure;
+7. root modification does not automatically reset existing branches;
+8. the mechanism by which root changes may later affect ongoing branches remains a separate theoretical question.
 
-- uncertainty;
-- contradiction;
-- error;
-- missing information;
-- unresolved structure.
-
-A later generation or later shared state may evolve differently.
-
-## 8. Second-stage integration
-
-The higher layer performs a different kind of processing from local evolution.
-
-Its task is to operate across already-closed local states:
-
-- identify agreement;
-- identify conflict;
-- remove duplication;
-- discover relations;
-- combine partial structures;
-- abstract common structure;
-- generalize beyond one local history;
-- produce a new shared state.
-
-The higher layer does **not** need to reconstruct the individual that produced each closed state.
-
-Source identity, provenance, or detailed history may be retained for debugging, auditing, trust, or analysis, but BECA does not require them as theoretical invariants.
-
-## 9. Why multiple agents matter
-
-If every agent began from a different base, differences could come from incompatible starting assumptions rather than local evolution.
-
-If every agent began identically and experienced the exact same history, the population would add little exploratory value.
-
-BECA therefore emphasizes:
-
-```text
-same initial state
-        +
-different local trajectories
-        +
-peer interaction
-        +
-cessation of local change
-        =
-multiple closed local states
-```
-
-The higher layer can then process those states into a new shared state.
-
-## 10. Generational cycle
-
-BECA naturally supports a repeated cycle:
-
-```text
-M0
- -> distribute same initial state
- -> differentiated local evolution
- -> local change stops
- -> closed local states
- -> second-stage integration
- -> M1
- -> distribute M1 into a later generation
- -> ...
-```
-
-This allows the whole system to evolve without requiring every local intermediate change to become global state.
-
-## 11. Main design trade-off
+## 13. Main trade-off
 
 Potential benefits include:
 
-- preserving local evolutionary processes;
-- preventing every provisional change from becoming global state;
-- allowing communication without collapsing all local state into one shared mutable pool;
-- allowing finite local lifecycles to create closed states;
-- making higher-level integration operate on information that is no longer changing at its source.
+- preservation of environmental continuity;
+- retention of long-term local adaptation;
+- multiple persistent evolutionary trajectories;
+- root improvement from many locally evolved histories;
+- separation between ongoing branch change and root-level integration.
 
 Potential costs include:
 
-- delayed higher-level updates;
-- difficulty determining whether a local state has effectively stopped changing;
-- possible duplication of work;
-- peer influence may still correlate errors;
-- some tasks may benefit more from continuous global adaptation.
+- increasingly divergent branches;
+- harder coordination across long-lived lineages;
+- uncertainty about how root improvements should propagate without reset;
+- possible accumulation of obsolete local structures;
+- greater complexity than repeated reinitialization.
 
-BECA is therefore a theory about information lifecycle and processing boundaries, not a claim that delayed integration is universally superior.
+These are properties of the architecture to analyze, not reasons to replace continuity with resetting.
