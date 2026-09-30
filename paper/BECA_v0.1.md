@@ -1,270 +1,291 @@
 # Bounded Evolutionary Commit Architecture
-## Isolating Dynamic Cognition Before Multi-Agent Knowledge Integration
+## Shared-Origin Agents, Local Evolution, and Stable Knowledge Integration
 
-**Draft version:** 0.1  
-**Status:** Conceptual architecture / research proposal
+**Draft version:** 0.2  
+**Status:** Conceptual architecture / theory proposal
 
 ## Abstract
 
-Multi-agent and distributed learning systems often exchange local updates while those local states are still changing. This is useful for rapid coordination, but it can also allow provisional beliefs, stale versions, and transient local errors to enter global knowledge fusion before their source process has stabilized. We propose **Bounded Evolutionary Commit Architecture (BECA)**, an architecture that separates local cognitive evolution from cross-agent knowledge integration. In BECA, each agent acts as an independent cognitive transaction boundary: information may remain mutable, contradictory, incomplete, and under revision inside the boundary, but learned knowledge becomes globally eligible only after an explicit local stabilization step. The resulting output is published as an immutable, versioned commit. A higher integration layer then performs second-stage processing across multiple source-preserving commits, including validation, deduplication, conflict analysis, abstraction, and generalization. BECA does not prohibit operational communication between agents; it distinguishes coordination traffic from knowledge that is allowed to modify shared learned state. We define the architecture, identify adjacent paradigms including federated learning, blackboard systems, event sourcing, and actor-style isolation, and propose falsification-oriented experiments comparing dynamic intermediate-state sharing with delayed stable commits. The central research question is whether some multi-agent knowledge-integration failures arise not from insufficient synchronization but from permitting unfinished local information to participate in global fusion too early.
+We propose **Bounded Evolutionary Commit Architecture (BECA)**, a conceptual architecture for systems composed of multiple agents that begin from the same or mutually compatible initial worldview, evolve in different local regions of one shared world, communicate during that evolution, and expose only stabilized conclusions to higher-level knowledge integration.
+
+The central distinction is not between communicating and non-communicating agents. It is between **dynamic local cognition** and **authoritative higher-level knowledge integration**. Agents may exchange observations, provisional hypotheses, critiques, warnings, and partial interpretations. Such communication becomes input to the receiving agent's own evolving local state. It does not automatically become shared authoritative knowledge.
+
+When a local processing cycle reaches a stabilization criterion, the agent publishes a versioned immutable commit. A higher integration layer then performs second-stage processing across multiple source-preserving commits, including comparison, scope analysis, conflict resolution, deduplication, abstraction, and generalization.
+
+BECA therefore combines six ideas: **common origin, one shared world, different situated trajectories, peer communication, stable commit, and second-stage integration**. The intended contribution is architectural: to distinguish the mutable evolution of local experience from the later integration of stabilized source conclusions.
 
 ## 1. Introduction
 
-Distributed intelligent systems face a recurring design choice: when should local information become shared information?
+A population of intelligent agents can be understood in more than one way.
 
-A common answer is "as soon as possible." Agents expose intermediate model updates, hypotheses, partial solutions, or shared-memory state while continuing to learn. Fast exchange can improve coordination and convergence. However, it also creates a second possibility: information that is still locally unstable can influence other agents or modify global learned state before its source has completed its own processing.
+One design treats agents mainly as parallel workers. Another treats them as isolated reasoners. BECA proposes a different interpretation: agents are **common-origin systems situated in different parts of the same world**.
 
-Consider an agent whose local belief evolves as:
+They share a baseline worldview, but they do not share identical histories.
 
-```text
-V1 -> V2 -> V3 -> V4 -> Final
-```
+One agent may encounter evidence that another never sees. One may experience a failure that another avoids. One may receive a warning from a peer and reinterpret it differently because of its own history. Over time, agents that began from the same baseline can become meaningfully different.
 
-If `V1` enters global knowledge, is fused with another agent's state, and later the source replaces it with `V3`, the global system may now need to identify and unwind consequences produced from a version the source itself no longer accepts. The problem is not simply stale networking. It is a semantic lifecycle problem: the system allowed an unfinished belief to become globally consequential.
+This divergence is not a defect. It is the source of new information.
 
-BECA explores an alternative rule:
+BECA asks a specific architectural question:
 
-> **Dynamic cognition remains local. Cross-boundary learned knowledge is committed only after local stabilization.**
+> How should a higher-level system learn from multiple evolving agents without collapsing every temporary local change into one continuously mutating shared state?
 
-The proposal is intentionally architectural rather than algorithm-specific. BECA does not define one universal model, consensus rule, or stabilization metric. Instead, it defines where mutability is allowed and when knowledge becomes eligible for higher-level fusion.
+The proposed answer is:
 
-## 2. Motivation
+> **Allow rich communication during local evolution, but reserve higher-level integration for stabilized source conclusions.**
 
-### 2.1 Data is not yet experience
+## 2. Common origin and divergent evolution
 
-A sensor can transmit raw data immediately. An intelligent agent is useful for a different reason: it can expose data to a local history of interpretation, contradiction, testing, correction, and abstraction.
+Let `M0` denote a common initial worldview. It may include shared rules, ontology, prior knowledge, protocols, and a basic model of the world.
 
-The local process may transform:
+Agents begin from this baseline:
 
 ```text
-raw observations
-    -> provisional hypothesis
-    -> contradiction
-    -> revised relation
-    -> compressed reusable conclusion
+A0 = M0
+B0 = M0
+C0 = M0
 ```
 
-If a higher-level system consumes every intermediate state, the agent becomes partly a raw-state relay. BECA instead treats the agent as a first-stage information processor.
+They then occupy different positions or histories in a shared world:
 
-### 2.2 Source independence has value
+```text
+A(t) = M0 + HA(t) + peer influence
+B(t) = M0 + HB(t) + peer influence
+C(t) = M0 + HC(t) + peer influence
+```
 
-When several agents begin from a common base but observe different environments, their value lies partly in producing different trajectories. Premature exchange of provisional beliefs can reduce that independence through anchoring, imitation, correlated error, or convergence toward an early shared hypothesis.
+where `HA`, `HB`, and `HC` differ because the agents encounter different local events, evidence, constraints, and relations.
 
-BECA therefore asks whether some tasks benefit from maintaining local epistemic independence until a processing cycle is complete.
+The system therefore seeks differentiated experience without losing a common frame of reference.
 
-### 2.3 Integration is different from local cognition
+## 3. Communication is part of evolution
 
-Local cognition and multi-source integration solve different problems.
+BECA does not prohibit agent-to-agent communication.
+
+Agents may exchange:
+
+- observations;
+- warnings;
+- questions;
+- critiques;
+- hypotheses;
+- partial interpretations;
+- requests for verification;
+- coordination signals.
+
+A peer message can substantially change another agent's local trajectory.
+
+This is important: BECA is not based on sealed agents. Social and informational interaction can itself be part of the environment through which an agent evolves.
+
+The architectural boundary instead determines **what a message is allowed to become**.
+
+A message from Agent A to Agent B may immediately affect B's local state. However, it does not automatically become an authoritative update to the parent/shared knowledge base.
+
+The distinction is:
+
+```text
+peer communication
+      -> local input
+      -> local revision
+
+stable commit
+      -> higher-level source input
+      -> cross-source integration
+```
+
+## 4. Dynamic local information
+
+Inside an agent, information may remain incomplete and change repeatedly.
+
+A local cognitive trajectory may look like:
+
+```text
+observation
+  -> interpretation V1
+  -> contradiction
+  -> peer message
+  -> interpretation V2
+  -> new evidence
+  -> relation-building
+  -> interpretation V3
+  -> compression
+  -> stabilized conclusion
+```
+
+The intermediate states are useful precisely because they are allowed to change.
+
+Prematurely treating them as parent-level conclusions creates a semantic problem: the larger system may integrate a state that its source itself later rejects.
+
+BECA therefore treats the agent as a bounded environment in which information is allowed to evolve before becoming a source contribution to higher-level knowledge.
+
+## 5. Stable commit
+
+A local conclusion becomes eligible for higher-level integration only after an explicit stabilization condition is satisfied.
+
+The architecture does not prescribe one universal stabilization rule. A domain may use repeated consistency, task completion, bounded deliberation, confidence thresholds, contradiction reduction, human approval, or another criterion.
+
+Once stabilized, the agent publishes a commit.
+
+A commit should be:
+
+- source-attributed;
+- versioned;
+- immutable as a historical result;
+- scoped;
+- capable of being superseded later by a new commit.
+
+A later change does not modify the old commit in place. It creates a new source result.
+
+This allows the higher layer to integrate well-defined versions rather than moving targets.
+
+## 6. Second-stage integration
+
+The parent/integration layer solves a different problem from local cognition.
 
 Local cognition asks:
 
-- What does this source's experience imply?
-- Which parts were noise?
-- What changed after new evidence?
-- What conclusion survives local contradiction?
+- What does this local history imply?
+- Which signals were noise?
+- How should peer input be interpreted?
+- What conclusion survives local revision?
 
 Second-stage integration asks:
 
-- Which independent sources agree?
-- Are disagreements caused by different scopes?
+- Which evolved sources agree?
+- Which disagreements are caused by different local conditions?
 - Which conclusions are duplicates, refinements, or contradictions?
-- What higher-level rule can be generalized across sources?
+- What knowledge is transferable beyond one local region?
+- What higher-level abstraction emerges only after comparing several sources?
 
-BECA gives these tasks different boundaries and mutability rules.
-
-## 3. Architecture
-
-BECA contains four conceptual elements.
-
-### 3.1 Parent/shared system
-
-A higher-level system provides shared initialization, shared prior knowledge, task context, or governance.
-
-### 3.2 Independent local agents
-
-Each agent receives input and maintains locally mutable cognitive state. Intermediate states are not automatically eligible to alter shared learned knowledge.
-
-### 3.3 Stable commit
-
-When a local stabilization criterion is satisfied, the agent emits a versioned immutable commit.
-
-A commit may include:
-
-- conclusion;
-- evidence summary;
-- confidence;
-- scope;
-- assumptions;
-- limitations;
-- provenance;
-- relationship to previous commits.
-
-### 3.4 Second-stage integration
-
-The integration layer consumes multiple stable commits while preserving source identity long enough to perform conflict analysis and provenance-sensitive synthesis.
+The structure is:
 
 ```text
-Shared initialization
-        |
-        +-------> Agent A: V1 -> V2 -> V3 -> Final A --+
-        |                                               |
-        +-------> Agent B: V1 -> V2 -> V3 -> Final B --+--> Integrator
-        |                                               |
-        +-------> Agent C: V1 -> V2 -> V3 -> Final C --+
-                                                        |
-                                                        v
-                                                 Shared update
+common initial worldview
+          |
+          v
+     shared world
+   /      |       \
+Agent A Agent B Agent C
+  <---- peer communication ---->
+   |       |       |
+ local   local   local
+ evolve  evolve  evolve
+   |       |       |
+ Final A Final B Final C
+    \      |      /
+     \     |     /
+   second-stage integration
+            |
+            v
+      shared knowledge update
 ```
 
-## 4. Core invariants
+The integration layer works on stabilized source contributions, not on every local mutation that occurred during evolution.
 
-A minimally conforming BECA system follows these rules:
+## 7. Why the boundary exists
 
-1. mutable local cognitive state remains locally scoped;
-2. learned knowledge crossing the boundary is explicitly versioned;
-3. commits are immutable;
-4. later corrections create new commits rather than modifying past commits in place;
-5. integration operates on committed source outputs rather than hidden mutable local state;
-6. source identity is retained during multi-source comparison;
-7. local revision is allowed before global fusion.
+The boundary serves several roles.
 
-## 5. Communication is not prohibited
+### 7.1 State ownership
+Each agent owns its currently mutable local state.
 
-BECA does not require complete isolation.
+### 7.2 Local interpretation
+The same peer message may lead to different changes in different agents because their histories differ.
 
-A practical implementation can maintain two channels:
+### 7.3 Source differentiation
+Different conclusions remain attributable to different evolved trajectories.
 
-**Operational channel**
+### 7.4 Controlled authority
+Communication can influence agents without instantly becoming globally authoritative.
 
-- task assignment;
-- health/liveness;
-- resource negotiation;
-- routing;
-- safety interruptions.
+### 7.5 Higher-quality integration inputs
+The parent layer receives conclusions that have already undergone one stage of local interpretation and revision.
 
-**Knowledge commit channel**
+## 8. Data, experience, and shared knowledge
 
-- stabilized conclusions;
-- validated local rules;
-- locally accepted model deltas;
-- reusable solution patterns.
+BECA distinguishes four stages:
 
-The BECA restriction applies primarily to information intended to modify shared learned knowledge.
+### Data
+Raw observation or transmitted information.
 
-## 6. Relation to adjacent architectures
+### Local experience
+Data transformed through the history and dynamic state of one agent.
 
-### 6.1 Federated learning
+### Stabilized conclusion
+A result the source agent currently considers complete enough to commit.
 
-Federated learning also combines common initialization, local processing, and server-side aggregation. Canonical methods such as Federated Averaging aggregate locally computed optimization updates over repeated rounds.
+### Shared knowledge
+A higher-level result produced by integrating several source commits.
 
-BECA differs in the proposed semantic condition on transfer: a knowledge update becomes globally eligible only after explicit local stabilization, rather than simply after a scheduled amount of local optimization.
+Thus:
 
-This distinction may or may not produce measurable benefits and therefore requires direct comparison rather than categorical novelty claims.
+```text
+world data
+   -> local evolving experience
+   -> stable source conclusion
+   -> cross-source integration
+   -> shared knowledge
+```
 
-### 6.2 Blackboard systems
+This is a two-stage processing architecture: first within individuals, then across individuals.
 
-Blackboard architectures let specialized knowledge sources iteratively update a shared workspace containing partial solutions and hypotheses.
+## 9. Relation to adjacent architectures
 
-BECA places a stronger boundary around local cognitive mutation. Partial local learned states need not be posted to shared knowledge; only stabilized commits are exposed for cross-source integration.
+### 9.1 Federated learning
+Federated learning also begins with common model structure and aggregates results from distributed participants. BECA differs in emphasis: its central object is not merely a locally computed parameter update, but the lifecycle of information from mutable local interpretation to stabilized source conclusion.
 
-### 6.3 Transactional blackboards
+### 9.2 Blackboard systems
+Blackboard systems allow multiple knowledge sources to post partial results to a shared workspace. BECA places a stronger semantic distinction between peer interaction and parent-level learned knowledge. Partial local states may circulate among agents without automatically entering the authoritative shared knowledge layer.
 
-Transactional blackboards introduce concurrency and synchronization mechanisms for shared blackboard updates. This is particularly close prior art because BECA also uses transaction-like language.
+### 9.3 Actor-style isolation
+Actor models preserve local state ownership while allowing message passing. BECA is compatible with this idea but adds a knowledge lifecycle distinction between ordinary messages and stabilized commits intended for higher-level integration.
 
-The candidate distinction is semantic rather than merely concurrency-related: BECA treats the local agent's cognitive evolution itself as the transaction whose result becomes knowledge only at commit.
+### 9.4 Event sourcing
+Event sourcing preserves immutable historical events. BECA similarly avoids rewriting past committed source results, but it does not require every internal local state change to become a shared event. Much of the dynamic evolution may remain local.
 
-### 6.4 Event sourcing
+## 10. Central theoretical claims
 
-Event sourcing preserves state changes as an immutable event history. BECA borrows the useful idea that already-published facts should not be silently mutated.
+BECA proposes the following conceptual claims:
 
-However, BECA does not require the global layer to store every internal state transition. The sequence `V1 -> V2 -> V3` may remain local, with only a stabilized conclusion crossing the boundary.
+1. **common initial state and different local histories are complementary, not contradictory**;
+2. **communication does not require shared mutable authority**;
+3. **peer influence can occur without direct parent-level fusion**;
+4. **local information should be allowed to change before it is treated as a finalized source contribution**;
+5. **higher-level integration is a distinct processing stage that operates across stabilized conclusions from multiple evolved sources**;
+6. **the useful output of a population is the differentiated knowledge produced by its trajectories, not simple duplication of the initial system**.
 
-### 6.5 Actor-style isolation
+## 11. Open theoretical questions
 
-Actor models isolate local state and use messages for interaction. BECA adds a knowledge-specific lifecycle on top of this general isolation idea: it distinguishes provisional cognitive messages from stable knowledge commits.
+Several mechanisms remain intentionally open:
 
-## 7. Research hypotheses
+- How identical must the initial worldview be?
+- How should local position or perspective be represented?
+- When does communication enrich diversity, and when does it collapse agents into correlated copies?
+- What makes a conclusion stable enough to commit?
+- How much provenance from peer influence should a commit preserve?
+- How should the higher layer integrate conclusions that are each locally stable but mutually incompatible?
+- Should integrated knowledge become the initialization of a later generation of agents?
+- Can the same architecture recurse, with higher-level integrations themselves acting as local agents in a larger system?
 
-### H1 — Contamination reduction
+These are part of the theory's future development rather than implementation obligations for the original proposal.
 
-Stable commits reduce the rate at which globally integrated knowledge originates from local beliefs that the same source later retracts.
+## 12. Conclusion
 
-### H2 — Reduced global churn
+BECA is best summarized as:
 
-Stable commits reduce repeated revisions of global learned state caused by local source instability.
+> **The same initial worldview is distributed into multiple agents that evolve in different parts of one shared world. They may communicate throughout that evolution. Their mutable states remain locally owned. Once an agent reaches a stabilized conclusion, it commits that result to a higher layer, where multiple source conclusions undergo second-stage integration.**
 
-### H3 — Independence retention
+The theory therefore does not seek isolated intelligence. It seeks **differentiated intelligence with a common origin**.
 
-Delayed hypothesis sharing preserves useful diversity longer and reduces correlated error on tasks with misleading early evidence.
+Its core architectural sequence is:
 
-### H4 — Latency trade-off
+> **common origin -> situated divergence -> communication -> local evolution -> stable commit -> second-stage integration -> shared knowledge evolution**
 
-BECA increases the time required for a useful local discovery to affect the whole system.
-
-H4 is not a failure of the theory; it is an expected cost. The architecture is useful only if benefits exceed that cost for a given task class.
-
-## 8. Proposed experiments
-
-The first experiment should use a synthetic rule-learning task with controlled noisy evidence and delayed contradictions.
-
-Compare:
-
-1. dynamic intermediate-state sharing;
-2. BECA stable commit;
-3. no sharing;
-4. ablations separating boundary, immutability, and commit timing.
-
-Measure:
-
-- contamination rate;
-- stale-version conflict;
-- global churn;
-- recovery after injected local error;
-- premature consensus;
-- final task accuracy/reward;
-- communication volume;
-- time-to-useful-global-knowledge;
-- diversity retention.
-
-A later LLM-agent experiment can test whether early shared hypotheses induce anchoring or correlated error in sequential-evidence reasoning tasks.
-
-## 9. Falsifiability
-
-BECA should be narrowed or rejected as a general architecture if controlled experiments show that:
-
-- dynamic sharing does not produce the proposed contamination/churn problems;
-- stable commits provide no reliability benefit;
-- stabilization delay makes the system consistently worse;
-- integration requires full mutable histories, eliminating the proposed separation;
-- early cross-agent interaction consistently improves reasoning more than independent local processing.
-
-Negative results are therefore first-class outcomes.
-
-## 10. Open problems
-
-BECA leaves several questions unresolved:
-
-- How should stabilization be defined for open-ended reasoning?
-- Can stabilization itself be learned?
-- What is the optimal commit payload?
-- How should an integrator handle several individually stable but mutually incompatible conclusions?
-- Should agents receive global integrated results back as new initialization, and at what cadence?
-- How can malicious or confidently wrong agents be handled?
-- Which domains benefit from strong local boundaries, and which require continuous shared adaptation?
-
-## 11. Conclusion
-
-BECA proposes a simple but strong architectural separation:
-
-> **Let information change freely while it is local; let multiple sources interact at the knowledge layer only after each source has produced a stable commit.**
-
-The architecture treats agents not merely as distributed workers, but as independent environments in which raw information can evolve into experience before becoming shared knowledge. Its value is an empirical question. The next step is therefore not a broader philosophical argument but a minimal reproducible implementation that can expose the architecture to failure.
+This repository presents that sequence as a theory and architecture proposal for others to formalize, implement, criticize, or test.
 
 ## References (initial)
 
-1. H. Brendan McMahan, Eider Moore, Daniel Ramage, Seth Hampson, Blaise Agüera y Arcas. *Communication-Efficient Learning of Deep Networks from Decentralized Data.* AISTATS, 2017. https://research.google/pubs/communication-efficient-learning-of-deep-networks-from-decentralized-data/
-2. Jakub Konečný et al. *Federated Learning: Strategies for Improving Communication Efficiency.* 2016. https://research.google/pubs/federated-learning-strategies-for-improving-communication-efficiency/
-3. L. D. Erman, F. Hayes-Roth, V. R. Lesser, D. R. Reddy. *The Hearsay-II Speech-Understanding System: Integrating Knowledge to Resolve Uncertainty.* ACM Computing Surveys.
-4. *Transactional blackboards.* Artificial Intelligence in Engineering, 1(2), 1986. https://www.sciencedirect.com/science/article/pii/0954181086900518
-5. Microsoft Azure Architecture Center. *Event Sourcing pattern.* https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing
-6. Martin Fowler. *Event Sourcing.* 2005. https://martinfowler.com/eaaDev/EventSourcing.html
+1. H. Brendan McMahan, Eider Moore, Daniel Ramage, Seth Hampson, Blaise Agüera y Arcas. *Communication-Efficient Learning of Deep Networks from Decentralized Data.* AISTATS, 2017.
+2. L. D. Erman, F. Hayes-Roth, V. R. Lesser, D. R. Reddy. *The Hearsay-II Speech-Understanding System: Integrating Knowledge to Resolve Uncertainty.* ACM Computing Surveys.
+3. *Transactional blackboards.* Artificial Intelligence in Engineering, 1(2), 1986.
+4. Martin Fowler. *Event Sourcing.* 2005.
