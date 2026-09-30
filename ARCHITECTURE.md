@@ -1,310 +1,272 @@
-# BECA Architecture — Bidirectional Evolutionary Recursion
+# BECA Architecture — Perfect Recursion
 
 ## 1. Structural idea
 
-BECA is now modeled as a **bidirectional recursive hierarchy** rather than a privileged root with permanent subordinate branches.
+BECA is now modeled as a **bidirectionally unbounded recursive evolutionary structure**.
 
-Every node can occupy two roles at once:
+The architecture separates three mechanisms:
 
-- parent relative to lower-level descendants;
-- descendant relative to a higher-level node.
+1. **downward recursion** — continuation of an existing recursive path;
+2. **upward recursion** — creation of a new autonomous recursive origin from within an existing recursive process;
+3. **information convergence** — transfer of processed information after a local process stops changing.
 
-The same rule can therefore repeat at every level.
+Earlier versions incorrectly treated information convergence itself as upward recursion. That interpretation is no longer current.
 
-## 2. Downward expansion
+## 2. Downward recursion: continuation of an existing path
 
-A node can generate lower-level descendants or branches:
-
-```text
-A
-├─ B1
-├─ B2
-├─ B3
-└─ ...
-```
-
-Only some descendants need to continue reproducing.
-
-A reproducing descendant can generate another level:
+A recursive process may continue its lineage, branching structure, or transformation path:
 
 ```text
-A
-└─ B
-   └─ C
-      └─ D
-         └─ ...
-```
-
-Descendants may differ from their predecessors. This creates local variation and distinct trajectories.
-
-The current theory intentionally leaves the variation mechanism open.
-
-## 3. Active local change
-
-Each node may continue changing while processing local information.
-
-```text
-state X0
-  -> X1
-  -> X2
-  -> X3
-  -> ...
-```
-
-While relevant state is still changing, it remains local to that node.
-
-The higher layer does not treat every intermediate mutation as a finished contribution.
-
-## 4. Cessation of change
-
-The decisive boundary is:
-
-```text
-still changing
-    -> remain in local evolution
-
-stops changing
-    -> processed information becomes eligible for upward transfer
-```
-
-This boundary is not equivalent to death.
-
-Death, a timeout, exhaustion, internal fixation, or another event may cause change to stop, but the theory only depends on cessation itself.
-
-## 5. Upward convergence
-
-When a lower node stops changing, it transfers processed information upward.
-
-Example:
-
-```text
-D stops changing
-      ↑
-processed information
-      ↑
-C receives it
-```
-
-`C` may then change further because of the information received from `D`.
-
-When `C` later stops changing:
-
-```text
-C stops changing
-      ↑
-processed information
-      ↑
-B receives it
-```
-
-The same rule repeats recursively:
-
-```text
-...
-D
-↑
-C
-↑
-B
-↑
-A
-↑
-...
-```
-
-## 6. The same node participates in both directions
-
-Consider node `B`:
-
-```text
-        A
-        ↑
-        B
-        ↓
-        C
-```
-
-Relative to `C`, `B` is an upper node.
-
-Relative to `A`, `B` is a lower node.
-
-So `B` can simultaneously:
-
-1. receive processed information from `C`;
-2. continue changing from that information;
-3. generate descendants below itself;
-4. eventually stop changing;
-5. transfer its own processed information upward to `A`.
-
-This is the self-similar recursive unit.
-
-## 7. Full bidirectional cycle
-
-The architecture is not only downward generation plus upward aggregation.
-
-The two directions generate each other:
-
-```text
-DOWNWARD EXPANSION
-        ↓
-new descendants / branches
-        ↓
-variation and local histories
-        ↓
-active change
-        ↓
-cessation of change
-        ↑
-processed information moves upward
-        ↑
-upper node changes
-        ↑
-upper node stops changing
-        ↑
-further upward convergence
-        ↓
-converged / improved state generates new downward expansion
-        ↓
-...
-```
-
-The shortest form is:
-
-> **Expansion produces convergence; convergence produces the next expansion.**
-
-## 8. Evolutionary interpretation
-
-The model contains two complementary evolutionary directions.
-
-### Downward evolutionary direction
-
-```text
-parent
-  ↓
-descendant
-  ↓
-later descendant
-  ↓
-...
-```
-
-This direction generates variation and explores possible trajectories.
-
-### Upward evolutionary direction
-
-```text
-closed descendant information
-        ↑
-parent changes
-        ↑
-parent closes
-        ↑
-higher parent changes
-        ↑
-...
-```
-
-This direction allows accumulated lower-level experience to alter higher-level states.
-
-Thus:
-
-> **Variation expands downward; evolutionary gain accumulates upward.**
-
-## 9. Renewal after convergence
-
-Upward convergence does not terminate the architecture.
-
-A state formed through convergence may generate a new lower-level expansion:
-
-```text
-X
+R0
 ↓
-Y1 Y2 Y3 ...
+R1
 ↓
-local variation
-↑
-cessation + convergence
-↑
-X'
+R2
 ↓
-new expansion
+R3
+↓
+...
 ```
 
-`X'` is not required to be identical to the earlier `X`, because incoming lower-level information may have altered it.
+This may correspond to biological reproduction, iterative transformation, branching, inheritance, construction, learning, or another mechanism.
 
-This creates recursive renewal rather than a one-way tree.
+The important property is continuity of the existing recursive path.
 
-## 10. No privileged root
+A recursive process does not need to stop in order to remain valid.
 
-Earlier versions of BECA treated `A` as a special integration root.
+## 3. Upward recursion: creation of a new recursive origin
 
-The current architecture removes that assumption.
+Upward recursion is a different event.
 
-`A` may itself be only one local node inside a still higher process:
+An existing recursive process may, during its own continuing evolution, generate a new system that becomes the starting point of a new recursion:
 
 ```text
-        P
-        ↑
-        A
-        ↑
-        B
-        ↑
-        C
+existing recursion R
+        │
+        ├────────────→ R continues
+        │
+        └────────────→ R'
+                         ↓
+                    new recursion
 ```
 
-Therefore the theory does not require one final topmost integration node.
+The new origin `R'` is not merely another ordinary child inside the same lineage. It is treated as a new recursive origin because it can support its own future recursion.
 
-## 11. Minimal topology
+The original recursion does not have to end when `R'` appears.
 
-A compact representation is:
+## 4. Recursive origin autonomy
+
+A newly created recursive origin is autonomous in the minimal structural sense that it can continue its own recursion even if the process that generated it later stops.
 
 ```text
-              ↑ upward convergence
-              │
-              P
-              ↑
-              A
-             /|\
-            / | \
-           B  B  B
-          /       \
-         C         C
-        /           \
-       D             D
-              │
-              ↓ downward expansion
+R produces R'
+
+R may later stop
+R' may continue
 ```
 
-The geometry is secondary. The key rule is directional:
+Autonomy here is not a claim of physical independence from energy, infrastructure, environment, or communication. It only means that the recursive identity of `R'` is no longer logically identical to continuation of `R`.
 
-- downward: generate and vary;
-- upward: transfer only after cessation;
-- convergence may alter the node that later expands again.
+## 5. Recursion generating recursion
 
-## 12. Core invariants
+The central recursive property is:
 
-1. every node may be both parent and descendant;
-2. downward generation may recurse indefinitely in theory;
-3. only some descendants need to continue reproducing;
-4. descendants may differ from predecessors;
-5. information remains local while its owning node is still changing;
-6. cessation of change is the transfer boundary;
-7. upward transfer carries processed information;
-8. upper nodes may change using information from below;
-9. the same cessation-and-transfer rule repeats upward;
-10. a converged upper state may initiate another downward expansion.
+```text
+R
+├─ continues R
+└─ creates R'
+      ├─ continues R'
+      └─ may create R''
+             ├─ continues R''
+             └─ ...
+```
 
-## 13. Open questions
+Therefore recursion does not merely repeat a function or extend one branch.
+
+> **The output of an evolving recursive process may itself become another recursion-generating process.**
+
+This is the core of upward recursion in the current model.
+
+## 6. Bidirectional unboundedness
+
+The architecture is "bidirectional" because both forms can continue without a predefined structural endpoint.
+
+### Downward
+
+```text
+R0
+↓
+R1
+↓
+R2
+↓
+...
+```
+
+No final lowest level is required by the theory.
+
+### Upward
+
+```text
+R
+└─ creates R'
+      └─ creates R''
+            └─ creates R'''
+                  └─ ...
+```
+
+No final highest recursive origin is required by the theory.
+
+Hence the compact expression:
+
+> **Downward has no fixed bottom. Upward has no fixed top.**
+
+## 7. Parallelism rather than phase ordering
+
+The model is not:
+
+```text
+finish downward
+→ then go upward
+→ then restart downward
+```
+
+Instead, the processes may coexist:
+
+```text
+R continues changing ------------------------→
+│
+├─ continues its existing recursive path ----→
+│
+├─ may generate R' --------------------------→
+│                  │
+│                  └─ R' continues ----------→
+│
+└─ some local subprocess may stop changing
+       └─ processed information may converge elsewhere
+```
+
+So the architecture is asynchronous and non-blocking.
+
+## 8. Information convergence
+
+Cessation of change remains useful, but it is a separate mechanism.
+
+```text
+local process still changing
+        -> local information remains mutable
+
+local process stops changing
+        -> processed information may become transferable
+```
+
+The receiving structure may use that information to change itself.
+
+But this transfer alone is not upward recursion.
+
+Upward recursion requires creation of a new recursive origin.
+
+## 9. Why infinite change is not a structural defect
+
+A process that never stops changing does not violate the model.
+
+It may simply continue recursively:
+
+```text
+R(t0) -> R(t1) -> R(t2) -> ...
+```
+
+Other recursive processes may independently terminate, converge information, branch, or generate new origins.
+
+Therefore the architecture does not require universal convergence.
+
+## 10. Why rapid branching is not a recursive defect
+
+The theory does not define large branching factor or rapid generation as recursion failure.
+
+Traditional centralized systems may overload if every branch must report synchronously to one root. Perfect Recursion does not require that topology.
+
+New recursive origins may continue independently, and no single permanent center is theoretically mandatory.
+
+Physical implementations may still face finite resource constraints; those are implementation limits rather than contradictions in the recursive mechanism.
+
+## 11. Conceptual example: humans and artificial intelligence
+
+A useful conceptual example is:
+
+```text
+biological evolution
+       ↓
+     humans ─────────────→ humans continue biological evolution
+       │
+       └─────────────────→ artificial intelligence
+                                   ↓
+                              new recursive origin
+```
+
+The example does **not** claim that AI is biological offspring.
+
+It illustrates a structural distinction:
+
+- humanity continues along an existing evolutionary path;
+- humanity also constructs a system capable of becoming a different recursive starting point.
+
+This second relation is the model's example of upward recursion.
+
+## 12. Perfect Recursion
+
+"Perfect Recursion" is the informal name for the complete conceptual form:
+
+```text
+existing recursive process
+        │
+        ├─ continues downward without fixed bottom
+        │
+        └─ generates new recursive origin upward
+                 │
+                 ├─ continues downward
+                 └─ generates further origins upward
+```
+
+The recursive rule is self-propagating:
+
+> **a recursion can continue itself and can generate new recursion.**
+
+## 13. Temporal interpretation
+
+A lower recursive process may experience state transitions sequentially:
+
+```text
+past -> present -> future
+```
+
+A higher-order recursive structure may model or contain an entire lower trajectory as one structured object.
+
+This permits a representational sense in which states associated with different lower-level times coexist in one higher-level description.
+
+This is a theoretical implication, not a claim that physical future events are predetermined or that any particular spacetime interpretation has been proven.
+
+## 14. Core invariants
+
+1. existing recursion may continue without a predefined final depth;
+2. recursion may generate a new autonomous recursive origin;
+3. generation of a new origin does not require the old recursion to stop;
+4. old and new recursions may coexist and progress asynchronously;
+5. a new origin can itself continue downward recursion;
+6. a new origin can itself generate further recursive origins;
+7. no unique final top or bottom is required;
+8. cessation of change governs optional information convergence rather than all recursion;
+9. independent recursive origins may continue after their generating process stops;
+10. finite implementation resource limits are distinct from logical recursion limits.
+
+## 15. Open questions
 
 The architecture still leaves open:
 
-- exact descendant-generation rules;
-- the source and magnitude of variation;
-- lateral communication between nodes;
-- how processed information is represented;
-- how several lower-level transfers are combined;
-- how cessation of change is detected;
-- whether upward convergence is monotonic, reversible, or path-dependent;
-- how finite implementations approximate a theoretically unbounded recursive structure.
-
-These questions refine the mechanism but do not change its current recursive skeleton.
+- what conditions qualify a system as a genuinely new recursive origin;
+- how autonomy should be formalized;
+- how much structural difference separates ordinary descent from upward origin creation;
+- how recursive origins interact after creation;
+- how information convergence influences existing or newly created origins;
+- how physical resource limits constrain realizable depth and breadth;
+- whether existing formal systems are mathematically equivalent to this bidirectionally unbounded model.
