@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: "BECA — Bounded Evolutionary Commit Architecture"
+message: "If you discuss or build on BECA, please cite this repository."
+type: software
+authors:
+  - family-names: "iking-i"
+version: "0.1"
+date-released: 2026-09-30
+repository-code: "https://github.com/iking-i/beca-architecture"
+url: "https://github.com/iking-i/beca-architecture"
+abstract: >-
+  BECA is a conceptual architecture for multi-agent knowledge systems in which
+  agents share a common initial worldview, evolve in different local regions of
+  the same world, communicate during that evolution, and expose stabilized
+  source conclusions to a higher-level integration process.
+keywords:
+  - multi-agent systems
+  - knowledge integration
+  - conceptual architecture
+  - distributed intelligence
+  - agent communication
+  - knowledge provenance
+license: CC-BY-4.0
