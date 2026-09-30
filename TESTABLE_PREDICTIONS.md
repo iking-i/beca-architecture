@@ -1,142 +1,141 @@
-# BECA — Testable Predictions
+# BECA — Testable Predictions for Bidirectional Evolutionary Recursion
 
-BECA is presented here as a **theoretical architecture**. The author is not claiming that this repository contains an implementation or experimental validation.
-
-This document exists so that others can identify observations that would support, narrow, revise, or contradict the theory.
+BECA is presented as a conceptual theory proposal. This document states observations that could support, narrow, revise, or contradict the current mechanism.
 
 ## 1. Theoretical setup
 
-BECA assumes a population of agents with:
+The current theory assumes a recursive hierarchy in which:
 
-1. the same initial state;
-2. participation in the same larger world;
-3. different local positions, histories, observations, and interactions;
-4. the ability to communicate with one another during evolution;
-5. locally mutable internal states;
-6. a finite or otherwise terminable local evolutionary process;
-7. determinate results transferred to a higher-level integration layer after local closure.
+1. nodes may generate lower-level descendants or branches;
+2. only some descendants need to continue reproducing;
+3. descendants may differ from predecessors;
+4. each node may continue changing while processing local information;
+5. cessation of change gates upward transfer;
+6. upward transfer carries processed information;
+7. upper nodes may change from lower-level transferred information;
+8. when an upper node later stops changing, the same upward-transfer rule applies again;
+9. a converged or improved upper state may later initiate new downward expansion.
 
-The crucial distinction is:
+The central distinction is:
 
-> **Peer communication is allowed during evolution. Higher-level integration receives the result only after the relevant local evolutionary process has ended.**
+> **Downward expansion generates variation; cessation of change enables upward convergence; upward convergence can modify the state that generates the next downward expansion.**
 
-A message from Agent A may change Agent B. That message becomes part of B's local experience. It does not automatically become a completed higher-level result merely because it was communicated.
+## 2. Prediction: downward branching can create useful variation
 
-## 2. Prediction: one origin can produce useful divergence
+If lower-level descendants encounter different histories or contain inherited variation, their processed states should diverge in ways that expose information unavailable to a single trajectory.
 
-If agents begin from the same initial state but encounter different local regions of the same world, their internal structures should diverge in ways that contain information about those local histories.
+If branching never produces any useful diversity, the downward half of the architecture adds little value.
 
-BECA therefore predicts that differentiated local experience can produce useful variation that a single trajectory would not generate.
+## 3. Prediction: active and closed local states should behave differently
 
-## 3. Prediction: communication and local evolution are compatible
-
-BECA does not predict that useful agents must be isolated.
-
-Agents can exchange observations, hypotheses, questions, warnings, and provisional ideas while preserving locally mutable state.
-
-The relevant distinction is not whether communication occurs, but whether communicated information remains part of ongoing local evolution or is prematurely treated as a completed higher-level result.
-
-## 4. Prediction: active local states and completed results should behave differently
-
-A local state may change many times:
+A node may change repeatedly:
 
 ```text
-V1 -> V2 -> V3 -> ... -> local closure -> result
+V1 -> V2 -> V3 -> ... -> cessation
 ```
 
-BECA predicts that treating every `Vn` as equally eligible for higher-level integration will create cases in which the upper system acts on information that would have changed if the local process had been allowed to continue.
+BECA predicts that treating each intermediate `Vn` as equivalent to a closed upward contribution will sometimes cause the upper layer to act on states that would later have changed materially.
 
-The architecture therefore expects a meaningful distinction between:
+If active and closed states are operationally indistinguishable in a target domain, the closure boundary contributes little.
 
-- an active local state;
-- the determinate output of an ended local process.
+## 4. Prediction: cessation can be defined without task completion
 
-If no such distinction matters in a target domain, BECA adds little value there.
+The theory predicts that useful upward transfer can be triggered by cessation of change rather than explicit task completion.
 
-## 5. Prediction: local processes can end without explicit task completion
+Possible implementation-specific causes include internal fixation, repeated redundancy, resource boundaries, time boundaries, or externally imposed termination.
 
-BECA predicts that a local process can become effectively complete even without one explicit life task.
+If no meaningful cessation boundary can be defined, this part of the theory is weakened.
 
-Closure may arise because:
+## 5. Prediction: processed information should be sufficient in some domains
 
-- repeated experience becomes redundant;
-- existing structure dominates new low-weight information;
-- new information no longer produces material change;
-- the system reaches a practical fixed point;
-- finite time, lifetime, or resources terminate the process;
-- a human or external controller ends the process.
+BECA does not require every lower-level intermediate state to be replayed upward.
 
-This is analogous to a finite organism whose lifetime ends even though its life was not organized around one explicit task.
+It predicts that, in at least some systems, locally processed information from a closed node is sufficient for useful higher-level change.
 
-If open-ended local processes must remain indefinitely active for useful integration to occur, this part of BECA would be weakened.
+If higher-level improvement always requires full reconstruction of every lower-level trajectory, the abstraction is too strong.
 
-## 6. Prediction: second-stage integration is a distinct process
+## 6. Prediction: upward transfer can change the upper node
 
-Local evolution asks questions such as:
+A defining claim is that upper nodes are not passive collectors.
 
-- What did this local history produce?
-- Which inputs were reinforced, weakened, ignored, or reinterpreted?
-- What structure remained when the local process ended?
+They may change their own state or structure using information transferred from below.
 
-Second-stage integration asks different questions:
-
-- Which completed results agree?
-- Which conflict?
-- Which are duplicates or complementary?
-- What relation appears only when several results are processed together?
-- What higher-level state can be formed from them?
-
-BECA predicts that separating these two stages is useful in at least some complex systems.
-
-## 7. Prediction: source identity is not theoretically necessary
-
-BECA predicts that the higher layer can perform its essential role using completed results even if the individual source no longer exists or cannot be reconstructed.
-
-Provenance may still be useful in an implementation for debugging, auditing, trust, security, or research. But the theory itself does not require permanent source identity.
-
-If higher-level integration fundamentally cannot work without reconstructing and preserving every source agent, then BECA's result-only abstraction would be too strong.
-
-## 8. Prediction: integrated knowledge can become a new common starting point
-
-BECA naturally allows a generational cycle:
+Therefore a system implementing only:
 
 ```text
-common state M0
-    -> multiple situated local evolutions
-    -> local closure
-    -> determinate results
-    -> second-stage integration
-    -> revised common state M1
-    -> new local evolutions
-    -> ...
+lower results -> static archive
 ```
 
-Local divergence produces candidate changes; integration turns useful results into a new shared basis for later evolution.
+would not capture the full theory.
 
-## 9. What would count against BECA?
+The stronger predicted pattern is:
 
-The theory should be narrowed if evidence repeatedly shows that, for a given class of systems:
+```text
+lower closure
+    -> upward processed information
+    -> upper-node change
+```
 
-- different local trajectories from one initial state produce no useful variation;
-- active local states and completed results are operationally indistinguishable;
-- local closure cannot be defined meaningfully even with finite lifetime/resource boundaries;
-- immediate higher-level fusion performs equally well without semantic or revision problems;
-- second-stage integration cannot operate without replaying every mutable local state;
-- permanent source reconstruction is indispensable to the integration process.
+## 7. Prediction: upward recursion can repeat
 
-## 10. What BECA does not require
+The same boundary should remain meaningful one level higher:
 
-BECA does **not** require:
+```text
+C stops changing -> B changes
+B stops changing -> A changes
+A stops changing -> higher level changes
+```
 
-- agents to stop communicating;
-- agents to hide provisional ideas from peers;
-- a fixed number of agents;
-- a single implementation technology;
-- one universal closure rule;
-- one specific learning algorithm;
-- permanent source tracking;
-- the original proposer to implement the theory.
+If the mechanism only works once and cannot be meaningfully re-applied at the next level, the claim of self-similar recursive structure should be narrowed.
 
-It proposes a structural distinction:
+## 8. Prediction: convergence can alter future expansion
 
-> **same origin + shared world + situated local evolution + peer communication + local closure + determinate results + second-stage integration**.
+The strongest current claim is not merely that information moves upward.
+
+It is that a state changed through upward convergence can later become the source of new downward expansion.
+
+Therefore later descendants should, in principle, differ from those that would have been generated before convergence.
+
+The characteristic loop is:
+
+```text
+expand
+ -> vary
+ -> cease
+ -> converge
+ -> modify upper state
+ -> expand again from modified state
+```
+
+If upward convergence never affects later downward generation, the architecture reduces to a much weaker aggregation model.
+
+## 9. Prediction: bidirectional coupling can outperform one-way inheritance in some domains
+
+A conventional one-way lineage allows descendants to replace or continue predecessors without feeding stabilized lower-level information back into upper levels.
+
+BECA predicts that, in some complex domains, allowing stabilized lower-level information to modify upper-level generators can preserve useful discoveries across many lineages more effectively than purely downward inheritance.
+
+This is a comparative hypothesis, not an established result.
+
+## 10. Prediction: no privileged final root is necessary
+
+Because any node may be both parent and descendant, the mechanism should remain coherent even if a supposed "root" is embedded inside a larger hierarchy.
+
+If the architecture fundamentally requires one unique top-level node that cannot itself participate in the same rule, then the current no-privileged-center claim should be revised.
+
+## 11. What would count against the theory?
+
+The theory should be narrowed if evidence repeatedly shows that:
+
+- lower-level branching produces no useful variation;
+- active and closed states are not meaningfully distinguishable;
+- cessation of change cannot be operationalized;
+- processed closed information is insufficient for useful upper-level change;
+- upper nodes cannot be improved from lower-level information without replaying full trajectories;
+- the cessation-and-transfer rule cannot recurse upward;
+- upward convergence does not affect later downward expansion;
+- a privileged final root is unavoidable.
+
+## 12. Current status
+
+These are falsifiable directions for a conceptual architecture. They are not claims that the predicted advantages have already been demonstrated experimentally.
