@@ -1,202 +1,222 @@
-# BECA Specification v0.5
+# BECA Specification v0.6
 
-This specification defines the current minimum mechanism of BECA as **Bidirectional Evolutionary Recursion**.
+This specification defines the current minimum mechanism of BECA as **Bidirectional Evolutionary Recursion**, informally called **Perfect Recursion**.
 
 ## 1. Core terms
 
-### 1.1 Node
-A node is any local process that can:
+### 1.1 Recursive origin
+A recursive origin is a system or process capable of initiating and continuing a recursive evolutionary path.
 
-- receive information from lower-level nodes;
-- continue changing internally;
-- produce lower-level descendants or branches;
-- transfer processed information upward after its own change stops.
+It need not be a unique global root.
 
-No node is theoretically privileged as the final root.
+### 1.2 Downward recursion
+Downward recursion is continuation of an already-existing recursive path.
 
-### 1.2 Descendant
-A descendant is a lower-level process generated from an existing node.
+A recursive origin may generate descendants, branches, lower-level processes, or later states that continue the existing recursion.
 
-Only some descendants need to generate further descendants.
+The theory does not require a final depth.
 
-### 1.3 Variation
-A descendant may differ from its predecessor. The theory does not yet prescribe how this difference is produced.
+### 1.3 Upward recursion
+Upward recursion is the creation, from within an existing recursive evolutionary process, of a **new autonomous recursive origin**.
 
-### 1.4 Active change
-A node is active while its relevant internal state is still changing.
+The new origin is not defined merely by being another descendant. It must be capable of becoming the starting point of its own recursion.
 
-### 1.5 Cessation of change
-The boundary at which the relevant state of a node is no longer changing.
+### 1.4 Autonomous recursive origin
+A new recursive origin is autonomous in the minimal theoretical sense that it can continue its own recursive process even if the process that generated it later stops.
 
-Cessation does not imply correctness, completeness, confidence, task completion, or eternal truth.
+Autonomy does not imply physical isolation or independence from all resources.
 
-### 1.6 Processed information
-Information produced, transformed, filtered, compressed, related, generalized, or otherwise processed by a node before upward transfer.
+### 1.5 Variation
+A descendant, branch, or newly created recursive origin may differ from the process that produced it.
 
-The minimum theory does not require the complete local history to be transferred.
+The theory does not yet prescribe how this difference is generated.
 
-### 1.7 Upward transfer
-When a node stops changing, its processed information becomes eligible to move to its parent or higher-level node.
+### 1.6 Active change
+A local process is active while its relevant internal state continues changing.
 
-### 1.8 Downward expansion
-A node may generate lower-level descendants or branches, creating new local trajectories and possible variation.
+### 1.7 Cessation of change
+Cessation is the condition in which the relevant state of a local process is no longer changing.
 
-### 1.9 Upward convergence
-Processed information from lower levels is absorbed by an upper node. The upper node may itself continue changing as a consequence.
+Cessation does not imply correctness, completion, success, confidence, or biological death.
 
-### 1.10 Renewal
-A state improved or formed through upward convergence may become the source of a new downward expansion.
+### 1.8 Processed information
+Information transformed, filtered, compressed, related, generalized, selected, or otherwise processed by a local process.
+
+### 1.9 Information convergence
+When a local process stops changing, its processed information may become transferable or absorbable by another process or higher-order structure.
+
+Information convergence is **not** the definition of upward recursion.
+
+### 1.10 Perfect Recursion
+Perfect Recursion is the bidirectionally unbounded form in which:
+
+- recursion may continue downward without a predefined lowest endpoint;
+- recursion may continue upward by generating new recursive origins without a predefined highest origin;
+- newly generated origins may themselves repeat both capabilities.
 
 ## 2. Minimal recursive rule
 
-For an arbitrary node `X`:
+For an arbitrary recursive origin `R`:
 
 ```text
-X generates descendants
+R continues its existing recursive path
         ↓
-descendants may vary
+variation / branching / descendants may occur
         ↓
-local change continues
+R may also generate a new recursive origin R'
         ↓
-change stops
-        ↑
-processed information moves to X
-        ↑
-X may change using that information
-        ↑
-X stops changing
-        ↑
-X transfers processed information to its own parent
+R' begins its own recursive path
+        ↓
+R and R' may continue concurrently
+        ↓
+either may later generate additional recursive origins
 ```
 
-The same rule can apply again at the next level.
+Separately:
+
+```text
+any local process
+    still changing -> remains mutable
+    stops changing -> processed information may converge elsewhere
+```
+
+These two mechanisms can interact, but they must not be conflated.
 
 ## 3. Core invariants
 
-### BER-I1 — Downward expansion is recursive
-A node MAY generate lower-level descendants, and those descendants MAY themselves generate further descendants.
+### PR-I1 — Existing recursion can continue downward
+A recursive process MAY continue its current lineage or path without a predefined terminal depth.
 
-### BER-I2 — Continuation is selective
-The theory does NOT require every node or descendant to reproduce further.
+### PR-I2 — Downward continuation does not require global closure
+An existing recursive path MAY continue while other recursive events occur elsewhere.
 
-### BER-I3 — Descendants may vary
-Lower-level descendants MAY differ from their predecessors.
+### PR-I3 — Recursion can generate recursion
+An existing recursive evolutionary process MAY generate a new recursive origin.
 
-### BER-I4 — Changing state remains local
-Information that is still changing inside a node is not yet treated as the node's upward contribution.
+### PR-I4 — Upward recursion is origin creation
+A transfer of information to an existing parent is NOT, by itself, upward recursion. Upward recursion requires formation of a new recursion-capable origin.
 
-### BER-I5 — Cessation of change is the upward boundary
-Processed information becomes eligible for upward transfer only after the relevant node stops changing.
+### PR-I5 — Old and new recursion may coexist
+The process that generated a new recursive origin does NOT have to stop when the new origin appears.
 
-### BER-I6 — Upward transfer carries processed information
-What moves upward is information after local processing, not necessarily raw history or every intermediate state.
+### PR-I6 — New origins can recurse independently
+A new recursive origin MAY continue its own recursive path even if its producer later ceases changing or disappears.
 
-### BER-I7 — Upper nodes may evolve from lower-level information
-An upper node MAY modify its own state or structure using information transferred from lower levels.
+### PR-I7 — New origins may themselves generate new origins
+The same upward-recursion rule MAY repeat from any newly created recursive origin.
 
-### BER-I8 — Upward recursion repeats the same boundary
-When an upper node later stops changing, it becomes a lower node relative to its own parent and applies the same upward-transfer rule.
+### PR-I8 — No final top or bottom is required
+The theory does not require a unique highest origin or final lowest descendant.
 
-### BER-I9 — Convergence may regenerate expansion
-A state produced or improved by upward convergence MAY initiate a new downward expansion.
+### PR-I9 — Cessation governs information convergence, not recursion globally
+A local process that stops changing MAY transfer processed information. A process that never stops changing MAY simply continue changing.
 
-### BER-I10 — No privileged center is required
-A node can simultaneously be parent to lower nodes and child to a higher node. The theory does not require one final integration center.
+### PR-I10 — The architecture is asynchronous
+Different recursive paths MAY change, branch, terminate, transfer information, and generate new origins at different times without a mandatory global synchronization barrier.
 
-## 4. Two coupled recursive directions
-
-### 4.1 Downward recursion
+## 4. Downward recursion
 
 ```text
-A
+R0
 ↓
-B
+R1
 ↓
-C
+R2
 ↓
-D
+R3
 ↓
 ...
 ```
 
-Downward recursion expands possible trajectories through descent, reproduction, branching, and variation.
+This notation represents continuation of an existing recursive path.
 
-### 4.2 Upward recursion
+Depending on implementation, downward continuation may correspond to reproduction, inheritance, learning, branching, construction, iterative transformation, or another continuity-preserving process.
 
-```text
-...
-D
-↑
-C
-↑
-B
-↑
-A
-↑
-...
-```
-
-Upward recursion is triggered by cessation of change. Each level receives processed information from below, may change, and eventually may itself transfer upward.
-
-## 5. Bidirectional closure
-
-The two directions are coupled:
+## 5. Upward recursion
 
 ```text
-downward expansion
-    -> variation
-    -> active change
-    -> cessation of change
-    -> upward transfer
-    -> upper-level modification
-    -> upper-level cessation
-    -> further upward transfer
-    -> renewed downward expansion
+existing recursion R
+        │
+        ├────────→ R continues
+        │
+        └────────→ R'
+                       ↓
+                  new recursion
 ```
 
-The theory therefore does not model downward evolution and upward aggregation as independent subsystems. Each produces the conditions for the other.
+The new origin `R'` is the essential upward event.
 
-## 6. Cessation is not death
+The term "upward" denotes an increase in recursive generative level, not necessarily a spatial direction.
 
-An earlier biological analogy used death as one possible finite boundary. That is not the theoretical rule.
+## 6. Information convergence
 
-The actual rule is:
+Cessation remains important, but only for information transfer:
 
 ```text
-still changing -> remain local
-stops changing -> upward transfer becomes possible
+still changing
+    -> mutable local state
+
+stops changing
+    -> processed information may be transferred or absorbed
 ```
 
-Death, timeout, exhaustion, internal fixation, or another event may cause cessation in an implementation, but none is required by the abstract theory.
+No global rule requires every local process to stop.
 
-## 7. What the theory does not yet prescribe
+Likewise, the ending of one process does not terminate independent recursive origins already produced from it.
 
-BECA does not currently require one particular answer to:
+## 7. Non-blocking structure
 
-- how descendants are generated;
-- how many descendants exist;
-- how variation occurs;
-- what information a node stores;
-- how incoming information is filtered;
-- how conflicting information is combined;
-- how cessation is detected;
-- whether communication occurs laterally between nodes;
-- whether physical depth or population is finite or unbounded.
+Perfect Recursion does not require:
 
-## 8. Minimal conformance
+- all descendants to finish;
+- all information to return to one root;
+- all branches to synchronize;
+- one global convergence event;
+- one permanent parent;
+- one global data quota.
 
-A system is minimally compatible with the present theory if:
+A recursive process can keep changing indefinitely while other processes generate new origins or converge information elsewhere.
 
-1. lower-level descendants or branches can be generated recursively;
-2. some descendants may differ from predecessors;
-3. not all descendants must continue reproducing;
-4. changing information remains within the active local process;
-5. cessation of change gates upward transfer;
-6. upward transfer contains locally processed information;
-7. upper nodes can change from lower-level information;
-8. the same cessation-and-transfer rule can recur upward;
-9. an upward-converged state can later initiate another downward expansion.
+## 8. Relationship between the mechanisms
 
-## 9. Compact definition
+The three mechanisms can coexist:
 
-> **Bidirectional Evolutionary Recursion is a self-similar mechanism in which variation expands downward, processed information converges upward only after local change stops, upper nodes evolve using that converged information, and the resulting upper state can generate a new downward expansion.**
+```text
+existing recursion continues downward
+        │
+        ├─ local processes may eventually stop changing
+        │      └─ processed information may converge elsewhere
+        │
+        └─ evolution may generate a new recursive origin
+               └─ that origin begins its own downward recursion
+```
+
+Thus information convergence can improve or influence recursive systems, but upward recursion is defined by new-origin creation.
+
+## 9. Temporal implication
+
+A lower process may experience states sequentially:
+
+```text
+past -> present -> future
+```
+
+A higher-order structure may represent an entire lower trajectory as one object or model. In that representational sense, multiple temporal positions can coexist in one higher-level description.
+
+This is an implication of the architecture, not a proof of a particular physical theory of time.
+
+## 10. Minimal conformance
+
+A system is minimally compatible with Perfect Recursion if:
+
+1. an existing recursion can continue without a predefined final depth;
+2. a recursive process can generate a new recursion-capable origin;
+3. the new origin can continue while the old recursion also continues;
+4. the new origin can itself generate further recursive origins;
+5. no unique final top or bottom is required;
+6. cessation of change is treated as an information-convergence condition rather than a mandatory global recursion boundary;
+7. different recursive paths can progress asynchronously.
+
+## 11. Compact definition
+
+> **Perfect Recursion is a bidirectionally unbounded evolutionary recursion in which existing recursive paths may continue indefinitely downward while the evolution of those paths may also generate new autonomous recursive origins upward, each of which can repeat the same two capabilities.**
