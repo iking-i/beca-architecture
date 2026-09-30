@@ -1,181 +1,202 @@
 # Prior Art and Adjacent Architectures
 
-BECA is a conceptual architecture. This document identifies nearby ideas so that novelty claims can be made carefully and tested rather than asserted.
+BECA is a conceptual architecture. This document exists to keep novelty claims narrow and testable.
 
-The purpose is not to claim that every component is new. The relevant question is whether the **combination of same-origin agents, situated local evolution, peer communication, local evolutionary closure, result-only transfer, and second-stage integration** produces a distinct and useful architecture.
+The current question is **not** whether recursion, evolution, branching, aggregation, folding, unfolding, or recursive self-improvement already exist. They do.
 
-## 1. Federated Learning
+The narrower question is whether an existing framework already defines the same coupled mechanism:
 
-Canonical federated learning keeps training data on clients while clients compute local model updates and a server aggregates those updates into a shared model.
+> **downward recursive expansion -> local variation/change -> cessation of change -> processed-information transfer upward -> upper-node change -> upper-node cessation -> further upward transfer -> renewed downward expansion from the changed upper state.**
+
+## 1. Evolutionary algorithms
 
 ### Similarity
 
-- common initialization/shared model;
-- local computation on separate clients;
-- local results are transmitted upward;
-- a higher layer aggregates information from multiple sources.
+- descendants or candidate states may differ from predecessors;
+- only some trajectories continue;
+- variation can accumulate over generations.
 
 ### Difference to investigate
 
-Federated learning usually treats client updates as optimization contributions and aggregates them iteratively. A local update does not necessarily represent the output of a completed local evolutionary process.
+Conventional evolutionary descriptions usually emphasize forward inheritance or replacement.
 
-BECA instead proposes a lifecycle distinction:
+BECA additionally treats stabilized lower-level processes as information sources that can modify higher-level generators, and it recursively repeats that upward rule.
 
-```text
-federated-style loop:
-local update -> aggregate -> redistribute -> local update -> ...
+The candidate distinction is therefore not variation itself, but **evolutionary information moving upward through the same recursive hierarchy that generated variation downward**.
 
-BECA knowledge loop:
-same initial state
--> situated local evolution + peer communication
--> local evolutionary closure
--> determinate result
--> second-stage integration
-```
+## 2. Cultural algorithms and hierarchical evolutionary systems
 
-The difference is not that BECA agents are silent or isolated. They may communicate continuously. The proposed boundary concerns when local information becomes eligible for higher-level integration.
-
-## 2. Blackboard systems
-
-Classical blackboard systems use a shared workspace that multiple specialized knowledge sources read and update while collaboratively solving a problem.
+Cultural-algorithm families and related hierarchical evolutionary systems are important comparison targets because they separate population-level processes from higher-level knowledge structures and can include information flow between them.
 
 ### Similarity
 
-- multiple local sources contribute to a higher-level result;
-- shared information and coordination are explicit architectural concerns;
-- partial information can influence multiple participants.
+- lower-level experience may influence a higher-level knowledge structure;
+- higher-level structures may influence later evolution;
+- evolutionary processing can exist at more than one level.
 
 ### Difference to investigate
 
-Blackboard systems are centered on an evolving shared workspace. Partial solutions and hypotheses may themselves become part of that shared state.
+BECA's current minimum rule is specifically based on:
 
-BECA permits partial hypotheses to circulate between agents, but distinguishes that peer circulation from higher-level integration. A communicated provisional idea remains input to local evolution; the higher layer receives the result only after the relevant local process has ended.
+1. recursive descendant generation;
+2. cessation of change as the boundary for upward transfer;
+3. processed information changing the parent itself;
+4. the parent later applying the same cessation-and-transfer rule to its own parent;
+5. an upward-converged state becoming the source of renewed downward expansion.
 
-## 3. Transactional blackboards
+Whether an existing cultural or hierarchical evolutionary architecture already implements this exact self-similar rule remains an open prior-art question.
 
-Transactional extensions to blackboard systems coordinate concurrent knowledge sources and synchronize shared-data access.
+## 3. Fold, unfold, hylomorphism, and metamorphism
 
-### Similarity
+Recursion-scheme literature already contains well-established ideas corresponding broadly to:
 
-- explicit transaction concepts;
-- concern about concurrent updates and synchronization;
-- structured transitions between local and shared state.
-
-### Important distinction
-
-A transactional mechanism can protect shared writes without defining the semantic lifecycle BECA proposes.
-
-BECA's candidate distinction is that the **local evolutionary process itself has a bounded lifetime**, and only its completed result enters second-stage integration.
-
-## 4. Event Sourcing
-
-Event sourcing stores state changes as immutable events in an append-only history.
+- **unfolding** a structure from a seed;
+- **folding** a recursive structure into a result;
+- composing unfold and fold;
+- composing fold and later unfold.
 
 ### Similarity
 
-- a completed record may be treated as fixed after publication;
-- later change can be represented by later state rather than silent retroactive rewriting.
-
-### Difference
-
-Event sourcing normally preserves every relevant state-changing event because history itself is part of the source of truth.
-
-BECA does not require the higher layer to preserve the local history at all. Intermediate changes may disappear with the local process. The upper layer needs the result produced when that process ends.
+BECA also contains two complementary directions:
 
 ```text
-event sourcing:
-change1 -> event1
-change2 -> event2
-change3 -> event3
-history retained globally
-
-BECA:
-V1 -> V2 -> V3 -> ... -> local closure
-                         |
-                         +-> determinate result
+downward expansion
+upward convergence
 ```
 
-## 5. Actor model / message-passing systems
+### Candidate distinction
 
-Actor-style architectures isolate local state and communicate through messages. This is conceptually adjacent to BECA's local-state boundary.
+BECA is not claiming that bidirectional structural transformation itself is new.
+
+Its candidate contribution is the evolutionary coupling between the two directions:
+
+```text
+expand
+ -> locally change
+ -> stop changing
+ -> transfer processed information upward
+ -> change the upper node
+ -> let that node later stop changing and transfer again
+ -> use a converged upper state to generate another expansion
+```
+
+Thus the object performing the next expansion may itself have been modified by the preceding convergence.
+
+## 4. Recursive self-improvement
 
 ### Similarity
 
-- local state ownership;
-- explicit boundaries;
-- message-based interaction.
+Recursive self-improvement architectures allow a system to alter a later version of itself, potentially repeating the process.
 
-### Difference
+### Difference to investigate
 
-Actor isolation alone does not define the distinction between:
+BECA does not begin from a single self-edit loop alone. It explicitly couples:
 
-- information that is still part of an active local evolutionary process; and
-- the completed result that should enter a higher-level synthesis process.
+- downward production of lower-level variation;
+- cessation-gated upward information flow;
+- parent modification from lower-level processed information;
+- recursive repetition of the same upward boundary;
+- renewed downward expansion.
 
-BECA adds that lifecycle distinction.
+The question is whether an existing recursive self-improvement architecture already uses this same bidirectional hierarchy rather than a primarily sequential self-modification loop.
 
-## 6. Multi-agent debate and shared-memory systems
+## 5. Hierarchical aggregation and tree reduction
 
-Modern multi-agent systems often let agents inspect one another's hypotheses, critiques, intermediate summaries, or a shared scratchpad.
+Tree reductions and hierarchical aggregation move lower-level values upward through a hierarchy.
 
-BECA is compatible with rich peer discussion. It does **not** require agents to remain epistemically independent until commit.
+### Similarity
 
-Its contrast is narrower:
+- information can converge upward through multiple levels;
+- intermediate nodes can combine lower-level contributions.
 
-> peer communication may alter local evolution, but communicated provisional information does not automatically become a completed input to the higher-level integration layer.
+### Difference to investigate
 
-This means a BECA-like implementation could support constant discussion among agents while still separating ongoing local cognition from result-level integration.
+A static reduction does not by itself require:
 
-## 7. Biological and generational analogy
+- descendants to evolve;
+- cessation of change as the upward boundary;
+- the intermediate node to keep changing because of incoming information;
+- that intermediate node to later become a lower node relative to its parent under the same rule;
+- the final converged state to generate a new downward evolutionary expansion.
 
-BECA can also be described by analogy to finite biological lifecycles, although this analogy is not itself evidence for the architecture.
+## 6. Federated and distributed learning
 
-An organism does not need a single explicit "life task" in order for its local evolutionary history to end. A finite lifespan imposes a natural closure boundary. Over time, repeated experience may become redundant, existing structures may dominate new low-weight inputs, and development may increasingly stabilize.
+### Similarity
 
-BECA generalizes this into a systems principle:
+- local processes produce information used by a higher-level model;
+- higher-level aggregation can influence later local computation.
 
-> a local process can end because it has reached internal fixation or because a finite lifetime/resource boundary terminates it.
+### Difference to investigate
 
-The upper layer can then integrate the result without requiring the local individual to continue existing or remain traceable.
+Federated systems commonly aggregate according to scheduled optimization rounds or protocol boundaries.
 
-## 8. What may be distinctive about BECA
+BECA instead proposes **cessation of relevant local change** as the conceptual transfer boundary and recursively applies the same rule to upper nodes.
 
-The potentially distinctive contribution is not any one element in isolation, but the combined rule set:
+## 7. Biological analogy
 
-1. multiple agents begin from the same initial state;
-2. they occupy different local regions of one shared world;
-3. they may communicate and influence one another during evolution;
-4. each retains locally mutable state while its local process is active;
-5. local evolution has an end condition, whether internal or externally imposed;
-6. only the resulting determinate state enters higher-level integration;
-7. the upper layer performs second-stage processing across those completed results;
-8. source identity and provenance are optional implementation metadata rather than theoretical requirements;
-9. the integrated result may become the common initial state of a later generation.
+Biological descent is a useful analogy for downward expansion:
+
+```text
+parent -> offspring -> later descendants
+```
+
+But BECA adds an abstract upward evolutionary channel:
+
+```text
+stabilized descendant information
+        -> parent changes
+        -> parent stabilizes
+        -> information moves further upward
+```
+
+This is not a claim that biological ancestors literally update themselves from descendant experience. The biological analogy is only a way to visualize branching, variation, and selective continuation.
+
+## 8. Current candidate contribution
+
+The present candidate contribution is the following combined mechanism:
+
+1. any node may generate lower-level descendants or branches;
+2. only some descendants need continue the lineage;
+3. descendants may differ from predecessors;
+4. active change remains local;
+5. cessation of change gates upward transfer;
+6. the upward payload is locally processed information;
+7. the parent may alter itself using that information;
+8. when the parent stops changing, the same upward rule applies again;
+9. a converged or improved upper state may generate another downward expansion;
+10. no theoretically privileged final center is required.
+
+The compact formulation is:
+
+> **Expand downward. Converge upward. Convergence changes the state that can expand again.**
 
 ## 9. Novelty status
 
 Current status: **unverified architectural originality**.
 
-It is reasonable to say that BECA combines familiar ideas in a specific way and states a distinct information-lifecycle proposal. It is not yet reasonable to claim that no equivalent architecture exists in the literature.
+It is reasonable to treat Bidirectional Evolutionary Recursion as a distinct working concept inside this repository.
 
-Before any formal novelty claim, comparison should be expanded across:
+It is **not** yet reasonable to claim that no mathematically, computationally, or evolutionarily equivalent framework exists.
 
-- distributed artificial intelligence;
-- blackboard systems;
-- transactional knowledge bases;
-- actor systems;
-- federated learning and federated analytics;
-- multi-agent reinforcement learning;
-- consensus and belief-fusion systems;
-- epistemic logic / opinion dynamics;
-- multi-agent LLM debate and shared-memory architectures;
-- database isolation and commit semantics applied to AI knowledge systems;
-- evolutionary and generational learning architectures.
+A formal novelty claim requires systematic comparison across at least:
 
-## 10. Prior-art question to keep asking
+- recursion schemes;
+- evolutionary computation;
+- cultural algorithms;
+- hierarchical evolutionary systems;
+- recursive self-improvement;
+- developmental and evolutionary robotics;
+- multi-level selection and learning;
+- hierarchical aggregation;
+- distributed and federated learning;
+- recursive multi-agent systems.
 
-The strongest comparison question is:
+## 10. Strongest prior-art question
 
-> Has an existing architecture already defined one common initial state that is distributed into multiple agents, allows them to evolve and communicate in different local regions of one shared world, waits until each relevant local evolutionary process ends, then integrates only the resulting determinate outputs at a higher layer?
+The key question is:
 
-If yes, BECA should cite and build on it. If no, that combination is the candidate contribution.
+> **Has an existing architecture already defined a self-similar hierarchy in which variation expands downward, cessation of local change gates processed-information transfer upward, every upper node may itself evolve from that transferred information and later transfer upward by the same rule, and the converged upper state can initiate a new downward expansion?**
+
+If yes, BECA should cite and build on it.
+
+If no, that exact mechanism is the candidate contribution.
