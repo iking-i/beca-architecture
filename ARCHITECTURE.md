@@ -1,248 +1,310 @@
-# BECA Architecture
+# BECA Architecture — Bidirectional Evolutionary Recursion
 
-## 1. Design objective
+## 1. Structural idea
 
-BECA separates four things that should not be confused:
+BECA is now modeled as a **bidirectional recursive hierarchy** rather than a privileged root with permanent subordinate branches.
 
-1. **one initial root state**, from which the first differentiated agents are created;
-2. **continuous branch evolution**, where those agents preserve their own histories and may differentiate further from their current states;
-3. **local closure**, where some local information stops changing and becomes eligible for upward transfer;
-4. **root-level second-stage integration**, where the root system uses closed information from branches to modify its own underlying structure.
+Every node can occupy two roles at once:
 
-The architecture is not based on agent silence, and it is not based on repeatedly recreating agents from the latest root state.
+- parent relative to lower-level descendants;
+- descendant relative to a higher-level node.
 
-## 2. First differentiation
+The same rule can therefore repeat at every level.
 
-The initial topology is:
+## 2. Downward expansion
 
-```text
-            A
-         /  |  \
-        B   C   D
-```
-
-At the moment of first differentiation:
+A node can generate lower-level descendants or branches:
 
 ```text
-state(A) = state(B) = state(C) = state(D)
+A
+├─ B1
+├─ B2
+├─ B3
+└─ ...
 ```
 
-`B`, `C`, and `D` differ only after they begin to experience different local histories.
+Only some descendants need to continue reproducing.
 
-## 3. Continuous branch evolution
-
-After differentiation, each branch preserves continuity with its own prior state:
+A reproducing descendant can generate another level:
 
 ```text
-B(t+1) derives from B(t)
-C(t+1) derives from C(t)
-D(t+1) derives from D(t)
+A
+└─ B
+   └─ C
+      └─ D
+         └─ ...
 ```
 
-If a branch differentiates again, the new branch is derived from that branch's current evolved state, not from the latest root state.
+Descendants may differ from their predecessors. This creates local variation and distinct trajectories.
+
+The current theory intentionally leaves the variation mechanism open.
+
+## 3. Active local change
+
+Each node may continue changing while processing local information.
+
+```text
+state X0
+  -> X1
+  -> X2
+  -> X3
+  -> ...
+```
+
+While relevant state is still changing, it remains local to that node.
+
+The higher layer does not treat every intermediate mutation as a finished contribution.
+
+## 4. Cessation of change
+
+The decisive boundary is:
+
+```text
+still changing
+    -> remain in local evolution
+
+stops changing
+    -> processed information becomes eligible for upward transfer
+```
+
+This boundary is not equivalent to death.
+
+Death, a timeout, exhaustion, internal fixation, or another event may cause change to stop, but the theory only depends on cessation itself.
+
+## 5. Upward convergence
+
+When a lower node stops changing, it transfers processed information upward.
 
 Example:
 
 ```text
-             A
-          /  |  \
-         B   C   D
-        / \     / \
-      B1  B2  D1  D2
+D stops changing
+      ↑
+processed information
+      ↑
+C receives it
 ```
 
-Here `B1` and `B2` continue the history accumulated in `B`; they are not resets from an updated `A`.
+`C` may then change further because of the information received from `D`.
 
-## 4. Why repeated reinitialization is incompatible
-
-The following pattern is **not** the intended architecture:
+When `C` later stops changing:
 
 ```text
-A0 -> B0 / C0 / D0
-      closed branch information -> A1
-A1 -> fresh B1 / C1 / D1
-      closed branch information -> A2
-A2 -> fresh ...
+C stops changing
+      ↑
+processed information
+      ↑
+B receives it
 ```
 
-That design repeatedly resets the local environment and destroys continuity.
-
-It erases or disrupts:
-
-- accumulated local experience;
-- relationships;
-- path-dependent adaptation;
-- local structural changes;
-- long-term environmental history.
-
-BECA instead requires continuity along existing lineages after the first differentiation.
-
-## 5. Shared world and communication
-
-All branches exist in one shared world.
-
-They may occupy different regions and may communicate with one another.
-
-A peer message can change a branch's local state, but the message remains part of that branch's ongoing local evolution until the relevant state stops changing.
+The same rule repeats recursively:
 
 ```text
-peer communication -> local input -> further local change
-```
-
-Communication does not itself create an upward integration event.
-
-## 6. Local closure
-
-A local state is eligible for upward integration when the relevant local process no longer changes it.
-
-Closure does not require:
-
-- task completion;
-- correctness;
-- a semantic conclusion;
-- internal consistency.
-
-A closed state can be incomplete or wrong. The only required property is that the local process has stopped changing it.
-
-Closure may occur through:
-
-- fixation;
-- repeated experience becoming redundant;
-- low effective weight of new information;
-- finite lifetime;
-- time/resource exhaustion;
-- human or external termination.
-
-## 7. Upward transfer
-
-When local change stops, information from that closed state becomes available to the root-level integration process.
-
-```text
-closed state in B --+
-closed state in C ---+--> root-level second-stage integration
-closed state in D --+
-```
-
-The root does not need to reconstruct or preserve the source individual unless an implementation wants provenance for engineering reasons.
-
-## 8. Root-level structural improvement
-
-The root system `A` uses upward-transferred closed information to modify its own underlying structure.
-
-This modification may affect:
-
-- rules;
-- default responses;
-- weights;
-- relations;
-- information-processing structure;
-- other foundational mechanisms.
-
-The important point is that improvement is not merely appending facts to a knowledge list. It may alter the base structure itself.
-
-## 9. Root improvement does not reset branches
-
-Let the root change from `A0` to `A1` after second-stage integration.
-
-This does **not** imply:
-
-```text
-B <- reset from A1
-C <- reset from A1
-D <- reset from A1
-```
-
-The already-evolving branches retain their own continuous histories.
-
-The theory currently leaves open how a later structural change in `A` may influence existing branches, if at all, without destroying continuity.
-
-That mechanism must not be assumed until defined.
-
-## 10. Two simultaneous directions of evolution
-
-The architecture therefore contains two simultaneous processes.
-
-### Outward branch evolution
-
-```text
+...
+D
+↑
+C
+↑
+B
+↑
 A
-├─ B
-│  ├─ B1
-│  └─ B2
-├─ C
-└─ D
-   ├─ D1
-   └─ D2
+↑
+...
 ```
 
-The tree grows outward by differentiation from existing branch states.
+## 6. The same node participates in both directions
 
-### Inward structural improvement
+Consider node `B`:
 
 ```text
-closed branch information
+        A
+        ↑
+        B
         ↓
-second-stage integration
-        ↓
-modify A's underlying structure
+        C
 ```
 
-The root becomes more complete while the branch tree preserves continuity.
+Relative to `C`, `B` is an upper node.
 
-## 11. System view
+Relative to `A`, `B` is a lower node.
+
+So `B` can simultaneously:
+
+1. receive processed information from `C`;
+2. continue changing from that information;
+3. generate descendants below itself;
+4. eventually stop changing;
+5. transfer its own processed information upward to `A`.
+
+This is the self-similar recursive unit.
+
+## 7. Full bidirectional cycle
+
+The architecture is not only downward generation plus upward aggregation.
+
+The two directions generate each other:
 
 ```text
-                          Root A
-                    underlying structure
-                           /|\
-                          / | \
-             first identical differentiation
-                        /   |   \
-                       B    C    D
-                      /\         /\
-                     /  \       /  \
-             continuous lineage growth
-
-closed local information from branches
-              \        |        /
-               \       |       /
-                second-stage integration
-                         |
-                         v
-                modify root structure
-
-(existing branches continue; no global reset)
+DOWNWARD EXPANSION
+        ↓
+new descendants / branches
+        ↓
+variation and local histories
+        ↓
+active change
+        ↓
+cessation of change
+        ↑
+processed information moves upward
+        ↑
+upper node changes
+        ↑
+upper node stops changing
+        ↑
+further upward convergence
+        ↓
+converged / improved state generates new downward expansion
+        ↓
+...
 ```
+
+The shortest form is:
+
+> **Expansion produces convergence; convergence produces the next expansion.**
+
+## 8. Evolutionary interpretation
+
+The model contains two complementary evolutionary directions.
+
+### Downward evolutionary direction
+
+```text
+parent
+  ↓
+descendant
+  ↓
+later descendant
+  ↓
+...
+```
+
+This direction generates variation and explores possible trajectories.
+
+### Upward evolutionary direction
+
+```text
+closed descendant information
+        ↑
+parent changes
+        ↑
+parent closes
+        ↑
+higher parent changes
+        ↑
+...
+```
+
+This direction allows accumulated lower-level experience to alter higher-level states.
+
+Thus:
+
+> **Variation expands downward; evolutionary gain accumulates upward.**
+
+## 9. Renewal after convergence
+
+Upward convergence does not terminate the architecture.
+
+A state formed through convergence may generate a new lower-level expansion:
+
+```text
+X
+↓
+Y1 Y2 Y3 ...
+↓
+local variation
+↑
+cessation + convergence
+↑
+X'
+↓
+new expansion
+```
+
+`X'` is not required to be identical to the earlier `X`, because incoming lower-level information may have altered it.
+
+This creates recursive renewal rather than a one-way tree.
+
+## 10. No privileged root
+
+Earlier versions of BECA treated `A` as a special integration root.
+
+The current architecture removes that assumption.
+
+`A` may itself be only one local node inside a still higher process:
+
+```text
+        P
+        ↑
+        A
+        ↑
+        B
+        ↑
+        C
+```
+
+Therefore the theory does not require one final topmost integration node.
+
+## 11. Minimal topology
+
+A compact representation is:
+
+```text
+              ↑ upward convergence
+              │
+              P
+              ↑
+              A
+             /|\
+            / | \
+           B  B  B
+          /       \
+         C         C
+        /           \
+       D             D
+              │
+              ↓ downward expansion
+```
+
+The geometry is secondary. The key rule is directional:
+
+- downward: generate and vary;
+- upward: transfer only after cessation;
+- convergence may alter the node that later expands again.
 
 ## 12. Core invariants
 
-A BECA-like system therefore preserves the following distinctions:
+1. every node may be both parent and descendant;
+2. downward generation may recurse indefinitely in theory;
+3. only some descendants need to continue reproducing;
+4. descendants may differ from predecessors;
+5. information remains local while its owning node is still changing;
+6. cessation of change is the transfer boundary;
+7. upward transfer carries processed information;
+8. upper nodes may change using information from below;
+9. the same cessation-and-transfer rule repeats upward;
+10. a converged upper state may initiate another downward expansion.
 
-1. first differentiation begins from one identical root state;
-2. later branch evolution is continuous and path-dependent;
-3. later differentiation extends existing lineages rather than cloning the newest root state;
-4. peer communication is allowed during local evolution;
-5. only information that has stopped changing locally becomes eligible for upward integration;
-6. upward integration can modify the root's underlying structure;
-7. root modification does not automatically reset existing branches;
-8. the mechanism by which root changes may later affect ongoing branches remains a separate theoretical question.
+## 13. Open questions
 
-## 13. Main trade-off
+The architecture still leaves open:
 
-Potential benefits include:
+- exact descendant-generation rules;
+- the source and magnitude of variation;
+- lateral communication between nodes;
+- how processed information is represented;
+- how several lower-level transfers are combined;
+- how cessation of change is detected;
+- whether upward convergence is monotonic, reversible, or path-dependent;
+- how finite implementations approximate a theoretically unbounded recursive structure.
 
-- preservation of environmental continuity;
-- retention of long-term local adaptation;
-- multiple persistent evolutionary trajectories;
-- root improvement from many locally evolved histories;
-- separation between ongoing branch change and root-level integration.
-
-Potential costs include:
-
-- increasingly divergent branches;
-- harder coordination across long-lived lineages;
-- uncertainty about how root improvements should propagate without reset;
-- possible accumulation of obsolete local structures;
-- greater complexity than repeated reinitialization.
-
-These are properties of the architecture to analyze, not reasons to replace continuity with resetting.
+These questions refine the mechanism but do not change its current recursive skeleton.
