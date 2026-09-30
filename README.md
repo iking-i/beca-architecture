@@ -1,13 +1,13 @@
 # BECA — Bounded Evolutionary Commit Architecture
 
-> **A theory proposal for multi-agent knowledge systems:** multiple agents begin from the same initial state, evolve in different local regions of one shared world, communicate during that evolution, and pass only the results of completed local evolutionary processes into higher-level integration.
+> **A theory proposal for multi-agent knowledge systems:** multiple agents begin from the same initial state, evolve in different local regions of one shared world, communicate during that evolution, and expose information to higher-level integration only after the relevant local state has stopped changing.
 
 **Status:** v0.1 conceptual architecture / theory proposal  
 **Not:** a software product, benchmark suite, or experimentally validated implementation
 
 ## In one sentence
 
-> **Same origin + shared world + local evolution + peer communication + local closure + result commit + second-stage integration.**
+> **Same origin + shared world + local evolution + peer communication + cessation of local change + second-stage integration.**
 
 ## Core distinction
 
@@ -15,11 +15,13 @@ BECA does **not** isolate agents from one another.
 
 Agents may communicate observations, questions, hypotheses, warnings, and unfinished ideas while they evolve. Those messages become part of the receiver's local experience.
 
-What BECA separates is something narrower:
+The decisive boundary is not whether an agent has produced a result. It is whether the relevant local information is **still changing**.
 
-> **Information may remain dynamic while its local evolutionary process is active; only the result of a completed local process enters higher-level integration.**
+> **While a local state is changing, it remains part of local evolution. Once that local change stops, the state becomes eligible for higher-level integration.**
 
-Completion does not mean absolute truth or maximum confidence. A local process can end because it has effectively become fixed, because additional experience no longer changes it materially, or because a finite lifetime, time/resource limit, or external approval ends that process.
+Closure does not require a solved task, a correct answer, a coherent conclusion, or high confidence.
+
+A closed state may still be incomplete, wrong, contradictory, or unresolved. The only defining property is that the local process no longer changes it.
 
 ## Architecture
 
@@ -38,9 +40,9 @@ Completion does not mean absolute truth or maximum confidence. A local process c
        local            local            local
       evolution        evolution        evolution
           |               |               |
-       closure          closure          closure
+   change stops      change stops      change stops
           |               |               |
-      Result A         Result B         Result C
+   closed state A   closed state B   closed state C
            \              |              /
             +-------------+-------------+
                           |
@@ -56,12 +58,12 @@ Completion does not mean absolute truth or maximum confidence. A local process c
 The cycle can repeat:
 
 ```text
-M0 -> differentiated local evolution -> completed results -> integration -> M1 -> ...
+M0 -> differentiated local evolution -> local closure -> second-stage integration -> M1 -> ...
 ```
 
 ## Why propose this?
 
-A local intelligent process may change its interpretation many times:
+A local intelligent process may change repeatedly:
 
 ```text
 observation
@@ -70,59 +72,60 @@ observation
   -> revision
   -> relation-building
   -> reinforcement / weakening
-  -> local closure
-  -> determinate result
+  -> further change
+  -> ...
+  -> change stops
 ```
 
-BECA treats this changing process as different from the task of integrating several already-completed results.
+BECA treats this changing process as different from the task of integrating several already-closed local states.
 
 The proposal is that these stages should have different rules:
 
 - **inside an agent:** information may remain dynamic;
 - **between agents:** communication may remain dynamic;
-- **at the higher integration layer:** only results from ended local processes are accepted as integration inputs.
+- **at the higher integration layer:** only information from local states that are no longer changing is accepted.
 
 ## Five principles
 
 ### 1. Same initial state
-Agents begin from one shared initial state. Their later differences should arise from different local histories, not from unrelated starting systems.
+Agents begin from one shared initial state. Their later differences arise from different local histories, not from unrelated starting systems.
 
 ### 2. Situated local evolution
 Agents occupy different positions in the same larger world. Their histories diverge because their local observations, relationships, events, failures, opportunities, and interactions differ.
 
 ### 3. Communicating boundaries
-The local boundary protects ownership of mutable cognition; it is not a communication wall. Peer messages can influence an agent without directly becoming higher-level shared knowledge.
+The local boundary protects ownership of mutable cognition; it is not a communication wall. Peer messages can influence an agent without directly becoming higher-level shared state.
 
 ### 4. Local evolutionary closure
-A local process eventually ends. This may happen through internal fixation or through a finite lifetime or external termination boundary. Its output then becomes a determinate result for that completed process.
+A local state eventually stops changing within that process. This may happen through internal fixation, repeated experience becoming redundant, declining effective weight of new information, finite lifetime, time/resource limits, or external termination.
 
 ### 5. Second-stage integration
-The higher layer operates on multiple determinate results and performs a new round of processing across them. It does not need to reconstruct or preserve the individual that produced each result unless an implementation chooses to do so.
+The higher layer operates on information from multiple closed local states and performs a new round of processing across them. It does not need a semantic answer from each agent, and it does not need to preserve the individual that produced each state.
 
-## Data, experience, result, knowledge
+## Data, experience, closed state, shared knowledge
 
 BECA distinguishes four levels:
 
 - **data** — an observation or received message;
 - **experience** — information transformed through a local evolutionary history;
-- **determinate result** — the output of an ended local evolutionary process;
-- **shared knowledge** — a result produced by second-stage integration across multiple completed local results.
+- **closed local state** — information that the relevant local process no longer changes;
+- **shared knowledge** — information produced by second-stage processing across multiple closed local states.
 
 ## What BECA is not
 
 BECA is not a theory of non-communicating agents.
 
-A message from Agent A may change Agent B. But that message first enters B as input. It does not automatically become higher-level truth simply because A transmitted it.
+A message from Agent A may change Agent B. But that message first enters B as input. It does not automatically become higher-level state simply because A transmitted it.
 
-BECA is also not a theory of permanent truth. A determinate result is final only relative to the local process that has ended. Later generations or later shared states may produce different results.
+BECA is also not a theory of permanent truth. A closed local state is closed only relative to the ended local process. A later generation can start from a new shared state and evolve again.
 
-BECA does not require permanent source tracking. The upper layer needs the result; source identity, provenance, or history may be added for engineering reasons but are not part of the theoretical minimum.
+BECA does not require permanent source tracking. The upper layer needs the closed information; source identity, provenance, or history may be added for engineering reasons but are not part of the theoretical minimum.
 
 ## Current contribution
 
 This repository proposes the architectural sequence itself:
 
-> **same origin + shared world + situated local evolution + peer communication + local closure + result commit + second-stage integration**
+> **same origin + shared world + situated local evolution + peer communication + cessation of local change + second-stage integration**
 
 The aim is to define the theory clearly enough that others can critique it, formalize it, implement it, compare it with adjacent architectures, or test where it fails.
 
@@ -144,7 +147,8 @@ BECA v0.1 leaves several mechanisms open intentionally:
 - how different kinds of finite lifetime or external termination should be represented;
 - how local position/perspective should be represented;
 - how agents should evaluate provisional peer messages;
-- how the higher layer should combine mutually incompatible completed results;
+- how much of a closed state should cross the boundary;
+- how the higher layer should combine incompatible closed states;
 - how integrated state should become the basis for later generations.
 
 ## Invitation
