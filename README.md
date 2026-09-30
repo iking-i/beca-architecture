@@ -1,212 +1,269 @@
-# BECA — Bounded Evolutionary Commit Architecture
+# BECA — Bidirectional Evolutionary Recursion
 
-> **A theory proposal for an evolvable recursive multi-agent system:** a base agent differentiates into identical local agents, those agents evolve through different experiences in one shared world, closed information returns to the base integrator, and when the current round stops changing the accumulated knowledge is used to modify the base layer and form the next-generation base agent.
+> **A theory proposal for a recursive evolutionary system in which variation expands downward, processed information converges upward after change stops, and the improved upper state can generate a new downward expansion.**
 
-**Status:** v0.3 conceptual architecture / theory proposal  
-**Not:** a software product, benchmark suite, or experimentally validated implementation
+**Status:** conceptual architecture / theory proposal  
+**Working mechanism name:** **Bidirectional Evolutionary Recursion (BER)**  
+**Informal name:** **Perfect Recursion**  
+**Not:** a claim of established novelty, a completed implementation, or an experimentally validated theory
 
-## In one sentence
+## Core idea
 
-> **Differentiate -> experience -> change -> local closure -> integrate knowledge -> round closure -> modify the base layer -> form A(n+1) -> differentiate again.**
-
-## The recursive model
-
-Let the base agent in round `n` be:
+BECA is built around one closed recursive loop:
 
 ```text
-A_n = base layer L_n + knowledge state K_n
+DOWNWARD EXPANSION
+        ↓
+produce descendants / branches
+        ↓
+descendants may differ from their predecessors
+        ↓
+local change continues
+        ↓
+change stops
+        ↑
+processed information moves upward
+        ↑
+upper node changes using lower-level information
+        ↑
+upper node stops changing
+        ↑
+its processed state moves to the next higher level
+        ↓
+the improved state can become the origin of a new downward expansion
+        ↓
+...
 ```
 
-At the start of the round, `A_n` differentiates into local agents with the same initial state:
+The shortest description is:
+
+> **Expand downward. Converge upward. Convergence creates the next expansion.**
+
+Or, in evolutionary language:
+
+> **Possibility is generated downward; evolutionary gain accumulates upward.**
+
+## The recursive unit
+
+Let `X` be any node in the hierarchy.
+
+`X` is not a privileged root. The same rule can apply to every level.
 
 ```text
-A_n = B_n = C_n = D_n   at differentiation
+          parent of X
+              ↑
+              │  X stops changing
+              │  and transfers processed information upward
+              │
+              X
+          /   |   \
+         /    |    \
+       Y1    Y2    Y3 ...
 ```
 
-`B_n`, `C_n`, and `D_n` then enter different local regions and accumulate different experiences while remaining in the same world. They may communicate with one another.
+A minimal recursive unit has four properties:
 
-During the round, information remains local while it is still changing. When some local information stops changing, it becomes eligible to return to `A_n`.
+1. `X` can generate lower-level descendants or branches.
+2. Only some descendants need to reproduce further.
+3. Descendants may change relative to their predecessors.
+4. When a node stops changing, it transfers processed information upward.
 
-`A_n` first acts as an **integration database**: it accumulates and reorganizes closed information from the differentiated agents.
+The parent uses incoming information to continue changing itself. When the parent also stops changing, the same transfer rule applies again at the next level.
 
-The round does **not** advance because a target amount of knowledge has been reached. It advances when the relevant state of the current round **stops changing**.
+## Two recursive directions
 
-At that point, the accumulated knowledge is used to modify the underlying base layer:
+### Downward recursion — expansion
 
 ```text
-(L_n, K_n) -- round closure --> modify L_n using integrated knowledge --> A_(n+1)
+A
+↓
+B
+↓
+C
+↓
+D
+↓
+...
 ```
 
-`A_(n+1)` then begins a new round by differentiating again into identical local agents.
+Downward recursion creates new branches, descendants, local histories, and possible variation.
 
-## Two kinds of closure
-
-BECA contains two related boundaries.
-
-### Local closure
-A piece of local information can move upward only after the local process no longer changes it.
+### Upward recursion — convergence
 
 ```text
-changing local information
-        -> remains local
-
-local change stops
-        -> may enter A_n's integration database
+...
+D
+↑
+C
+↑
+B
+↑
+A
+↑
+...
 ```
 
-Local closure does not require correctness, task completion, high confidence, or a semantic conclusion.
+Upward recursion begins only when the relevant node has stopped changing.
 
-### Round closure
-The current recursive round ends when its integrated state no longer changes.
+The node transfers its processed information to its parent. The parent incorporates information from lower levels and continues changing until it too reaches cessation of change.
 
-Only then does the system move from knowledge accumulation to **base-layer evolution**.
+## The key boundary: cessation of change
+
+The central transition is not death, task completion, correctness, confidence, or a predefined number of iterations.
+
+It is simply:
 
 ```text
-local agents continue changing
-        +
-A_n knowledge state continues changing
-        -> stay in round n
+still changing
+    -> remain at the current level
 
-current round stops changing
-        -> modify base layer
-        -> form A_(n+1)
-        -> start round n+1
+stops changing
+    -> processed information becomes eligible to move upward
 ```
 
-## Why this is not repeated premature reset
+A state can be incomplete, wrong, contradictory, or limited and still satisfy this boundary if the process that owns it no longer changes it.
 
-A reset during active change would destroy continuity.
+## Why this is more than ordinary generational evolution
 
-BECA therefore does not repeatedly recreate agents while the current round is still evolving.
-
-Continuity is preserved **inside the round**:
-
-- local agents retain their histories;
-- relationships and environmental adaptation can accumulate;
-- peer communication can change later experience;
-- the integration database can continue receiving newly closed information.
-
-A new differentiation occurs only after the current round has stopped changing and its knowledge has been used to create a new base agent.
-
-The next round is therefore not a simple restart of the old system. It begins from an **evolved base layer**.
-
-## Architecture
+Conventional evolutionary descriptions usually emphasize forward inheritance:
 
 ```text
-                    A_n
-          base layer L_n + knowledge K_n
-                     |
-                 differentiate
-           +---------+---------+
-           |         |         |
-           v         v         v
-          B_n       C_n       D_n
-           |         |         |
-        different local experience
-           |<------ communication ------>|
-           |         |         |
-        dynamic local evolution
-           |         |         |
-       local change eventually stops
-           \         |         /
-            \        |        /
-             closed information
-                    |
-                    v
-             A_n integration database
-                    |
-          knowledge continues changing?
-             /                 \
-           yes                 no
-            |                   |
-       remain in round n        v
-                        round closure
-                              |
-                              v
-                     modify base layer L_n
-                              |
-                              v
-                           A_(n+1)
-                              |
-                         differentiate
-                              |
-                          next round
+parent -> offspring -> later offspring -> ...
 ```
 
-## Core principles
-
-1. **Same-state differentiation** — each round begins by differentiating the current base agent into identical local agents.
-2. **Situated evolution** — the local agents become different through different experiences, not different initialization.
-3. **Communication is allowed** — peer communication is part of local evolution.
-4. **Changing information stays local** — information becomes eligible for upward integration only after its relevant local change stops.
-5. **A acts as an integration database during the round** — closed information is accumulated and reorganized before base evolution.
-6. **Round transition is triggered by cessation of change** — not by a predefined knowledge quota or task target.
-7. **Base evolution happens between rounds** — integrated knowledge is used to modify the underlying base layer and create `A_(n+1)`.
-8. **Recursion** — `A_(n+1)` repeats the same process by differentiating again.
-
-## Knowledge update versus base-layer update
-
-These are different operations.
-
-During a round:
+In BECA, descendants also become information sources for the levels above them:
 
 ```text
-K_n changes
-L_n remains the current base layer
+parent
+  ↓
+descendants generate variation
+  ↓
+descendants stop changing
+  ↑
+processed information returns upward
+  ↑
+parent changes
 ```
 
-At round closure:
+The parent is therefore not merely replaced by descendants. It can itself be improved by the stabilized information produced below it.
+
+## Why this is more than a fold/unfold pair
+
+Structured recursion already contains notions analogous to **unfolding** and **folding**.
+
+BECA's candidate distinction is not merely that both directions exist. It is the recursive evolutionary coupling between them:
 
 ```text
-integrated K_n
-    -> used to modify L_n
-    -> produces new base agent A_(n+1)
+unfold / expand
+    -> local evolution
+    -> cessation of change
+    -> upward convergence
+    -> upper-level self-modification
+    -> renewed downward expansion
 ```
 
-This is why BECA is more than a shared-memory architecture. The system does not only accumulate knowledge; accumulated knowledge can eventually alter the structure from which the next recursive round begins.
+The result of upward convergence changes the state that performs the next downward expansion.
 
-## What BECA is not
+## Self-similarity
 
-BECA is not a theory of isolated agents.
+The mechanism is recursive because the same rule applies again at every level:
 
-BECA is not a system in which every local state is immediately fused upward.
+```text
+receive processed information from below
+        ↓
+continue changing
+        ↓
+stop changing
+        ↓
+transfer processed information upward
+```
 
-BECA is not a system that waits for a predefined knowledge maximum before evolving.
+A node may simultaneously be:
 
-BECA is not a system that repeatedly resets active local processes.
+- the upper layer of its descendants;
+- the lower layer of its parent;
+- a receiver of converged information;
+- a changing processor;
+- a future sender when its own change stops.
 
-BECA does not require permanent source tracking once closed information has entered the integration process.
+There is therefore no theoretically privileged final center inside the mechanism.
 
-## Current theoretical sequence
+## Renewal
 
-> **A_n -> identical differentiation -> situated local evolution -> local closure -> knowledge integration in A_n -> cessation of round-level change -> base-layer modification -> A_(n+1) -> identical differentiation -> ...**
+Upward convergence is not the end of the process.
 
-This recursive sequence is the current core of BECA.
+A state formed or improved through convergence may generate another downward expansion:
+
+```text
+expansion
+   ↓
+variation
+   ↓
+cessation
+   ↑
+convergence
+   ↑
+improved state
+   ↓
+new expansion
+   ↓
+...
+```
+
+This gives the architecture its closed bidirectional recursion.
+
+## Minimal invariants
+
+A system is minimally BECA-like if:
+
+1. it supports recursive downward generation of lower-level processes or descendants;
+2. descendants may change relative to their predecessors;
+3. not every descendant is required to continue the lineage;
+4. information remains owned by a changing process while that process is still changing;
+5. cessation of change is the boundary for upward transfer;
+6. transferred information has already been processed by the lower-level process;
+7. an upper node may change itself using information transferred from below;
+8. when the upper node itself stops changing, the same upward-transfer rule applies again;
+9. a converged or improved upper state may become the source of a new downward expansion.
+
+## What remains intentionally undefined
+
+The core theory does not yet prescribe:
+
+- how many descendants a node produces;
+- what determines which descendants reproduce;
+- how descendants differ from predecessors;
+- the exact representation of processed information;
+- how a node combines conflicting incoming information;
+- how cessation of change is detected;
+- how far upward or downward the recursion can extend;
+- whether any physical implementation can approximate an unbounded hierarchy.
+
+These are implementation or formalization questions, not part of the minimum recursive mechanism.
+
+## Novelty status
+
+**Unverified architectural originality.**
+
+Many neighboring ideas already exist: evolutionary algorithms, cultural algorithms, hierarchical evolutionary systems, catamorphisms/folds, anamorphisms/unfolds, hylomorphisms, metamorphisms, hierarchical aggregation, and recursive self-improvement.
+
+The candidate contribution to investigate is narrower:
+
+> **a self-similar evolutionary recursion in which downward expansion produces changing descendants, cessation of change triggers processed-information transfer upward, each upper node may itself change from that information and later transfer upward by the same rule, and an upward-converged state can initiate a new downward expansion.**
+
+No claim of being the first equivalent architecture should be made until systematic prior-art review is complete.
 
 ## Repository map
 
-- [`SPEC.md`](SPEC.md) — terminology and minimum architectural invariants
-- [`ARCHITECTURE.md`](ARCHITECTURE.md) — detailed recursive system structure
+- [`BIDIRECTIONAL_RECURSION.md`](BIDIRECTIONAL_RECURSION.md) — minimal definition of the current core mechanism
+- [`SPEC.md`](SPEC.md) — terminology and invariants
+- [`ARCHITECTURE.md`](ARCHITECTURE.md) — structural explanation and diagrams
 - [`TESTABLE_PREDICTIONS.md`](TESTABLE_PREDICTIONS.md) — observations that could support, narrow, or contradict the theory
-- [`PRIOR_ART.md`](PRIOR_ART.md) — adjacent architectures and candidate distinctions
-- [`CONTRIBUTING.md`](CONTRIBUTING.md) — how to critique or extend the proposal
+- [`PRIOR_ART.md`](PRIOR_ART.md) — adjacent ideas and the current novelty boundary
 - [`paper/BECA_v0.1.md`](paper/BECA_v0.1.md) — conceptual paper draft
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — how to critique or extend the proposal
 - [`CITATION.cff`](CITATION.cff) — citation metadata
 
-## Open questions
+## Core sequence
 
-The current theory intentionally leaves several mechanisms open:
-
-- how local cessation of change is detected;
-- how round-level cessation of change is detected;
-- exactly which closed information is retained in `K_n`;
-- how conflicting closed information is integrated;
-- how integrated knowledge modifies the base layer;
-- which parts of the base layer are mutable between rounds;
-- whether the integrator itself requires additional constraints to avoid introducing distortion.
-
-## Invitation
-
-This is a theory proposal, not a claim of completed validation.
-
-Equivalent prior architectures, counterexamples, formalizations, implementations, and negative results are welcome.
+> **downward expansion -> variation -> local change -> cessation of change -> upward transfer -> upper-level change -> upper-level cessation -> further upward transfer -> renewed downward expansion -> ...**
