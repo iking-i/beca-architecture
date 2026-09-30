@@ -2,183 +2,227 @@
 
 ## 1. Design objective
 
-BECA separates two different kinds of computation that are often mixed together:
+BECA separates three layers that should not be confused:
 
-1. **local cognitive evolution**, where information is allowed to remain unstable and change repeatedly;
-2. **cross-source knowledge integration**, where only already-stabilized outputs are compared and merged.
+1. **common origin**, where agents inherit the same or mutually compatible initial worldview;
+2. **situated local evolution**, where agents occupy different parts of the same world, communicate, and change through different local histories;
+3. **higher-level knowledge integration**, where stabilized conclusions from multiple evolved sources are compared and synthesized.
 
-The architecture is built around the assumption that these two processes should not share the same mutability rules.
+The architecture is not based on agent silence. It is based on separating **communication during evolution** from **authoritative integration after stabilization**.
 
-## 2. System layers
+## 2. System structure
 
 ```text
 +---------------------------------------------------------+
-|                    Shared / Parent Layer                |
+|                    Parent / Shared Layer                |
 |                                                         |
-|  common initialization   global knowledge   governance  |
+|  common worldview   inherited rules   shared ontology  |
 +------------------------------+--------------------------+
                                |
                                v
 +---------------------------------------------------------+
-|                    Agent Population                     |
+|                    Shared World                         |
 |                                                         |
-|   +-----------+   +-----------+   +-----------+         |
-|   | Agent A   |   | Agent B   |   | Agent C   |         |
-|   | mutable   |   | mutable   |   | mutable   |         |
-|   | local     |   | local     |   | local     |         |
-|   | state     |   | state     |   | state     |         |
-|   +-----+-----+   +-----+-----+   +-----+-----+         |
-|         |               |               |               |
-+---------+---------------+---------------+---------------+
-          |               |               |
-          v               v               v
-        Commit A        Commit B        Commit C
-          \               |               /
-           \              |              /
-            +-------------+-------------+
-                          |
-                          v
+|   region A             region B             region C    |
+|      |                    |                    |         |
+|   Agent A <----------> Agent B <----------> Agent C     |
+|      |       peer communication / influence    |        |
+|      |                    |                    |         |
+|   local evolution     local evolution      local evolution
++------+--------------------+--------------------+---------+
+       |                    |                    |
+       v                    v                    v
+    Commit A             Commit B             Commit C
+       \                    |                    /
+        \                   |                   /
+         +------------------+------------------+
+                            |
+                            v
 +---------------------------------------------------------+
 |                 Integration Layer                       |
 |                                                         |
-|  compare -> validate -> detect conflict -> abstract     |
-|           -> generalize -> propose shared update        |
-+------------------------------+--------------------------+
-                               |
-                               v
-                     Shared state revision
+| compare -> validate -> scope -> conflict -> abstract    |
+|             -> generalize -> shared update              |
++---------------------------------------------------------+
 ```
 
-## 3. Why the boundary matters
+## 3. Same world, different positions
 
-The agent boundary is not merely a privacy boundary. It serves four architectural purposes.
+The agents are not intended to inhabit unrelated worlds.
 
-### 3.1 Mutation isolation
-An agent may change its belief many times without forcing the entire system to react to every local revision.
-
-### 3.2 Error containment
-A temporary local error remains local until it survives the agent's own processing and commit rule.
-
-### 3.3 Independent exploration
-Different agents can arrive at different conclusions without being prematurely pulled toward one another by shared provisional state.
-
-### 3.4 Provenance preservation
-The higher layer receives distinguishable conclusions from distinct information histories.
-
-## 4. Information lifecycle
+They begin with a common baseline and then experience different local parts of one coherent environment:
 
 ```text
-Environment
-   |
-   v
-Raw observation
-   |
-   v
-Local interpretation V1
-   |
-   v
-Contradiction / new evidence
-   |
-   v
-Local interpretation V2
-   |
-   v
-Reframing / compression / relation-building
-   |
-   v
-Local interpretation Vn
-   |
-   v
-Stabilization criterion satisfied
-   |
-   v
-COMMIT Cn
-   |
-   v
-Second-stage integration
+M0 = common initial worldview
+
+A(t) = M0 + history in region A + received peer influence
+B(t) = M0 + history in region B + received peer influence
+C(t) = M0 + history in region C + received peer influence
 ```
 
-A key design decision is that `V1 ... Vn` are not global knowledge objects. They are local working states.
+Their value comes from the divergence of those histories.
 
-## 5. Stable does not mean permanent
+Different agents may encounter:
+
+- different events;
+- different local constraints;
+- different relationships;
+- different evidence ordering;
+- different failures;
+- different opportunities;
+- different messages from peers.
+
+They remain comparable because they share a common origin and world model.
+
+## 4. Why the boundary matters
+
+The agent boundary is not a communication wall. It is a boundary of **state ownership and authority**.
+
+### 4.1 Mutable-state ownership
+An agent may revise its own internal state repeatedly without every revision becoming parent-level knowledge.
+
+### 4.2 Peer influence without automatic fusion
+A message from Agent A can change Agent B, but the message enters B as input. It does not directly overwrite the parent system.
+
+### 4.3 Local processing
+Each agent decides how to interpret, reject, combine, or revise information received from both the world and peers.
+
+### 4.4 Source preservation
+When a conclusion is eventually committed, the integration layer can still distinguish which local trajectory produced it.
+
+## 5. Information lifecycle
+
+```text
+common initialization
+        |
+        v
+local position in shared world
+        |
+        v
+observation / peer communication
+        |
+        v
+local interpretation V1
+        |
+new evidence / disagreement / peer influence
+        |
+        v
+local interpretation V2
+        |
+reframing / compression / relation-building
+        |
+        v
+local interpretation Vn
+        |
+stabilization criterion satisfied
+        |
+        v
+COMMIT Cn
+        |
+        v
+second-stage integration
+```
+
+The critical distinction is that `V1 ... Vn` remain local working states even when some of their contents are communicated to peers.
+
+## 6. Communication during evolution
+
+BECA permits rich peer interaction.
+
+Agents may exchange:
+
+- observations;
+- partial hypotheses;
+- questions;
+- critiques;
+- warnings;
+- requests for verification;
+- coordination messages;
+- provisional interpretations.
+
+A peer message can cause substantial local change.
+
+What it cannot do automatically is become a finalized higher-level knowledge contribution merely because it was sent.
+
+This creates the distinction:
+
+```text
+communication -> influence local evolution
+
+commit -> enter higher-level integration
+```
+
+## 7. Stable does not mean permanent
 
 A commit is stable relative to one completed local processing cycle, not necessarily correct forever.
 
 Future local work may produce a later commit. The later commit should supersede the earlier one rather than mutate it in place.
 
-This gives BECA a history of stable states without requiring knowledge to stop evolving.
+This preserves historical source states while allowing long-term knowledge to change.
 
-## 6. Integration is not replay
+## 8. Second-stage integration
 
-The higher layer should not need to replay each agent's entire cognitive history. Its task is narrower:
+The higher layer does not need to replay every internal thought of every agent.
 
-- identify agreement across independent sources;
-- identify disagreement and scope differences;
-- determine whether two conclusions are duplicates, refinements, or contradictions;
-- decide which information is globally useful;
-- produce a higher-level abstraction when possible.
+Its task is to operate on already stabilized source contributions:
 
-This makes the agent a first-stage processor rather than a raw-data relay.
+- identify agreement across different local trajectories;
+- identify disagreement caused by scope or context;
+- distinguish duplicate, refined, and contradictory conclusions;
+- preserve provenance;
+- decide which information is useful at the shared level;
+- produce abstractions that no single local agent necessarily formed alone.
 
-## 7. Two channels
+This is **second-stage processing**, not raw-data processing.
 
-A practical system can separate traffic into two channels.
+## 9. Why multiple agents matter
 
-### Operational channel
-Fast, mutable, non-authoritative messages used for coordination.
+If every agent began differently, it would be difficult to determine whether divergent conclusions came from local experience or from incompatible starting assumptions.
 
-Examples:
+If every agent began identically and experienced the exact same path, the population would add little exploratory value.
 
-- task assignment;
-- liveness;
-- resource negotiation;
-- safety interrupts;
-- routing metadata.
-
-### Knowledge channel
-Slower, versioned, provenance-preserving messages used to modify shared learned state.
-
-Examples:
-
-- stabilized local conclusions;
-- validated local model deltas;
-- compressed rules;
-- reusable solution patterns.
-
-BECA constrains the knowledge channel, not necessarily the operational channel.
-
-## 8. Relation to lifecycle
-
-For long-lived agents, a commit can happen many times.
-
-For bounded agents, one useful interpretation is:
+BECA therefore emphasizes:
 
 ```text
-create -> explore -> evolve -> stabilize -> final commit -> terminate
+common initial state
+        +
+different local trajectories
+        +
+peer interaction
+        =
+differentiated evolved sources
 ```
 
-In that form, an agent lifecycle behaves like a transaction boundary: local state is mutable while the transaction is active, then a final result becomes immutable at commit.
+The higher layer can then integrate what those sources learned.
 
-This lifecycle interpretation is optional. BECA does not require biological metaphors or a single final commit.
+## 10. Lifecycle interpretation
 
-## 9. Main design trade-off
+For long-lived agents, commits may happen repeatedly.
 
-BECA deliberately trades some immediacy for isolation.
+For bounded agents, one possible lifecycle is:
 
-Potential benefits:
+```text
+initialize -> enter world -> evolve -> communicate -> stabilize -> final commit -> terminate
+```
 
-- reduced propagation of provisional errors;
-- lower global churn;
-- stronger source independence;
-- easier provenance tracking;
-- clearer conflict handling.
+The lifecycle metaphor is optional. The architectural requirement is simply that local mutability and higher-level integration use different rules.
 
-Potential costs:
+## 11. Main design trade-off
 
-- delayed useful information;
-- duplicated work across agents;
+Potential benefits include:
+
+- preserving local interpretive processes;
+- preventing every provisional change from becoming global state;
+- maintaining distinguishable source trajectories;
+- allowing communication without collapsing all agents into one mutable knowledge pool;
+- making higher-level integration operate on more mature source outputs.
+
+Potential costs include:
+
+- delayed parent-level updates;
 - difficulty defining stabilization;
-- possible loss of beneficial early collaboration;
-- lower performance in tasks that require continuous shared adaptation.
+- possible duplication of work;
+- peer influence may still correlate errors;
+- some tasks may benefit more from continuous global shared adaptation.
 
-The architecture should therefore be evaluated empirically rather than assumed to dominate dynamic-sharing systems.
+BECA is therefore a theory about information boundaries and knowledge lifecycle, not a claim that delayed integration is universally superior.
