@@ -359,3 +359,38 @@ The most important boundary is:
 A claimed true structural downgrade inherits the state-return criterion from Sections 11–12: if higher-order relations or internal later-state information remain active, the system has not returned to the earlier lower-order state.
 
 The stronger physical claim that spacetime historically evolved through dimensional stages such as `D_n -> D_(n+1)` remains unverified and MUST NOT be treated as a core Perfect Recursion invariant without independent physical evidence.
+
+## 18. Relational quasi-invariants
+
+Perfect Recursion does not treat stage-truth as permanently invariant. A stage-truth may remain stable for a long interval and may become part of later generative conditions, but it remains revisable by definition.
+
+The theory therefore distinguishes a stable state from a **relational quasi-invariant**.
+
+A relational quasi-invariant is a relation pattern whose concrete instances may continually change while the relation that jointly defines or constrains them is repeatedly preserved across many recursive states.
+
+```text
+(A1, B1) -> (A2, B2) -> (A3, B3) -> ...
+
+instances change
+relation R(A, B) persists
+```
+
+The stability belongs to `R`, not to any particular `A_n` or `B_n`.
+
+Some such relations are **co-defining coexistence structures**: the identity of one side is meaningful only within a relation that also defines the corresponding side. Structural coexistence does not require both sides to be equally visible or temporally manifested at every moment.
+
+Examples may include, when defined within a specific domain:
+
+- right / wrong;
+- good / bad;
+- problem / solution-space.
+
+The last case need not be symmetric. A problem may be observed before a solution is found; the stable structure is the directional relation between a constraint and the space of states that would remove, satisfy, or reconstruct that constraint.
+
+Not every binary distinction is a relational quasi-invariant. For example, `red / blue` does not ordinarily require either term to exist in order for the other to retain its identity. Mere opposition, naming, or two-valued classification is therefore insufficient.
+
+A relational quasi-invariant is also not an absolute invariant. A higher-order reconstruction may refine, embed, replace, or dissolve the relation itself. The claim is only that long-lived stability can arise through repeated preservation of relation structure while its concrete members continue to change.
+
+> **Stability can be produced by recurrent relational constraint rather than by cessation of change.**
+
+This preserves the distinction between changing stage-truth and long-lived structural regularity: what remains nearly unchanged may be the form of a relation repeatedly instantiated by changing states, not a final truth that has ceased to evolve.
