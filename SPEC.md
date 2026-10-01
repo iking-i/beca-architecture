@@ -337,3 +337,25 @@ A conforming implementation or formal analogue should preserve:
 ## 16. Compact definition
 
 > **Perfect Recursion is a closed but expanding bidirectional recursive architecture in which reality-facing lower processes continue to generate information, higher structures integrate and reconstruct that information, higher-level qualitative change reshapes future lower-level variation, the architecture keeps its own perception, capacity, limits, recursive origins, and provenance open to further recursion, and continued operation does not require replaying the complete causal history that produced the current structure. Historical replay remains forward recursion; true reversal, if meaningful, requires the current state itself to be returned rather than duplicated beside a past-like branch.**
+
+## 17. Dimensional Recursion extension status
+
+`DIMENSIONAL_RECURSION.md` defines a **hypothesis-level extension**. Its principles are intentionally not promoted to `PR-I*` core invariants at this stage.
+
+The extension distinguishes:
+
+- ambient structural dimension from lower-dimensional expression;
+- projection / representation from structural downgrade;
+- contained lower-order structure from its earlier historical identity;
+- generated lower-dimensional artifacts from true return;
+- direct observability of a degree of freedom from theoretical inference about it.
+
+The current extension uses independent `DR-H*` hypothesis identifiers.
+
+The most important boundary is:
+
+> **A higher-order structure may contain or represent lower-order structure without thereby becoming the earlier lower-order state.**
+
+A claimed true structural downgrade inherits the state-return criterion from Sections 11–12: if higher-order relations or internal later-state information remain active, the system has not returned to the earlier lower-order state.
+
+The stronger physical claim that spacetime historically evolved through dimensional stages such as `D_n -> D_(n+1)` remains unverified and MUST NOT be treated as a core Perfect Recursion invariant without independent physical evidence.

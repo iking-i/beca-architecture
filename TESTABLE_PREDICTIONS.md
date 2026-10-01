@@ -282,3 +282,85 @@ Given any claimed return-to-past mechanism, classify it using the following ques
    → it satisfies the **state-return criterion** for true reversal, subject to independent physical demonstration.
 
 This classification prevents branch generation from being mistaken for reversal merely because the new branch resembles an earlier state.
+
+## 22. Dimensional Recursion hypothesis tests
+
+These tests apply only to the hypothesis extension in `DIMENSIONAL_RECURSION.md`; failure does not automatically falsify the core Perfect Recursion architecture.
+
+### 22.1 Expression-versus-identity test
+
+Place states in an ambient coordinate structure `(x, y)`. Compare states such as `(1, 1)` and `(1, 0)`.
+
+The extension predicts that fixing one coordinate does not by itself change the ambient structural identity. The system remains defined over `(x, y)` unless the underlying structure itself changes.
+
+A formalism that treats every fixed-coordinate state as literal destruction of that dimension would conflict with DR-H2.
+
+### 22.2 Projection-versus-downgrade test
+
+Start with a higher-order representation `H` and produce a lower-dimensional projection or file `L'` while retaining `H`.
+
+```text
+H remains active
+└─ generates L'
+```
+
+Classify the result. The extension predicts this is representation/artifact generation, not return of `H` to an earlier lower-order state.
+
+### 22.3 Higher-coordinate observability test
+
+Define a hypothetical higher state:
+
+```text
+(x, y, z, i)
+```
+
+and observation map:
+
+```text
+P(x, y, z, i) = (x, y, z)
+```
+
+Vary only `i`. If `P` remains unchanged, the observer cannot directly distinguish the states through that map. Then introduce coupling from `i` into accessible variables and test whether the hidden distinction becomes inferable.
+
+This tests the access logic of DR-H4; it does **not** test whether a physical fourth spatial coordinate exists.
+
+### 22.4 Context / historical identity test
+
+Compare:
+
+```text
+earliest lower-order state L
+```
+
+with:
+
+```text
+higher-order state H containing an L-like substructure
+```
+
+Test whether local mathematical equivalence is sufficient to establish historical identity. The extension predicts it is not: relational context and lineage remain part of identity under the adopted model.
+
+### 22.5 True-downgrade state-return test
+
+For an operation claimed to reduce a higher-order active structure `H` to an earlier lower-order state `L`, inspect whether higher-order relations or information dependent on `H` remain inside the downgraded domain.
+
+If they do, classify the result as `L'`, not the earlier `L`.
+
+This is the dimensional application of the true-reversal criterion.
+
+### 22.6 Physical dimensional-emergence evidence requirement
+
+The stronger hypothesis that physical reality historically underwent:
+
+```text
+D_n -> D_(n+1)
+```
+
+must remain provisional unless it produces independent, discriminating evidence such as:
+
+- a concrete generation mechanism for additional independent degrees of freedom;
+- mathematically derived remnants of the transition;
+- observational signatures not equally predicted by competing models;
+- a model connecting lower-dimensional predecessor states to measured current spacetime structure.
+
+Analogies involving points, lines, surfaces, images, text, or video are insufficient by themselves to establish this physical history.

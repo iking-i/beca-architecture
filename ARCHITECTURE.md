@@ -389,3 +389,44 @@ optional integration of K into C
 The full replayed branch does not automatically merge back into the active branch.
 
 This is not because replay is outside Perfect Recursion. The opposite is true: replayed history is another recursive branch, and therefore should be handled with the same branch/integration discipline as other generated recursion.
+
+## 22. Dimensional recursion as a hypothesis-layer architecture
+
+Dimensional Recursion is attached to BECA as an extension layer rather than as a core physical axiom.
+
+The architecture distinguishes four operations that can look superficially similar:
+
+```text
+A. lower-dimensional expression inside a higher-order structure
+B. projection / representation of a higher-order structure
+C. generation of a new lower-dimensional artifact or recursive branch
+D. true structural downgrade of the active system
+```
+
+Only `D` is treated as a candidate for genuine dimensional return. `A–C` remain operations of the current higher-order structure.
+
+The identity rule is:
+
+> **A lower-order structure embedded in a higher-order structure may preserve local relations while having a different historical and structural identity from an earlier state in which that lower order was the entire accessible structure.**
+
+For a hypothetical observer with access map:
+
+```text
+P(x, y, z, i) = (x, y, z)
+```
+
+changes only in `i` are not directly distinguishable unless they change accessible variables or the observation mechanism itself. This is treated as a special case of recursive perception, not as evidence that `i` physically exists.
+
+The dimensional extension also adopts the state-return rule:
+
+```text
+higher state H remains + lower artifact L' is generated
+=> branch / representation / expression
+
+higher state H itself is returned to earlier lower state L
+=> candidate true downgrade
+```
+
+The physical claim that dimensions themselves historically emerged through `D_n -> D_(n+1)` remains open. The architecture therefore keeps dimensional recursion outside the core `PR-I*` invariant set until a mechanism, formal model, and independent evidence are established.
+
+See [`DIMENSIONAL_RECURSION.md`](DIMENSIONAL_RECURSION.md).
