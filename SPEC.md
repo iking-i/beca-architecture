@@ -34,8 +34,11 @@ A condition in which the current recursive structure continues even though part 
 ### 1.10 Theoretical reconstruction
 A present-time model or inference about an earlier state or process. It is descriptive and does not itself reinstate the earlier causal process.
 
-### 1.11 Process replay
-Execution of a reconstructed earlier-like state in the present. Unless a stronger reversal mechanism is separately demonstrated, process replay is treated as creation of a new recursive branch.
+### 1.11 Historical replay
+Execution of a reconstructed earlier-like state while the current state remains part of the active causal structure. Historical replay is treated as generation of a new recursive branch.
+
+### 1.12 True reversal
+A hypothetical return of the active system itself to an earlier state in which the later active state is no longer retained as the current state. Complete reversal requires that state internal to the reversed system which depends on the later interval also be returned.
 
 ## 2. Core recursive rule
 
@@ -113,13 +116,22 @@ Once a higher-level recursive structure is sufficiently autonomous, the lower st
 ### PR-I18 — Historical reconstruction is descriptive by default
 A reconstructed earlier state is a present model of history and MUST NOT be treated as the original historical causal event merely because the state description matches.
 
-### PR-I19 — Process replay creates a branch
-Executing a reconstructed earlier-like state SHOULD be treated as generation of a new recursive branch unless literal causal reversal is separately demonstrated.
+### PR-I19 — Historical replay creates a recursive branch
+Executing a reconstructed earlier-like state while the current state remains active SHOULD be treated as generation of a new recursive branch. Such branch creation is itself part of ongoing recursion.
 
-### PR-I20 — Replayed branches do not auto-merge
+### PR-I20 — Branch creation is not true reversal
+If the later/current state remains present while a past-like state is generated, the operation MUST NOT be classified as complete reversal.
+
+### PR-I21 — True reversal requires return of current state
+For an operation to count as complete reversal to an earlier state, the later active state MUST cease to remain the current state within the reversed system.
+
+### PR-I22 — Complete reversal cannot retain internal later-state evidence
+If information internal to the reversed system remains observable solely because the later interval occurred, the resulting state is not identical to the target earlier state and the reversal is incomplete.
+
+### PR-I23 — Replayed branches do not auto-merge
 A replayed branch MUST NOT automatically overwrite or merge into the active branch. Any transfer SHOULD occur through an explicit validation or merge protocol.
 
-### PR-I21 — Full historical replay is not a runtime requirement
+### PR-I24 — Full historical replay is not a runtime requirement
 Continued recursion MUST NOT require replaying the complete generating history at every stage.
 
 ## 4. Multi-source semantics
@@ -129,7 +141,7 @@ Let lower-level instances return outcomes `o_i`.
 A higher-level model MUST distinguish at least:
 
 ```text
-repetition:      A, A, A, A
+repetition:       A, A, A, A
 novel difference: A, A, A, B
 ```
 
@@ -225,7 +237,7 @@ while at a later stage only `H` remains active or accessible.
 
 This does not by itself break recursive continuity.
 
-## 11. Reconstruction versus replay
+## 11. Reconstruction, replay, and reversal
 
 Theoretical reconstruction:
 
@@ -234,7 +246,7 @@ current C
   -> infer historical model H*
 ```
 
-Process replay:
+Historical replay:
 
 ```text
 current C
@@ -244,17 +256,43 @@ current C
   -> C'
 ```
 
-The second process creates a present causal branch `C'`. It is not equivalent to returning to the original historical chain.
+Here the current branch remains part of the causal structure and `C'` is newly generated. This is recursion generating another branch, not causal reversal.
+
+True reversal, by contrast, would require:
+
+```text
+S1 -> S2 -> S3
+
+then
+
+S3 -> S1
+```
+
+with `S3` no longer retained as the active state of the reversed system.
 
 Therefore:
 
-> **theory may be reconstructed backward; executed process moves forward causally.**
+> **theory can be reconstructed backward; replay regenerates forward; true reversal would return the current state itself.**
 
-## 12. Branch merge discipline
+## 12. Internal observability criterion
 
-A replayed branch may contain state claims incompatible with the active branch.
+For complete reversal to `S1`, the reversed system cannot internally retain information that exists only because it passed through `S2` or `S3`.
 
-Potential conflicts include:
+If such information remains, then the result is:
+
+```text
+S1' = S1 + later-state information
+```
+
+and therefore `S1' != S1` under the adopted state definition.
+
+This criterion applies only to the reversed domain. A larger external system that is not reversed MAY retain evidence of a local subsystem reset/reversal; from that larger level the local reversal remains an ordinary forward event.
+
+## 13. Branch merge discipline
+
+Branch-merge problems belong to historical replay, not true reversal.
+
+A replayed branch may contain state claims incompatible with the active branch, including:
 
 - duplicated identities;
 - incompatible object versions;
@@ -264,7 +302,7 @@ Potential conflicts include:
 
 A conforming implementation SHOULD isolate replayed branches by default and MAY transfer validated conclusions back to the active branch through explicit higher-level integration.
 
-## 13. Epistemic boundary
+## 14. Epistemic boundary
 
 The model MUST distinguish possibility from inevitability.
 
@@ -275,7 +313,7 @@ possible != inevitable
 
 A future event becomes empirically established as realizable only after occurrence or equivalent evidence. The architecture's openness alone does not prove that every specific possibility will eventually occur.
 
-## 14. Conformance summary
+## 15. Conformance summary
 
 A conforming implementation or formal analogue should preserve:
 
@@ -291,9 +329,11 @@ A conforming implementation or formal analogue should preserve:
 - absence of a built-in final layer;
 - expansion of the recursive closed loop;
 - provenance discontinuity;
-- separation of theoretical reconstruction from process replay;
+- separation of theoretical reconstruction, historical replay, and true reversal;
+- recognition that replayed histories are new recursive branches;
+- the state-return criterion for true reversal;
 - branch isolation or explicit merge control for replayed histories.
 
-## 15. Compact definition
+## 16. Compact definition
 
-> **Perfect Recursion is a closed but expanding bidirectional recursive architecture in which reality-facing lower processes continue to generate information, higher structures integrate and reconstruct that information, higher-level qualitative change reshapes future lower-level variation, the architecture keeps its own perception, capacity, limits, recursive origins, and provenance open to further recursion, and continued operation does not require replaying the complete causal history that produced the current structure.**
+> **Perfect Recursion is a closed but expanding bidirectional recursive architecture in which reality-facing lower processes continue to generate information, higher structures integrate and reconstruct that information, higher-level qualitative change reshapes future lower-level variation, the architecture keeps its own perception, capacity, limits, recursive origins, and provenance open to further recursion, and continued operation does not require replaying the complete causal history that produced the current structure. Historical replay remains forward recursion; true reversal, if meaningful, requires the current state itself to be returned rather than duplicated beside a past-like branch.**

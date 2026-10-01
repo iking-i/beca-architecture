@@ -233,6 +233,7 @@ Perfect Recursion combines:
 - asynchronous operation;
 - no built-in final top/bottom;
 - provenance discontinuity;
+- distinction between reconstruction, replay, and true reversal;
 - an expanding closed loop.
 
 ## 16. Open formal questions
@@ -244,6 +245,7 @@ The main remaining formal questions are:
 - how to distinguish genuine perceptual reconstruction from arbitrary relabeling;
 - how to formalize recursive capacity growth under finite physical resources;
 - how to distinguish a new recursive origin from an ordinary descendant;
+- how to define state identity strongly enough to distinguish replay from true reversal;
 - which existing mathematical frameworks are equivalent to the v0.7 mechanism;
 - whether the entire architecture can be expressed with a minimal set of operators and invariants.
 
@@ -286,31 +288,79 @@ This prevents historical cost from becoming an ever-growing mandatory runtime bu
 
 The current structure may therefore carry **the result of history** without carrying **the entire executable history**.
 
-## 19. Reconstruction is not reversal
+## 19. Reconstruction is not replay; replay is not reversal
 
-The architecture distinguishes:
+Three operations must remain distinct.
+
+### Theoretical reconstruction
 
 ```text
-theoretical reconstruction:
 current C -> inferred past model H*
 ```
 
-from:
+This is descriptive. It produces knowledge about a possible or inferred past.
+
+### Historical replay
 
 ```text
-process replay:
-current C -> R0' -> R1' -> R2' -> C'
+current C
+   ├─ continues as present branch
+   └─ R0' -> R1' -> R2' -> C'
 ```
 
-A replayed `R0'` exists in the present causal system. Even if its state exactly matches a reconstructed `R0`, it is not the original historical event.
+The newly generated `R0'` is a present event whose state may resemble a past state. Because the current branch remains and another branch is generated, this operation is simply **recursion generating recursion**.
 
-Therefore:
+> **A second history is evidence of branch generation, not evidence of reversal.**
 
-> **process replay creates a new recursive branch rather than restoring the original past.**
+### True reversal
 
-A literal reversal would require stronger conditions than state reconstruction alone and is not assumed by the theory.
+A true reversal would instead require:
 
-## 20. Branch-isolated historical simulation
+```text
+S1 -> S2 -> S3
+
+then
+
+S3 -> S1
+```
+
+The essential condition is not conflict avoidance. It is that `S3` itself is no longer retained as the active state of the reversed system.
+
+Thus:
+
+> **True reversal does not recreate the past beside the present; it returns the present state itself.**
+
+The theory does not assume that such global reversal is physically achievable. It defines the distinction so that replay, reset, and simulation are not mislabeled as reversal.
+
+## 20. State-return and observability criterion
+
+If a system is completely returned from `S3` to `S1`, information internal to that reversed system which exists only because `S2` or `S3` occurred must also be returned.
+
+Otherwise the state is actually:
+
+```text
+S1' = S1 + later-state information
+```
+
+and therefore differs from `S1`.
+
+This yields a strong criterion:
+
+> **If the system can internally observe retained evidence of its own post-target history after the alleged complete reversal, the reversal was incomplete.**
+
+This does not forbid an external observer from seeing a local subsystem reset or reversal. If the observer remains outside the reversed domain, the larger system continues forward:
+
+```text
+external E1 -> E2
+             |
+             └─ local subsystem S3 -> S1
+```
+
+From the higher-level perspective, the local return is still one event in the larger recursion.
+
+## 21. Replay branch isolation
+
+Branch conflicts belong to replay because replay leaves multiple branches present.
 
 A replay branch can contain information incompatible with the active branch:
 
@@ -338,4 +388,4 @@ optional integration of K into C
 
 The full replayed branch does not automatically merge back into the active branch.
 
-This treats historical reconstruction as an information source while preserving causal separation between realized history and newly generated replay branches.
+This is not because replay is outside Perfect Recursion. The opposite is true: replayed history is another recursive branch, and therefore should be handled with the same branch/integration discipline as other generated recursion.

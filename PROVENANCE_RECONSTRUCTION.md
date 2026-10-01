@@ -1,20 +1,20 @@
 # Provenance Discontinuity and Historical Reconstruction
 
-This document adds a provenance rule to **Perfect Recursion / Bidirectional Evolutionary Recursion (BER)**.
+This document adds a provenance and reversal rule to **Perfect Recursion / Bidirectional Evolutionary Recursion (BER)**.
 
 ## 1. Core distinction
 
 Perfect Recursion distinguishes three operations that must not be conflated:
 
 1. **theoretical reconstruction** — infer or model an earlier state from present evidence;
-2. **process replay** — instantiate an earlier state and execute its dynamics again;
-3. **true reversal** — make the active present system become its own earlier historical state while removing the already-realized causal consequences.
+2. **historical replay / regeneration** — instantiate an earlier-like state in the present and let it execute again;
+3. **true reversal** — return the active system itself to an earlier state by giving up the present state that came after it.
 
-The theory permits the first, treats the second as creation of a new recursive branch, and does not assume the third is a valid operation.
+The first is descriptive. The second is generative and therefore remains part of the forward recursion. The third, if physically meaningful at all, is not branch creation: it would require the current state itself to be returned.
 
 Compactly:
 
-> **Theory can be reconstructed backward; process can only be generated again. A regenerated process belongs to a new branch, not to the original past.**
+> **Theory may be reconstructed backward. A past-like process may be regenerated forward. True reversal would require the present state itself to be returned.**
 
 ## 2. Provenance discontinuity
 
@@ -83,7 +83,7 @@ on every later operation.
 
 This prevents historical cost from growing into a mandatory runtime burden.
 
-## 5. Why complete process replay is not neutral
+## 5. Historical replay is recursion, not reversal
 
 Suppose the realized history is:
 
@@ -91,44 +91,130 @@ Suppose the realized history is:
 R0 -> R1 -> R2 -> C
 ```
 
-At current state `C`, the system attempts to “replay the past” by instantiating an earlier state:
+At current state `C`, the system reconstructs an earlier-like state and executes it:
 
 ```text
 C
 └-> R0' -> R1' -> R2' -> C'
 ```
 
-`R0'` is not the original `R0`. It is a new present event whose initial conditions resemble a reconstructed past state.
+`R0'` is a new present event whose state may resemble `R0`, but its creation occurred after `C`.
 
-Therefore process replay produces a new causal branch:
+Therefore:
 
 > **replay is branch creation, not return.**
 
-Even with a perfect state copy, the replay exists at a new causal position and can interact with different surroundings, timing, resources, random events, observations, or higher-level structures.
-
-## 6. Merge conflict between realized and replayed branches
-
-If a replayed branch `C'` is allowed to merge directly into the active branch `C`, the system may face incompatible state claims:
-
-- different versions of the same object;
-- incompatible causal dependencies;
-- duplicated identities;
-- obsolete rules reintroduced as active rules;
-- different conclusions generated under different environments;
-- duplicated or contradictory downstream effects.
-
-Thus:
+The important correction is that this new branch is not a paradoxical conflict with recursion. It is itself a normal recursive event:
 
 ```text
-realized branch C
-+
-replayed branch C'
--> non-trivial merge problem
+R -> R'
 ```
 
-The merge is not equivalent to restoring the past. It is an interaction between two present recursive branches.
+where `R'` happens to use a historical state as its template or initial condition.
 
-## 7. Safe historical reconstruction rule
+If a second history can be created while the first remains present, then the operation has generated another recursive branch rather than reversed the first history.
+
+## 6. True reversal means returning the present state
+
+A true reversal is conceptually different from replay.
+
+If the active system has evolved:
+
+```text
+S1 -> S2 -> S3
+```
+
+then true reversal to `S1` would require:
+
+```text
+S3 -> S1
+```
+
+not:
+
+```text
+S3 -> S3 + S1'
+```
+
+The defining condition is that the later active state is no longer retained as the active state.
+
+This means a complete reversal would have to return not only ordinary object state, but also every part of the reversed system that encodes the later state, including where applicable:
+
+- memory of `S2` and `S3`;
+- internal records that `S2` and `S3` occurred;
+- observations made only after `S1`;
+- causal consequences that belong exclusively to the later state.
+
+Therefore:
+
+> **True reversal does not bring the past forward; it returns the present state backward.**
+
+## 7. Internal observability criterion
+
+A complete reversal has a strict observational consequence.
+
+If, after an alleged reversal to `S1`, the reversed system still internally retains information that depends on having passed through `S2` or `S3`, then the system has not completely returned to the original `S1`.
+
+That information makes the resulting state different:
+
+```text
+S1' = S1 + retained later-state information
+```
+
+Hence:
+
+> **If pre-reversal state information remains internally observable after the operation, the operation was not a complete reversal.**
+
+This makes complete reversal internally self-erasing with respect to the reversed interval: the evidence that the later state was reached must itself be among the returned state if that evidence belongs to the reversed system.
+
+## 8. External-observer boundary
+
+The internal-observability rule applies to the system whose state is being fully returned.
+
+A larger external system may remain unreversed and observe a subsystem being reset or returned:
+
+```text
+external E1 -> E2
+             |
+             └─ subsystem S3 -> S1
+```
+
+From the external level, that local reversal/reset is still an ordinary forward event in the larger recursion.
+
+Therefore the theory distinguishes:
+
+- **complete-system reversal** — no internal later-state evidence can remain inside the fully reversed system;
+- **local reversal/reset observed externally** — the external observer remains outside the reversed domain and can retain evidence.
+
+This distinction prevents local reset from being confused with global reversal.
+
+## 9. Branch conflicts belong to replay, not true reversal
+
+Branch conflicts can occur only when multiple branches coexist.
+
+If replay creates:
+
+```text
+active branch C
++
+replayed branch C'
+```
+
+then merging them may be non-trivial because both are present recursive structures.
+
+Possible problems include:
+
+- duplicated identities;
+- incompatible object versions;
+- obsolete rules reactivated as current rules;
+- contradictory causal dependencies;
+- duplicated downstream effects.
+
+But these are **replay/merge problems**, not properties of true reversal.
+
+A true reversal, by definition, does not preserve the unreversed active branch alongside the returned state.
+
+## 10. Safe historical reconstruction rule
 
 Historical reconstruction should be observational by default.
 
@@ -148,14 +234,9 @@ higher-level validation
 possible integration of K into C
 ```
 
-The system may integrate **validated conclusions about history** without directly merging the full replayed process into the active branch.
+The system may integrate **validated conclusions about history** without mistaking a regenerated history for literal return to the original past.
 
-This preserves the distinction between:
-
-- learning from a reconstructed history;
-- reactivating a historical process inside the current causal system.
-
-## 8. Provenance is optional runtime information
+## 11. Provenance is optional runtime information
 
 A conforming Perfect Recursion system MAY preserve detailed provenance, but it MUST NOT require complete provenance replay as a condition for continued recursion.
 
@@ -170,7 +251,7 @@ Provenance may be:
 
 The recursive process can still continue if the current structure retains enough information and capability to generate the next stage.
 
-## 9. Relationship to information loss
+## 12. Relationship to information loss
 
 This mechanism extends the existing local-loss rule.
 
@@ -184,7 +265,7 @@ Now additionally:
 
 Loss of provenance therefore does not necessarily imply loss of recursive function.
 
-## 10. Relationship to stage-truth
+## 13. Relationship to stage-truth
 
 A current stage-truth may be a compression of historical processes whose full paths are no longer accessible.
 
@@ -198,7 +279,7 @@ This creates a distinction between:
 
 These three need not be identical.
 
-## 11. Consequence for origin questions
+## 14. Consequence for origin questions
 
 If provenance discontinuity occurs repeatedly, a later system may be able to infer that it has a generating history while being unable to recover the first concrete origin.
 
@@ -212,7 +293,7 @@ absolute first origin
 
 The theory does not conclude from this that an absolute first origin exists or does not exist. It concludes only that inability to recover an origin is not equivalent to proof that no earlier generating process existed.
 
-## 12. Additional invariants
+## 15. Additional invariants
 
 ### PR-P1 — Provenance continuity is optional
 Recursive continuation does not require continuous access to the entire generating lineage.
@@ -223,24 +304,36 @@ A higher recursive structure may continue after the lower structure that generat
 ### PR-P3 — Historical reconstruction is descriptive by default
 Reconstruction of earlier states is a present model of history, not literal recovery of the original causal event.
 
-### PR-P4 — Process replay creates a new branch
-Executing a reconstructed historical state produces a new recursive branch unless a stronger reversal mechanism is separately demonstrated.
+### PR-P4 — Historical replay creates a recursive branch
+Executing a reconstructed earlier-like state while the current state remains produces a new recursive branch. That branch is itself part of ongoing recursion.
 
-### PR-P5 — Replayed branches must not auto-merge
+### PR-P5 — Branch creation is not true reversal
+If the original current branch remains present while a past-like state is generated, the operation is replay/regeneration rather than true reversal.
+
+### PR-P6 — True reversal requires return of the current state
+A complete reversal to an earlier state requires all reversed-system state that depends on the later interval to be returned, including internal evidence of that interval.
+
+### PR-P7 — Complete reversal is internally non-retentive
+If later-state information remains internally observable after the claimed reversal, the result is not identical to the earlier state and the reversal is incomplete.
+
+### PR-P8 — Replay branches must not auto-merge
 A replayed branch should not automatically write into the active branch. Any transfer should occur through explicit higher-level validation or a defined merge protocol.
 
-### PR-P6 — Complete historical replay is not a runtime requirement
+### PR-P9 — Complete historical replay is not a runtime requirement
 Continued recursion must not depend on replaying the entire generating history at every stage.
 
-## 13. Falsification / narrowing targets
+## 16. Falsification / narrowing targets
 
-This provenance extension should be narrowed if a formal model demonstrates that:
+This provenance and reversal extension should be narrowed if a formal model demonstrates that:
 
 1. every higher-level recursive structure necessarily requires all lower generating layers to remain active forever;
-2. exact process replay can be shown to restore the original historical causal position rather than create a new present branch;
-3. merging a replayed branch into the active branch is always lossless and conflict-free by construction;
-4. recursive continuation necessarily requires full, continuously accessible provenance.
+2. generation of a past-like state while preserving the present can restore the original historical causal identity without constituting a new branch;
+3. a state can be fully identical to an earlier state while still internally retaining information that exists only because the later state occurred;
+4. branch replay and true reversal are formally the same operation under the adopted state definition;
+5. recursive continuation necessarily requires full, continuously accessible provenance.
 
-## 14. Compact formulation
+The theory does **not** claim that true global reversal is physically achievable. It only defines what would have to be true for an operation to count as true reversal rather than replay, reset, reconstruction, or branch creation.
 
-> **Perfect Recursion allows provenance discontinuity. A system may inherit the structural result of history without continuously carrying or replaying the entire history. Theoretical reconstruction can move backward descriptively; process execution moves forward causally. Replaying an earlier state therefore creates a new recursive branch rather than restoring the original past.**
+## 17. Compact formulation
+
+> **Perfect Recursion allows provenance discontinuity. A system may inherit the structural result of history without continuously carrying or replaying the entire history. Theoretical reconstruction models the past. Historical replay regenerates a past-like process as a new recursive branch and therefore remains part of forward recursion. True reversal, if meaningful, would require the current state itself to be returned, including internal information produced only after the target state. If that later-state information remains, the operation was not complete reversal.**

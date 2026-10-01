@@ -157,7 +157,7 @@ For each implementation or formalization, the recursive variables and reconstruc
 
 The theory is currently a conceptual architecture with testable structural claims, not an experimentally established universal law.
 
-Its strongest unresolved empirical/formal question is whether one mechanism can realize all v0.7 invariants without hidden fixed assumptions that effectively place perception, capacity, or reconstruction outside the recursion.
+Its strongest unresolved empirical/formal question is whether one mechanism can realize all v0.7 invariants without hidden fixed assumptions that effectively place perception, capacity, reconstruction, or state identity outside the recursion.
 
 ## 15. Provenance discontinuity test
 
@@ -177,7 +177,7 @@ If every higher-level structure necessarily requires the complete lower generati
 
 ## 16. Reconstruction-versus-replay test
 
-Prediction: reconstructing an earlier state description and executing it in the present creates a new causal branch rather than restoring the original historical event.
+Prediction: reconstructing an earlier state description and executing it while the present branch remains creates a new recursive branch rather than restoring the original historical state.
 
 Test:
 
@@ -186,22 +186,61 @@ original: R0 -> R1 -> R2 -> C
 replay:   C -> R0' -> R1' -> R2' -> C'
 ```
 
-Compare `C'` with the realized `C` under controlled and perturbed current conditions.
+The decisive observation is not merely whether `C'` resembles `C`. It is whether the operation preserved `C` while creating another active lineage.
 
-The test should distinguish:
+If yes, the operation is branch generation and therefore remains part of forward recursion.
 
-- state equivalence;
-- causal identity;
-- environmental context;
-- downstream divergence.
+A formal result showing that preserving the present while generating a past-like process nevertheless constitutes literal return of the same active history would challenge PR-I19 and PR-I20.
 
-A result showing that exact state reconstruction automatically restores the original causal position, with no new branch semantics required, would directly challenge PR-I19.
+## 17. True-reversal state-return criterion
 
-## 17. Replay-merge conflict test
+The theory makes a definitional prediction about any operation claimed to be complete reversal.
+
+Suppose:
+
+```text
+S1 -> S2 -> S3
+```
+
+and an operation claims to return the system to `S1`.
+
+After the operation, inspect all state variables inside the defined reversed domain.
+
+If the domain still contains information whose existence depends only on having reached `S2` or `S3` — for example memory, logs, object state, counters, or causal effects not present at `S1` — then the resulting state is:
+
+```text
+S1' = S1 + later-state information
+```
+
+and is not identical to `S1` under that state definition.
+
+Therefore:
+
+> **retained internal evidence of the later interval falsifies the claim of complete reversal for that defined domain.**
+
+This test does not establish that true reversal is physically possible. It only distinguishes true reversal from reset, replay, reconstruction, and branch creation.
+
+## 18. External-observer boundary test
+
+A local subsystem may be returned/reset while an external system remains unchanged.
+
+```text
+external E1 -> E2
+             |
+             └─ subsystem S3 -> S1
+```
+
+Prediction: the external observer may retain evidence of the local return because it is outside the reversed domain.
+
+Therefore retained external evidence does not by itself falsify local reversal. Retained **internal** later-state evidence does.
+
+This test requires the reversed domain to be defined before evaluation.
+
+## 19. Replay-merge conflict test
 
 Prediction: direct merging of a replayed branch into an active branch is not generically neutral.
 
-Construct two branches with shared ancestry but divergent later state. Attempt direct merge and measure:
+Construct two present branches with shared modeled ancestry but divergent later state. Attempt direct merge and measure:
 
 - identity collisions;
 - incompatible object versions;
@@ -212,9 +251,11 @@ Construct two branches with shared ancestry but divergent later state. Attempt d
 
 Compare against an isolated-replay protocol in which only validated conclusions are integrated through the higher level.
 
-If direct full-state replay merge is always lossless and conflict-free by construction across the target class of systems, PR-I20 should be narrowed.
+These conflicts are properties of **coexisting replay branches**, not properties of true reversal.
 
-## 18. Historical-load test
+If direct full-state replay merge is always lossless and conflict-free by construction across the target class of systems, PR-I23 should be narrowed.
+
+## 20. Historical-load test
 
 Prediction: requiring full provenance replay at every stage creates growing runtime cost that is unnecessary when historical results are compressed into current structure.
 
@@ -228,3 +269,16 @@ B. compressed-current-state continuation
 Measure compute, storage, latency, and conflict frequency as history length grows.
 
 The model predicts that recursive continuation does not require architecture A as a universal condition.
+
+## 21. Classification test for apparent “time return”
+
+Given any claimed return-to-past mechanism, classify it using the following questions:
+
+1. Does the current state remain while a past-like state is generated?  
+   → classify as **replay / branch generation**.
+2. Is only a subsystem reset while an external system keeps later-state information?  
+   → classify as **local return/reset within a larger forward recursion**.
+3. Is the entire defined system returned such that no internal later-state information remains?  
+   → it satisfies the **state-return criterion** for true reversal, subject to independent physical demonstration.
+
+This classification prevents branch generation from being mistaken for reversal merely because the new branch resembles an earlier state.
