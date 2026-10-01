@@ -430,3 +430,42 @@ higher state H itself is returned to earlier lower state L
 The physical claim that dimensions themselves historically emerged through `D_n -> D_(n+1)` remains open. The architecture therefore keeps dimensional recursion outside the core `PR-I*` invariant set until a mechanism, formal model, and independent evidence are established.
 
 See [`DIMENSIONAL_RECURSION.md`](DIMENSIONAL_RECURSION.md).
+
+## 23. Relational quasi-invariants and long-lived stability
+
+Perfect Recursion does not require stability to mean that some state stops changing.
+
+A more general form of stability is possible when changing instances repeatedly preserve the same relation pattern:
+
+```text
+(A1, B1)
+   ↓
+(A2, B2)
+   ↓
+(A3, B3)
+
+A and B change
+R(A, B) remains approximately stable
+```
+
+The persistent object is therefore not necessarily `A` or `B`, but the relation `R` that continues to organize them.
+
+This explains how a system in continual change can exhibit long-lived regularity without introducing a second absolute invariant beside change itself.
+
+Some relation patterns are co-defining: one side gains its specific identity only through the corresponding relation to the other side. Examples can include `right / wrong`, `good / bad`, and `problem / solution-space`, provided the terms are defined within a particular evaluative or constraint domain.
+
+Co-definition does not require temporal symmetry. A problem can become visible before a solution is discovered. In that case the relation is better represented as:
+
+```text
+constraint / problem
+        ↓ defines
+space of states that would resolve, satisfy, or reconstruct it
+```
+
+The solution may be unknown, but the problem already defines a solution-space relation.
+
+This architecture rejects a trivial interpretation in which every pair of labels becomes a quasi-invariant. `red / blue`, for example, is ordinarily only a contrast: red does not require blue in order to remain red. A candidate relational quasi-invariant therefore needs a stronger dependency, co-definition, or persistent structural constraint.
+
+Stage-truth remains revisable throughout this process. A relation that appears stable across many cycles may itself later be refined, embedded, or dissolved by a higher-order reconstruction.
+
+> **Long-lived stability is compatible with universal change when what persists is a repeatedly instantiated relation rather than an immutable state.**
