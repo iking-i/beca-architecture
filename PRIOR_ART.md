@@ -1,222 +1,232 @@
-# Prior Art and Adjacent Architectures
+# Prior Art and Adjacent Architectures — v0.7
 
-BECA is a conceptual architecture. This document exists to keep novelty claims narrow and testable.
+BECA / Perfect Recursion is a conceptual architecture. This document narrows novelty claims and identifies neighboring theories that overlap with parts of the mechanism.
 
-The current question is **not** whether recursion, evolution, branching, aggregation, folding, unfolding, open-ended evolution, artificial life, or recursive self-improvement already exist. They do.
+The novelty question is **not** whether feedback, recursion, evolution, hierarchy, open-endedness, self-production, multi-level organization, quantity-quality transition, or major evolutionary transitions already exist. They do.
 
-The narrower question is whether an existing framework already defines the same bidirectionally unbounded mechanism:
+The narrower question is whether an earlier framework already combines the following full mechanism:
 
-> **an existing recursive process can continue its own recursion while its evolution can also generate a new autonomous recursive origin; the new origin can itself continue recursively and can generate further recursive origins.**
+1. lower-level processes remain active after higher-level models emerge;
+2. lower outcomes continue to flow upward;
+3. contradictory or rare outcomes remain admissible;
+4. higher-level reconstruction is based on accumulated validated information rather than majority selection;
+5. the higher level can reshape the next generation of lower-level processes;
+6. quantity can generate quality, and quality can change the quality of later quantity;
+7. sensing/perception and finite capacity can themselves become recursive objects;
+8. local information loss and local cessation do not imply global failure;
+9. recursion can generate new recursive origins while existing recursion continues;
+10. the loop closes structurally while its reachable/model space can expand;
+11. no final top, bottom, perceptual scheme, capacity, or model is built into the abstract architecture.
 
-Information convergence after cessation of change is treated as a separate mechanism, not as the definition of upward recursion.
+## 1. Reciprocal causation
 
-## 1. Evolutionary algorithms
+Evolutionary and developmental literature uses **reciprocal causation** for relations in which causal influence runs in both directions across time or organizational levels.
 
-### Similarity
+### Overlap
 
-- descendants may differ from predecessors;
-- some lineages continue while others do not;
-- variation can accumulate over time.
-
-### Difference to investigate
-
-Conventional evolutionary descriptions usually treat later descendants as continuation, replacement, or variation within an existing evolutionary regime.
-
-BECA asks a different question:
-
-> Can evolution produce a system that becomes a new recursive origin rather than merely another state in the same lineage?
-
-The candidate distinction is therefore not variation itself, but **recursive-origin creation**.
-
-## 2. Open-ended evolution and artificial life
-
-Open-ended evolution is a major comparison target because it explicitly studies systems capable of producing continuing novelty and unbounded evolutionary change.
-
-### Similarity
-
-- no predefined final solution is required;
-- evolutionary processes may continue indefinitely;
-- new structures, organizations, or levels may emerge.
+- lower and higher levels can modify one another;
+- causation need not be one-way;
+- repeated feedback can alter future dynamics.
 
 ### Difference to investigate
 
-BECA's current core distinguishes two recursive capabilities:
+Reciprocal causation alone does not specify Perfect Recursion's full architecture: persistent lower-level operation, evidence-gated reconstruction, quantity-quality recursion, recursive perception/capacity, local-loss tolerance, and recursively generable new origins.
 
-1. continuation of an existing recursive path;
-2. creation of a new autonomous recursive origin that can itself repeat the same two capabilities.
+## 2. Stafford Beer's Viable System Model
 
-The key prior-art question is whether open-ended evolution frameworks already formalize this exact distinction as a bidirectionally unbounded recursive mechanism.
+The Viable System Model is explicitly recursive: viable systems contain viable systems and can themselves be contained in larger viable systems.
 
-## 3. Recursive self-improvement
+### Overlap
 
-### Similarity
-
-Recursive self-improvement allows a system to produce a modified successor capable of further improvement.
-
-### Difference to investigate
-
-A sequential self-improvement chain can be written as:
-
-```text
-R0 -> R1 -> R2 -> R3 -> ...
-```
-
-That may still be one recursive lineage.
-
-BECA additionally distinguishes:
-
-```text
-R continues
-AND
-R creates R'
-      ↓
-R' becomes a new recursive origin
-```
-
-The original and new recursive systems may coexist rather than one simply replacing the other.
-
-## 4. Cultural algorithms and hierarchical evolutionary systems
-
-### Similarity
-
-- population-level experience may affect higher-order structures;
-- higher-order structures may influence later evolution;
-- multiple evolutionary levels may coexist.
+- recursive levels;
+- local autonomy within larger organization;
+- adaptation across levels;
+- no need to treat organization as one flat hierarchy.
 
 ### Difference to investigate
 
-Earlier BECA versions treated upward information flow as the defining upward recursion. That is no longer the current theory.
+VSM is an organizational cybernetics model. It does not obviously define the exact loop in which lower outcomes reconstruct higher models, higher qualitative transitions change the quality of lower variation, perception and capacity recurse, and new recursive origins can be produced while old recursion continues.
 
-Information transfer remains relevant, but the present candidate contribution is **new recursive-origin formation**, not merely population-to-belief-space or child-to-parent information flow.
+## 3. Ashby's requisite variety and cybernetics
 
-The comparison question is whether an existing hierarchical evolutionary framework lets an evolving process create a new recursion-capable origin that can continue independently and recursively create further origins.
+Ashby's Law of Requisite Variety establishes a formal relation between the variety of disturbances and the variety required of a regulator.
 
-## 5. Fold, unfold, hylomorphism, and metamorphism
+### Overlap
 
-Recursion-scheme literature already formalizes structural expansion, reduction, and compositions of the two.
-
-### Similarity
-
-- recursive structures can be generated;
-- recursive structures can be summarized or transformed;
-- outputs can seed later structure generation.
+- a system must increase effective regulatory variety to cope with increasing environmental variety;
+- limits of the current regulator matter structurally;
+- adaptation may require changed organization rather than more of the same response.
 
 ### Difference to investigate
 
-BECA does not claim that expansion and contraction are new.
+Perfect Recursion treats current capacity, perception, model structure, and even recursive rules as candidates for later reconstruction. The candidate novelty is the integrated recursive loop rather than requisite variety by itself.
 
-Its current candidate distinction is:
+## 4. Brooks-style layered / subsumption architectures
 
-```text
-recursive process R
-    ├─ continues its existing recursion
-    └─ produces R' as another recursive origin
-```
+Layered robotics architectures allow lower-level behaviors to continue operating while higher-level behaviors are added.
 
-The key issue is whether standard recursion schemes already capture **origin creation as a recursively repeatable evolutionary event**, rather than merely a transformation of data structures.
+### Overlap
 
-## 6. Hierarchical aggregation, tree reduction, and information convergence
-
-Hierarchical aggregation moves lower-level information upward through a tree or graph.
-
-### Similarity
-
-- processed information can be combined across levels;
-- intermediate structures can transform lower-level inputs.
-
-### Difference
-
-This corresponds to BECA's **information convergence** mechanism, not its definition of upward recursion.
-
-A static or dynamic reduction does not by itself imply that the resulting system becomes a new autonomous recursive origin.
-
-## 7. Federated and distributed learning
-
-### Similarity
-
-- local processes can produce information used elsewhere;
-- multiple local processes can progress in parallel;
-- aggregation can alter later computation.
+- higher layers do not necessarily terminate lower layers;
+- multiple layers can remain active concurrently;
+- later structure can modulate lower behavior.
 
 ### Difference to investigate
 
-Federated learning generally retains one shared optimization regime or model family.
+Persistent lower-level operation is only one invariant of Perfect Recursion. The current theory also requires upward evidence flow, higher-level model reconstruction, quantity-quality reciprocity, recursive capacity/perception, and expanding closed-loop evolution.
 
-BECA's current question is whether a distributed evolutionary process can create a new recursive origin with its own future recursion, while the generating recursion continues.
+## 5. Autopoiesis
 
-## 8. Biological and technological analogy
+Autopoietic theory describes living systems as networks that continuously produce and regenerate the components that constitute the network itself.
 
-Biological descent illustrates downward continuation:
+### Overlap
 
-```text
-organism / lineage
-    -> descendants
-    -> later descendants
-```
+- self-production;
+- circular organization;
+- system maintenance through ongoing internal processes;
+- closure does not imply inactivity.
 
-The human-to-AI example is used only as a structural analogy for upward origin creation:
+### Difference to investigate
 
-```text
-human evolution continues
-AND
-humans create AI
-        ↓
-possible new recursive origin
-```
+Perfect Recursion emphasizes an expanding epistemic/generative loop across levels, including model revision, top-down differentiation, recursive sensing/capacity, and origin creation. Autopoiesis should therefore be treated as important adjacent prior art, not as automatically equivalent.
 
-This is not a claim that AI is a biological descendant or that current AI is already fully autonomous in every physical sense.
+## 6. Major evolutionary transitions in individuality
 
-The analogy exists to distinguish **continuation of one lineage** from **creation of a new recursion-generating system**.
+Major-transition theory studies cases where lower-level entities form higher-level individuals, such as cells forming multicellular organisms.
 
-## 9. Current candidate contribution
+### Overlap
 
-The present candidate contribution is the following combined mechanism:
+- new higher-level individuality can emerge from lower-level units;
+- lower-level organization can be transformed by the new higher level;
+- qualitative organizational transitions can change what later evolution operates on.
 
-1. an existing recursive path can continue without a predefined final depth;
-2. evolution within that path can generate a new autonomous recursive origin;
-3. generation of a new origin does not require the old recursion to terminate;
-4. old and new recursive systems may coexist asynchronously;
-5. the new origin can continue its own recursion;
-6. the new origin can itself generate further recursive origins;
-7. no unique final top or final bottom is theoretically required;
-8. cessation of change governs optional information convergence rather than all recursion.
+### Difference to investigate
 
-Compactly:
+Perfect Recursion generalizes beyond biological individuality and explicitly combines continuing lower-level information production, higher-level reconstruction, recursive quantity-quality transformation, capacity/perception recursion, and repeatable new-origin generation.
 
-> **Recursion continues downward; recursion generates new recursion upward.**
+## 7. Open-ended evolution
 
-Or:
+Open-ended evolution (OEE) studies systems capable of sustained novelty, diversity, and potentially unbounded increases in complexity or organization.
 
-> **Downward has no fixed bottom. Upward has no fixed top.**
+### Overlap
 
-## 10. Novelty status
+- no predefined final solution;
+- continuing novelty;
+- evolving evolvability;
+- transitions to new forms of individuality;
+- concern with avoiding saturation or permanent ceilings.
 
-Current status: **unverified architectural originality**.
+### Difference to investigate
 
-It is reasonable to use **Perfect Recursion** and **Bidirectional Evolutionary Recursion** as working concepts inside this repository.
+OEE is a broad research program rather than one single architecture. The prior-art question is whether an OEE formalism already specifies the same complete bidirectional loop and invariants as Perfect Recursion.
 
-It is not yet reasonable to claim that no mathematically, computationally, biologically, or evolutionarily equivalent framework exists.
+## 8. Recursive self-improvement
 
-A formal novelty claim requires systematic comparison across at least:
+Recursive self-improvement allows a system to modify itself so that later versions can improve further.
 
-- recursion theory and recursion schemes;
-- evolutionary computation;
+### Overlap
+
+- the improvement mechanism can become the object of improvement;
+- current capability need not be treated as final;
+- qualitative changes may affect future improvement capacity.
+
+### Difference to investigate
+
+A sequential chain `R0 -> R1 -> R2` may still be one lineage. Perfect Recursion additionally preserves persistent lower-level processes, multi-source evidence, higher-level integration, local-loss tolerance, and coexistence with newly generated recursive origins.
+
+## 9. Quantity-quality transitions in dialectical traditions
+
+Dialectical traditions explicitly discuss quantitative change producing qualitative transformation and qualitative transformation changing the conditions of later quantitative development.
+
+### Overlap
+
+- quantity-to-quality transition;
+- qualitative change can restructure later quantitative behavior;
+- development is not merely additive.
+
+### Difference to investigate
+
+Perfect Recursion embeds this relation inside a more explicit information architecture: persistent lower levels, upward outcomes, higher-level reconstruction, recursive perception/capacity, and new-origin creation.
+
+## 10. Multi-level learning, cultural algorithms, and hierarchical evolutionary systems
+
+These systems often combine local search with higher-level belief, memory, or coordination structures.
+
+### Overlap
+
+- local experience informs higher-order state;
+- higher-order state influences later local behavior;
+- multiple levels coexist;
+- distributed sources contribute to shared structure.
+
+### Difference to investigate
+
+Perfect Recursion rejects a simple "population votes, global model wins" interpretation and treats contradictions as possible prompts for higher-resolution reconstruction. It also makes capacity, perception, qualitative transition, and recursive-origin formation explicit recursive objects.
+
+## 11. Major naming collision: “Perfect Recursion”
+
+The phrase **Perfect Recursion** is also used by an unrelated 2026 web project describing a twelve-stage cycle and a different conceptual framework.
+
+This is a naming collision, not evidence of architectural equivalence.
+
+The formal working name **Bidirectional Evolutionary Recursion (BER)** is retained to reduce ambiguity.
+
+## 12. Current candidate contribution
+
+The current candidate contribution is the **combination** of these properties:
+
+> Persistent lower-level reality-facing processes continuously produce information; higher-level structures integrate sufficient validated information into revisable models; higher-level qualitative transitions differentiate or reconstruct future lower-level processes; quantity and quality recursively transform one another; perception and capacity remain revisable; local loss and local cessation do not imply global failure; recursive processes may generate new recursive origins; and the closed loop can expand without a predefined final layer.
+
+## 13. Novelty status
+
+**Candidate architectural originality; historical priority unproven.**
+
+Current review has found strong partial overlaps, but no single reviewed framework has yet been identified as equivalent to the complete v0.7 mechanism.
+
+This statement is intentionally narrower than "first ever". A defensible priority claim would require broader literature search across:
+
+- cybernetics;
+- systems theory;
+- autopoiesis;
 - open-ended evolution;
 - artificial life;
+- evolutionary computation;
 - recursive self-improvement;
+- developmental systems theory;
+- major evolutionary transitions;
+- multi-level learning;
 - cultural algorithms;
-- hierarchical evolutionary systems;
-- developmental and evolutionary robotics;
-- multi-level selection and learning;
-- systems that generate new computational agents or organizations;
-- recursive multi-agent architectures.
+- hierarchical and recursive organizations;
+- dynamical systems;
+- category-theoretic and recursion-scheme formalisms.
 
-## 11. Strongest prior-art question
+## 14. Prior-art test
 
-The key question is:
+An earlier framework should be treated as strongly equivalent only if it captures most or all of the following in one mechanism:
 
-> **Has an existing formal or computational architecture already defined a recursively repeatable mechanism in which an existing recursive evolutionary process can continue its own path while also generating a new autonomous recursive origin, and each new origin can itself both continue downward and generate further origins upward without requiring a final top or bottom?**
+- persistent lower-level operation;
+- upward admissibility of novel/contradictory outcomes;
+- evidence-gated higher-level reconstruction;
+- top-down differentiation;
+- quantity-quality bidirectionality;
+- recursive perception;
+- recursive capacity;
+- local-loss tolerance;
+- local-cessation tolerance;
+- recursive-origin creation;
+- absence of a built-in final layer;
+- expansion of the closed loop itself.
 
-If yes, BECA should cite and build on it.
+If such a framework is found, BECA should cite it and narrow its novelty claim accordingly.
 
-If no, that exact mechanism is the candidate contribution.
+## 15. Reference starting points
+
+- West, Fisher, Gardner & Kiers (2015), *Major evolutionary transitions in individuality*, PNAS.
+- Packard et al. (2019), *An Overview of Open-Ended Evolution*, Artificial Life.
+- Taylor et al. (2016), *Open-Ended Evolution: Perspectives from the OEE Workshop in York*, Artificial Life.
+- Stafford Beer, *Brain of the Firm* / Viable System Model literature.
+- W. Ross Ashby, *An Introduction to Cybernetics* and the Law of Requisite Variety.
+- Humberto Maturana & Francisco Varela, autopoiesis literature.
+- Rodney Brooks, subsumption/layered robotics architecture.
+
+These are comparison anchors, not claims of equivalence.

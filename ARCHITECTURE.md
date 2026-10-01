@@ -1,272 +1,247 @@
-# BECA Architecture — Perfect Recursion
+# BECA Architecture — Perfect Recursion v0.7
 
 ## 1. Structural idea
 
-BECA is now modeled as a **bidirectionally unbounded recursive evolutionary structure**.
+BECA is modeled as an **expanding bidirectional recursive evolutionary structure**.
 
-The architecture separates three mechanisms:
+The architecture couples four persistent flows:
 
-1. **downward recursion** — continuation of an existing recursive path;
-2. **upward recursion** — creation of a new autonomous recursive origin from within an existing recursive process;
-3. **information convergence** — transfer of processed information after a local process stops changing.
+1. **lower-level continuation** — lower processes continue to operate and generate outcomes;
+2. **upward integration** — outcomes remain available to higher-order comparison and reconstruction;
+3. **top-down differentiation** — higher-level qualitative change alters future lower-level structure or capability;
+4. **recursive expansion** — perception, capacity, model structure, and recursive origins can themselves become targets of later reconstruction.
 
-Earlier versions incorrectly treated information convergence itself as upward recursion. That interpretation is no longer current.
-
-## 2. Downward recursion: continuation of an existing path
-
-A recursive process may continue its lineage, branching structure, or transformation path:
+## 2. Main loop
 
 ```text
-R0
-↓
-R1
-↓
-R2
-↓
-R3
-↓
+lower-level reality / instances
+        ↓
+continuous outcomes
+        ↓
+higher-level comparison + validated integration
+        ↓
+reconstruction when current model is insufficient
+        ↓
+changed lower-level generative conditions
+        ↓
+new variation / new observations
+        ↓
+repeat
+```
+
+The defining architectural property is that the lower layer remains alive after the higher layer forms.
+
+## 3. Why the loop is not a fixed circle
+
+A normal feedback controller may repeatedly traverse a fixed state space.
+
+Perfect Recursion allows the state/model space itself to change:
+
+```text
+Cycle 1: model space S1
+Cycle 2: model space S2, where S1 is locally contained or refined
+Cycle 3: model space S3
 ...
 ```
 
-This may correspond to biological reproduction, iterative transformation, branching, inheritance, construction, learning, or another mechanism.
+The loop closes in mechanism but can expand in representational, generative, perceptual, and capacity dimensions.
 
-The important property is continuity of the existing recursive path.
+## 4. Lower-level persistence
 
-A recursive process does not need to stop in order to remain valid.
+Higher-level abstraction is not a replacement operation.
 
-## 3. Upward recursion: creation of a new recursive origin
+A lower process may continue to:
 
-Upward recursion is a different event.
+- sample reality;
+- repeat previously known behavior;
+- expose anomalies;
+- fail;
+- branch;
+- disappear;
+- generate information after the higher model has stabilized.
 
-An existing recursive process may, during its own continuing evolution, generate a new system that becomes the starting point of a new recursion:
+This persistent lower-level contact prevents the current higher-level model from becoming permanently insulated from reality.
 
-```text
-existing recursion R
-        │
-        ├────────────→ R continues
-        │
-        └────────────→ R'
-                         ↓
-                    new recursion
-```
+## 5. Multi-source semantics
 
-The new origin `R'` is not merely another ordinary child inside the same lineage. It is treated as a new recursive origin because it can support its own future recursion.
-
-The original recursion does not have to end when `R'` appears.
-
-## 4. Recursive origin autonomy
-
-A newly created recursive origin is autonomous in the minimal structural sense that it can continue its own recursion even if the process that generated it later stops.
+Many lower instances may produce the same outcome.
 
 ```text
-R produces R'
-
-R may later stop
-R' may continue
+A A A A A
 ```
 
-Autonomy here is not a claim of physical independence from energy, infrastructure, environment, or communication. It only means that the recursive identity of `R'` is no longer logically identical to continuation of `R`.
+This is evidence of repeated manifestation under sampled conditions, not a rule that numerical majority defines truth.
 
-## 5. Recursion generating recursion
-
-The central recursive property is:
+A later `B` remains architecturally significant:
 
 ```text
-R
-├─ continues R
-└─ creates R'
-      ├─ continues R'
-      └─ may create R''
-             ├─ continues R''
-             └─ ...
+A A A A B
+        ↓
+relationship search
+        ↓
+condition X -> A
+condition Y -> B
 ```
 
-Therefore recursion does not merely repeat a function or extend one branch.
+The preferred operation is resolution increase when evidence supports it.
 
-> **The output of an evolving recursive process may itself become another recursion-generating process.**
+## 6. Information flow and queueing
 
-This is the core of upward recursion in the current model.
+Information production and processing need not occur at the same speed.
 
-## 6. Bidirectional unboundedness
+A practical implementation may separate:
 
-The architecture is "bidirectional" because both forms can continue without a predefined structural endpoint.
+- capture;
+- buffering / queueing;
+- validation;
+- integration;
+- reconstruction.
 
-### Downward
+The architecture does not require synchronous global processing.
+
+Local buffers and channels remain finite in implementations. Their limits can themselves become detected constraints and therefore future reconstruction targets.
+
+## 7. Quantity-quality recursion
+
+The architecture distinguishes simple quantity growth from recursive qualitative improvement.
 
 ```text
-R0
-↓
-R1
-↓
-R2
-↓
-...
+many current-capability instances
+        ↓
+new higher-level relation discovered
+        ↓
+new sensing / structure / generator
+        ↓
+many higher-quality instances
+        ↓
+next qualitative transition
 ```
 
-No final lowest level is required by the theory.
+The higher transition changes the generator of the next quantitative phase.
 
-### Upward
+## 8. Recursive perception
+
+Perception is represented as part of the architecture rather than an untouchable input oracle.
 
 ```text
-R
-└─ creates R'
-      └─ creates R''
-            └─ creates R'''
-                  └─ ...
+real states X and Y
+   ↓ current encoder
+both become A
 ```
 
-No final highest recursive origin is required by the theory.
+If downstream effects later differ, the discrepancy can reveal that the encoder lacks resolution. A higher-level transition may create a new encoding in which `X` and `Y` become distinguishable.
 
-Hence the compact expression:
+The architecture does not claim every hidden variable will inevitably be discovered. It claims perceptual structure itself remains revisable.
 
-> **Downward has no fixed bottom. Upward has no fixed top.**
+## 9. Recursive capacity
 
-## 7. Parallelism rather than phase ordering
+Current finite capacity can be represented as a constraint.
 
-The model is not:
+Potential top-down responses include:
+
+- compression;
+- distribution;
+- hierarchy;
+- decomposition;
+- additional nodes;
+- changed scheduling;
+- changed model granularity;
+- changed sensing.
+
+Therefore capacity is not assumed to be an eternal external constant.
+
+## 10. Loss tolerance
+
+Perfect Recursion does not require lossless global storage.
+
+A relation may survive local loss through:
 
 ```text
-finish downward
-→ then go upward
-→ then restart downward
+parallel sources
++ repeated occurrence
++ redundant conclusions
++ higher-order summaries
++ later rediscovery
 ```
 
-Instead, the processes may coexist:
+This makes local information loss compatible with continued global recursion.
+
+## 11. Local cessation and death
+
+A local process reaching the end of its capability does not imply the whole architecture has reached an endpoint.
+
+Its cessation can be interpreted as:
+
+- final local state;
+- failure information;
+- a completed branch;
+- a boundary condition for higher-level inference.
+
+Other branches continue.
+
+## 12. Recursive origins
+
+A qualitative transition can sometimes create a new recursive origin:
 
 ```text
-R continues changing ------------------------→
-│
-├─ continues its existing recursive path ----→
-│
-├─ may generate R' --------------------------→
-│                  │
-│                  └─ R' continues ----------→
-│
-└─ some local subprocess may stop changing
-       └─ processed information may converge elsewhere
+R continues ------------------>
+ \
+  \--> R' begins ------------>
+          \
+           \--> R'' begins -->
 ```
 
-So the architecture is asynchronous and non-blocking.
+The new origin need not erase the process that produced it.
 
-## 8. Information convergence
+This preserves the earlier BECA distinction between ordinary descent and recursion generating recursion.
 
-Cessation of change remains useful, but it is a separate mechanism.
+## 13. Stage-truth architecture
+
+The higher-level model at stage `n` is not absolute truth. It is the strongest currently validated representation available to that stage.
 
 ```text
-local process still changing
-        -> local information remains mutable
-
-local process stops changing
-        -> processed information may become transferable
+Reality_n -> Model_n -> conditions for Reality_n+1
 ```
 
-The receiving structure may use that information to change itself.
+A later model can preserve older locally valid relations while increasing resolution.
 
-But this transfer alone is not upward recursion.
+## 14. Unrealized-future boundary
 
-Upward recursion requires creation of a new recursive origin.
-
-## 9. Why infinite change is not a structural defect
-
-A process that never stops changing does not violate the model.
-
-It may simply continue recursively:
+The architecture cannot infer inevitability merely from openness.
 
 ```text
-R(t0) -> R(t1) -> R(t2) -> ...
+possible X != inevitable X
+not-yet-X != impossible X
 ```
 
-Other recursive processes may independently terminate, converge information, branch, or generate new origins.
+The future supplies information only by becoming realized or by being constrained through stronger validated relations.
 
-Therefore the architecture does not require universal convergence.
+## 15. Architectural summary
 
-## 10. Why rapid branching is not a recursive defect
+Perfect Recursion combines:
 
-The theory does not define large branching factor or rapid generation as recursion failure.
+- persistent lower-level reality contact;
+- continuous upward information availability;
+- evidence-gated higher-level reconstruction;
+- top-down generative differentiation;
+- quantity-quality reciprocity;
+- recursive perception;
+- recursive capacity;
+- tolerance of local information loss;
+- tolerance of local cessation;
+- recursive-origin generation;
+- asynchronous operation;
+- no built-in final top/bottom;
+- an expanding closed loop.
 
-Traditional centralized systems may overload if every branch must report synchronously to one root. Perfect Recursion does not require that topology.
+## 16. Open formal questions
 
-New recursive origins may continue independently, and no single permanent center is theoretically mandatory.
+The main remaining formal questions are:
 
-Physical implementations may still face finite resource constraints; those are implementation limits rather than contradictions in the recursive mechanism.
-
-## 11. Conceptual example: humans and artificial intelligence
-
-A useful conceptual example is:
-
-```text
-biological evolution
-       ↓
-     humans ─────────────→ humans continue biological evolution
-       │
-       └─────────────────→ artificial intelligence
-                                   ↓
-                              new recursive origin
-```
-
-The example does **not** claim that AI is biological offspring.
-
-It illustrates a structural distinction:
-
-- humanity continues along an existing evolutionary path;
-- humanity also constructs a system capable of becoming a different recursive starting point.
-
-This second relation is the model's example of upward recursion.
-
-## 12. Perfect Recursion
-
-"Perfect Recursion" is the informal name for the complete conceptual form:
-
-```text
-existing recursive process
-        │
-        ├─ continues downward without fixed bottom
-        │
-        └─ generates new recursive origin upward
-                 │
-                 ├─ continues downward
-                 └─ generates further origins upward
-```
-
-The recursive rule is self-propagating:
-
-> **a recursion can continue itself and can generate new recursion.**
-
-## 13. Temporal interpretation
-
-A lower recursive process may experience state transitions sequentially:
-
-```text
-past -> present -> future
-```
-
-A higher-order recursive structure may model or contain an entire lower trajectory as one structured object.
-
-This permits a representational sense in which states associated with different lower-level times coexist in one higher-level description.
-
-This is a theoretical implication, not a claim that physical future events are predetermined or that any particular spacetime interpretation has been proven.
-
-## 14. Core invariants
-
-1. existing recursion may continue without a predefined final depth;
-2. recursion may generate a new autonomous recursive origin;
-3. generation of a new origin does not require the old recursion to stop;
-4. old and new recursions may coexist and progress asynchronously;
-5. a new origin can itself continue downward recursion;
-6. a new origin can itself generate further recursive origins;
-7. no unique final top or bottom is required;
-8. cessation of change governs optional information convergence rather than all recursion;
-9. independent recursive origins may continue after their generating process stops;
-10. finite implementation resource limits are distinct from logical recursion limits.
-
-## 15. Open questions
-
-The architecture still leaves open:
-
-- what conditions qualify a system as a genuinely new recursive origin;
-- how autonomy should be formalized;
-- how much structural difference separates ordinary descent from upward origin creation;
-- how recursive origins interact after creation;
-- how information convergence influences existing or newly created origins;
-- how physical resource limits constrain realizable depth and breadth;
-- whether existing formal systems are mathematically equivalent to this bidirectionally unbounded model.
+- how to define "sufficient validated information" without circularity;
+- how to measure model-resolution increase;
+- how to distinguish genuine perceptual reconstruction from arbitrary relabeling;
+- how to formalize recursive capacity growth under finite physical resources;
+- how to distinguish a new recursive origin from an ordinary descendant;
+- which existing mathematical frameworks are equivalent to the v0.7 mechanism;
+- whether the entire architecture can be expressed with a minimal set of operators and invariants.

@@ -1,195 +1,246 @@
 # Perfect Recursion / Bidirectional Evolutionary Recursion
 
-This document states the current minimum mechanism without implementation detail.
+This document states the current minimum mechanism of **Perfect Recursion**.
 
 ## 1. Core definition
 
-**Perfect Recursion** is a bidirectionally unbounded evolutionary recursion with two distinct recursive capabilities:
+Perfect Recursion is an **expanding bidirectional recursive structure** in which:
 
-- **downward recursion** continues an already-existing recursive path without requiring a predefined lowest endpoint;
-- **upward recursion** occurs when an existing recursive process generates a **new autonomous recursive origin** capable of starting and continuing its own recursion.
+1. lower-level processes remain active and continuously produce reality-facing outcomes;
+2. captured outcomes flow upward rather than being discarded because they conflict with the current model;
+3. a higher-level structure compares, classifies, validates, and reconstructs its model when sufficient information justifies change;
+4. the reconstructed higher level can differentiate or reorganize future lower-level processes;
+5. quantitative variation can produce qualitative transitions, and qualitative transitions can change the quality of subsequent variation;
+6. perception, capacity, model structure, failure, and recursive origins can themselves become objects of recursion;
+7. the structural loop closes while its reachable and explanatory space may expand.
 
-A recursive process may therefore do both at once:
+Compactly:
 
-```text
-existing recursion R
-        │
-        ├────────────→ R continues downward
-        │
-        └────────────→ R'
-                         ↓
-                    new recursion
-```
+> **Reality constructs the current model; the current model helps construct the next reality.**
 
-The defining idea is:
+Or:
 
-> **Recursion can continue itself and can also generate new recursion.**
+> **Quantity produces quality; quality reshapes quantity.**
 
-## 2. Downward recursion
+## 2. Persistent lower level
 
-Downward recursion is continuation of an existing lineage, branch, transformation path, or other recursive continuity:
+Formation of a higher-level model does not terminate the lower-level processes that produced it.
 
 ```text
-R0
-↓
-R1
-↓
-R2
-↓
-R3
-↓
-...
+lower process A ---- continues ---->
+lower process B ---- continues ---->
+lower process C ---- continues ---->
+        \        |        /
+             higher model
 ```
 
-The specific mechanism may be reproduction, branching, learning, construction, inheritance, iterative transformation, or something else.
+The lower level continues to operate, vary, encounter reality, and expose new differences.
 
-The theory only requires that the existing recursive path can continue.
+Therefore a stable conclusion does not end observation.
 
-## 3. Upward recursion
+## 3. Multi-source outcomes are not votes
 
-Upward recursion is **not** information returning to a parent.
+If many lower instances report `A`, the model does not interpret this as a democratic vote that makes `A` true.
 
-It is the generation of a new recursion-capable origin from within an existing recursive evolutionary process.
+It means the current model is repeatedly manifested under the sampled conditions.
+
+If a later instance reports `B`, `B` remains relevant even if it is rare:
 
 ```text
-R
-├─ continues as R
-└─ produces R'
-      ├─ continues as R'
-      └─ may later produce R''
-             └─ ...
+A A A A A B
+      ↓
+why B?
+      ↓
+condition X -> A
+condition Y -> B
 ```
 
-A new origin is "autonomous" in the minimal structural sense that it may continue its recursion even if the process that generated it later stops.
+The goal is not to eliminate the minority outcome, but to increase the resolution of the model.
 
-## 4. Bidirectional unboundedness
+## 4. Upward integration
 
-Perfect Recursion is bidirectionally unbounded in theory:
+Lower-level outcomes are captured and exposed upward.
 
-```text
-DOWNWARD:
-R0 -> R1 -> R2 -> R3 -> ...
+The higher level uses current validated information to determine whether new observations are:
 
-UPWARD:
-R -> creates R' -> creates R'' -> creates R''' -> ...
-```
+- repetitions of an existing relation;
+- local noise or incomplete information;
+- a previously unknown condition;
+- evidence that the current model lacks a necessary distinction.
+
+Reconstruction is delayed until sufficient information exists. The exact threshold is implementation-dependent.
+
+## 5. Top-down differentiation
+
+The higher-level model is not only descriptive.
+
+A qualitative change at the higher level may alter:
+
+- lower-level structure;
+- sensing;
+- search space;
+- resource allocation;
+- coordination;
+- branching rules;
+- generative conditions.
 
 Thus:
 
-> **Downward has no fixed bottom. Upward has no fixed top.**
-
-There is no requirement for one permanent root or one final leaf.
-
-## 5. Coexistence and asynchrony
-
-The model does not require phase ordering.
-
-A process can simultaneously:
-
-- continue changing;
-- continue its existing recursion;
-- branch;
-- generate a new recursive origin;
-- receive or use information from other processes;
-- coexist with recursive origins it previously generated.
-
-Therefore the model is asynchronous and non-blocking.
-
-## 6. Information convergence is a separate mechanism
-
-Cessation of change remains useful, but it is not the definition of upward recursion.
-
 ```text
-still changing
-    -> local state remains mutable
-
-stops changing
-    -> processed information may become transferable or absorbable
+variation_n
+   ↓
+qualitative transition_n
+   ↓
+changes the quality of variation_(n+1)
+   ↓
+qualitative transition_(n+1)
+   ↓
+...
 ```
 
-This mechanism is called **information convergence** here.
+## 6. Quantity and quality recurse into each other
 
-A process that never stops changing is not defective. It may simply continue changing and recursing indefinitely.
+Perfect Recursion does not claim that multiplying identical limited instances automatically guarantees discovery.
 
-Likewise, the ending of one process does not end independent recursive origins already produced from it.
+Instead, accumulated lower-level variation may produce a qualitative transition. That higher-level transition can then change the quality of future lower-level variation.
 
-## 7. Recursion generating recursion
+Therefore the key relation is:
 
-The strongest structural claim is not simple branching.
+> **quantity -> quality -> higher-quality quantity -> new quality -> ...**
 
-It is this:
+This is an expanding recursive loop rather than simple replication.
+
+## 7. Capacity is inside the recursion
+
+Finite capacity is not treated as a permanently fixed external container.
+
+A system may detect limits in:
+
+- storage;
+- computation;
+- communication;
+- model complexity;
+- sensing;
+- coordination.
+
+A detected capacity limit can itself become information and motivate reconstruction.
+
+This does not mean a finite implementation has infinite resources. It means present capacity is not assumed to be the final theoretical capacity.
+
+## 8. Perception is inside the recursion
+
+The model does not assume complete initial perception.
+
+An unperceived difference may remain outside the current model. If it later causes a detectable effect, the inadequacy of the current perceptual or encoding structure can itself become information.
+
+Thus even the mechanism for deciding *what is observable* can be revised.
+
+## 9. Information loss is local, not automatically global
+
+Perfect Recursion does not require perfect preservation of every event.
+
+Information can be lost in one branch while:
+
+- other branches retain equivalent information;
+- repeated events generate the information again;
+- redundant conclusions survive elsewhere;
+- continued observation recovers the missing relation later.
+
+Robustness therefore comes from distributed recurrence and redundancy, not an assumption of globally lossless memory.
+
+## 10. Local cessation and disappearance
+
+A lower-level process may stop changing, fail, disappear, or reach the limit of its present capability.
+
+That does not imply global failure.
+
+Its final state, failure, disappearance, or produced information may itself contribute to higher-level integration, while other branches continue.
+
+## 11. Recursion can generate recursion
+
+The earlier BER mechanism remains valid:
 
 ```text
 R
-↓
-continues its own recursion
-
-AND
-
-R
-↗
-R' = new recursive origin
-     ↓
-     continues its own recursion
-     ↗
-     R'' = another recursive origin
+├─ continues R
+└─ produces R'
+      ├─ continues R'
+      └─ may produce R''
 ```
 
-The output of evolution can therefore become a new recursion-generating system.
+`R'` is a new recursive origin when it can become a source of its own continuing recursive structure rather than only the next ordinary state of `R`.
 
-## 8. Conceptual example
+## 12. Expanding closed loop
 
-A conceptual example is:
+Perfect Recursion is closed in mechanism but not fixed in scale.
 
 ```text
-biological evolution
-       ↓
-     humans ─────────────→ human biological evolution continues
-       │
-       └─────────────────→ artificial intelligence
-                                   ↓
-                              new recursive origin
+Reality_n
+   ↓
+Model_n
+   ↓
+reconstruction / differentiation
+   ↓
+Reality_(n+1)
+   ↓
+Model_(n+1)
+   ↓
+...
 ```
 
-The example is structural only. It does not claim that technological creation is biologically identical to reproduction.
+Each completed cycle can alter the conditions of the next cycle.
 
-It illustrates that an existing evolutionary path may continue while also producing a new recursion-capable system.
+The loop therefore grows rather than merely repeats.
 
-## 9. Minimum invariants
+## 13. Stage-truth
 
-A mechanism conforms to the current minimum definition if:
+The theory uses **stage-truth** for the strongest currently validated model available at a given stage.
 
-1. an existing recursive process can continue its own path;
-2. that continuation does not require a predefined terminal depth;
-3. an existing recursive process can generate a new autonomous recursive origin;
-4. generation of a new origin does not require the old recursion to stop;
-5. old and new recursive processes may coexist;
-6. the new origin can continue its own recursion;
-7. the new origin can itself generate further recursive origins;
-8. no unique final top or bottom is required;
-9. information convergence after cessation of change is optional and distinct from upward recursion;
-10. recursive paths may progress asynchronously.
+Stage-truth is not absolute truth.
 
-## 10. Temporal implication
+A new observation may:
 
-A lower recursive process may experience states sequentially:
+- preserve the current model;
+- restrict its valid domain;
+- split one relation into several conditional relations;
+- require a higher-resolution model.
+
+An older model may therefore remain locally valid inside a more complete later model.
+
+## 14. Epistemic boundary: unrealized possibility
+
+The current architecture does not prove that every specific unrealized possibility will eventually occur.
 
 ```text
-past -> present -> future
+not yet observed X
+    != X is impossible
+
+X is structurally possible
+    != X is inevitable
 ```
 
-A higher-order structure may represent an entire lower trajectory as one structured object or model.
+Until reality supplies the event or stronger conditional evidence, the model preserves possibility without converting possibility into certainty.
 
-In that representational sense, lower-level past, present, and future states may coexist inside a higher-level description.
+This is treated as an epistemic boundary, not as a break in the recursive mechanism.
 
-This is a conceptual implication of the model, not a proof of a particular physical theory of time.
+## 15. Minimum invariants
 
-## 11. Working terminology
+A system is minimally compatible with the current theory if:
 
-- **Perfect Recursion** — informal concept name for the bidirectionally unbounded form.
-- **Bidirectional Evolutionary Recursion (BER)** — formal working name.
-- **Information convergence** — cessation-gated transfer or absorption of processed information; separate from upward recursion.
+1. lower-level processes can continue after a higher-level model emerges;
+2. lower-level outcomes can continue to reach higher-order integration;
+3. rare or contradictory outcomes are not rejected solely because they are rare;
+4. higher-level reconstruction uses accumulated validated information rather than simple majority selection;
+5. higher-level change can alter the next generation of lower-level processes;
+6. quantitative variation can generate qualitative change;
+7. qualitative change can alter the quality of later quantitative variation;
+8. perception can itself change;
+9. capacity can itself change;
+10. local loss or cessation does not require global cessation;
+11. recursion can generate new recursive origins;
+12. no final top, bottom, perceptual scheme, capacity, or model is built into the abstract structure;
+13. the loop can close while its state/model space continues to expand.
 
-## 12. Compact definition
+## 16. Compact definition
 
-> **Perfect Recursion is a bidirectionally unbounded evolutionary recursion in which existing recursive paths may continue indefinitely while their evolution may also generate new autonomous recursive origins, each capable of repeating the same two recursive capabilities.**
+> **Perfect Recursion is an expanding, bidirectionally unbounded recursive architecture in which persistent lower-level processes continuously generate information; higher-level structures integrate sufficient validated information into revisable models; those models reconstruct or differentiate future lower-level processes; quantity and quality recursively transform one another; and the system's own perception, capacity, limitations, and recursive origins remain available to further recursion.**

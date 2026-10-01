@@ -1,23 +1,27 @@
 cff-version: 1.2.0
-title: "BECA — Bounded Evolutionary Commit Architecture"
+title: "BECA — Perfect Recursion / Bidirectional Evolutionary Recursion"
 message: "If you discuss or build on BECA, please cite this repository."
 type: software
 authors:
   - family-names: "iking-i"
-version: "0.1"
-date-released: 2026-09-30
+version: "0.7"
+date-released: 2026-10-02
 repository-code: "https://github.com/iking-i/beca-architecture"
 url: "https://github.com/iking-i/beca-architecture"
 abstract: >-
-  BECA is a conceptual architecture for multi-agent knowledge systems in which
-  agents share a common initial worldview, evolve in different local regions of
-  the same world, communicate during that evolution, and expose stabilized
-  source conclusions to a higher-level integration process.
+  BECA proposes Perfect Recursion, an expanding bidirectional recursive architecture
+  in which persistent lower-level processes continue to produce reality-facing
+  information, higher-level structures integrate and reconstruct that information,
+  and qualitative higher-level changes reshape the quality and structure of later
+  lower-level variation. Perception, capacity, local failure, and recursive origins
+  can themselves become objects of further recursion.
 keywords:
-  - multi-agent systems
-  - knowledge integration
-  - conceptual architecture
-  - distributed intelligence
-  - agent communication
-  - knowledge provenance
+  - perfect recursion
+  - bidirectional evolutionary recursion
+  - recursive systems
+  - open-ended evolution
+  - multi-level systems
+  - cybernetics
+  - recursive origins
+  - quantity quality transition
 license: CC-BY-4.0

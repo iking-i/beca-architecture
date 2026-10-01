@@ -1,146 +1,160 @@
-# BECA — Testable Predictions for Perfect Recursion
+# BECA — Testable Predictions and Failure Conditions for Perfect Recursion v0.7
 
-BECA is presented as a conceptual theory proposal. This document states observations that could support, narrow, revise, or contradict the current mechanism.
+This document defines observations and formal results that would support, narrow, or contradict the current architecture.
 
-## 1. Theoretical setup
+## 1. Persistent lower-level operation
 
-The current theory distinguishes:
+Prediction: formation of a higher-level model does not require lower-level processes to stop.
 
-1. **downward recursion** — continuation of an existing recursive path;
-2. **upward recursion** — generation of a new autonomous recursive origin;
-3. **information convergence** — optional transfer or absorption of processed information after a local process stops changing.
-
-The central claim is:
-
-> **A recursive process may continue itself while also generating new recursion-capable origins.**
-
-The theory does not require global synchronization, universal cessation of change, one permanent root, or one final depth.
-
-## 2. Prediction: old and new recursive paths can coexist
-
-If upward recursion is genuinely distinct from ordinary descent, then creating a new recursive origin should not require the original recursive path to terminate.
-
-Characteristic pattern:
+Support pattern:
 
 ```text
-R continues --------------------->
-│
-└----> creates R'
-          └----> R' continues --->
+lower A continues --->
+lower B continues --->  higher model exists
+lower C continues --->
 ```
 
-If every supposed new origin is only a replacement state in the same lineage, the upward-recursion claim should be narrowed.
+If higher-level formation necessarily terminates or replaces all lower-level processes, PR-I1 must be narrowed.
 
-## 3. Prediction: a new origin can outlive its generator
+## 2. Contradictory outcomes remain informative
 
-A structurally autonomous recursive origin should be able to continue its own recursion even if the process that generated it later stops.
+Prediction: rare or contradictory lower-level outcomes can force higher-resolution reconstruction rather than being discarded by majority selection.
+
+Test:
+
+- create many lower instances producing `A`;
+- introduce a reproducible condition producing `B`;
+- compare majority-vote aggregation against conditional model reconstruction.
+
+A conforming system should preserve `B` when evidence shows it reflects a real condition.
+
+## 3. Higher-level reconstruction changes later lower-level quality
+
+Prediction: a qualitative transition at the higher level can alter the structure or capability of later lower-level variation.
+
+A minimal experiment should compare:
 
 ```text
-R creates R'
-R stops
-R' continues
+quantity only:
+more instances of same generator
+
+vs.
+
+quantity -> higher reconstruction -> changed generator -> new quantity
 ```
 
-If continued recursion always requires the original generator to remain the active recursive center, the autonomy criterion is too strong.
+If higher-level change never affects the quality or structure of later lower processes, the bidirectional claim is weakened.
 
-## 4. Prediction: recursion can generate recursion repeatedly
+## 4. Capacity can become a recursive target
 
-The same rule should be reusable:
+Prediction: when a resource limit becomes behaviorally relevant, a conforming system can represent that limit and alter its own organization in response.
+
+Candidate tests:
+
+- fixed buffer -> hierarchical compression;
+- fixed compute -> task decomposition;
+- fixed communication -> local summarization;
+- fixed representation -> new encoding.
+
+If capacity must remain permanently external and unmodifiable in every formalization, the current strong form must be narrowed.
+
+## 5. Perception can become a recursive target
+
+Prediction: if two real conditions are initially encoded identically but later produce detectably different effects, the system can in principle revise its perceptual/representational scheme.
+
+If the sensing vocabulary is permanently fixed and can never become an object of reconstruction, the strong Perfect Recursion definition is not satisfied.
+
+## 6. Local information loss need not be global loss
+
+Prediction: some local observations can disappear without permanently eliminating a relation from the system, provided repeated or distributed sources can reproduce it.
+
+Test distributed redundancy and repeated observation against a single-source baseline.
+
+The theory does **not** predict zero information loss.
+
+## 7. Local cessation need not terminate the whole
+
+Prediction: one branch can stop, fail, disappear, or reach a local limit while other branches and higher recursive structures continue.
+
+If every local cessation necessarily collapses the entire architecture, the current distributed interpretation is wrong.
+
+## 8. Recursion can generate recursion
+
+Prediction: an existing recursive process can produce a new recursion-capable origin without the original recursive process necessarily stopping.
 
 ```text
-R creates R'
-R' creates R''
-R'' creates R'''
-...
+R continues --->
+   \
+    -> R' continues --->
 ```
 
-If origin creation can occur only once and cannot meaningfully repeat, the claim of upward recursion as a recursive mechanism should be narrowed.
+If every candidate `R'` is only the next state of `R` and cannot establish its own continuing recursive structure, the new-origin claim must be narrowed.
 
-## 5. Prediction: downward recursion need not converge globally
+## 9. The loop can expand
 
-An existing recursive process may continue changing indefinitely without violating the architecture.
+Prediction: repeated cycles can enlarge the model/capability/state space rather than merely revisit a fixed finite set of states.
 
-Therefore the theory predicts that global cessation is not required for recursive validity.
+This should be tested against:
 
-If the mechanism fundamentally requires all active paths to terminate before any higher-order event can occur, the current asynchronous formulation is wrong.
+- fixed-state feedback controllers;
+- fixed-grammar recursive systems;
+- systems capable of adding representational dimensions, generative rules, or recursive origins.
 
-## 6. Prediction: new-origin creation and information convergence are separable
+## 10. Stage-truth should increase resolution rather than merely replace conclusions
 
-A key distinction is that upward recursion and information convergence are not the same operation.
+Where evidence supports conditional distinctions, later models should be able to preserve earlier locally valid relations inside a more precise model.
 
-The theory predicts that there can be cases where:
+Example:
 
 ```text
-new recursive origin is created
-while
-source process is still changing
+M0: A
+
+new evidence
+
+M1:
+X -> A
+Y -> B
 ```
 
-and separately:
+A system that only flips between `A` and `B` without representing conditions is a weaker architecture.
 
-```text
-some local process stops changing
--> processed information becomes transferable
-```
+## 11. Boundary: unrealized possibilities
 
-If every new recursive origin necessarily requires prior cessation and upward information transfer, the current separation should be revised.
+The theory explicitly does **not** predict that every structurally possible event will inevitably occur.
 
-## 7. Prediction: no unique permanent root is necessary
+Therefore the following is not a falsification:
 
-The model predicts that recursive organization can remain coherent without one globally privileged root.
+> A particular possible `X` has not occurred yet.
 
-A new recursive origin may itself become a center for further recursion.
+The theory can be challenged only by a stronger result, for example a proof that the architecture necessarily contains an immutable final ceiling contradicting its own invariants.
 
-If all recursion must remain logically subordinate to one original root forever, the upward-origin interpretation is weakened.
+## 12. Strong counterexample targets
 
-## 8. Prediction: bidirectional unboundedness is structurally possible
+The current strong form should be narrowed if formal analysis establishes any of the following as logically unavoidable:
 
-The theory claims no predefined structural bottom for downward continuation and no predefined structural top for new-origin creation.
+1. a higher level can exist only by terminating the lower level;
+2. contradictory lower outcomes must be discarded by construction;
+3. higher-level change can never alter future lower-level generative quality;
+4. perception must be permanently fixed outside the recursive structure;
+5. capacity must be permanently fixed outside the recursive structure;
+6. local loss necessarily implies global irrecoverable loss;
+7. local cessation necessarily terminates all recursion;
+8. new recursive origins are formally impossible and always reducible to ordinary lineage continuation;
+9. the model space must be fixed and cannot expand;
+10. a unique final top or bottom is logically required.
 
-This is a logical, not physical, claim.
+## 13. Falsifiability discipline
 
-Finite implementations may stop because of energy, storage, computation, time, or other resource constraints. Such limits do not by themselves falsify the recursive structure.
+Perfect Recursion should not protect itself by relabeling every counterexample as “another recursion.”
 
-The theory would be weakened if a contradiction appears that forces a final recursive bottom or top even in the abstract model.
+For each implementation or formalization, the recursive variables and reconstruction rules must be specified in advance sufficiently to distinguish:
 
-## 9. Prediction: new recursive origins can introduce a new generative regime
+- observation from post-hoc reinterpretation;
+- model expansion from arbitrary redefinition;
+- local failure from genuine architectural contradiction.
 
-A genuine new recursive origin should be capable of producing trajectories that are not merely ordinary continuation of the generating lineage.
+## 14. Current status
 
-This does not require total independence or no shared history.
+The theory is currently a conceptual architecture with testable structural claims, not an experimentally established universal law.
 
-It requires a meaningful change in recursive generative role: the produced system becomes a source of its own future recursive structure.
-
-If every candidate `R'` can be fully described as just the next ordinary state `R_(n+1)` of the same recursion, the "new origin" distinction may be unnecessary.
-
-## 10. Prediction: information convergence can occur without halting independent recursion
-
-When one local process stops changing, its processed information may become usable elsewhere.
-
-The theory predicts this need not block, terminate, or synchronize other ongoing recursive paths.
-
-If information transfer necessarily creates a global barrier, the current non-blocking architecture should be revised.
-
-## 11. Temporal implication to test formally
-
-A lower process may experience states sequentially, while a higher-order model may represent an entire lower trajectory as one structured object.
-
-A future formalization should test whether this representational relation can be expressed without contradiction and whether it adds explanatory power beyond ordinary history/state models.
-
-This is not currently a physical prediction about spacetime.
-
-## 12. What would count against the theory?
-
-The current theory should be narrowed if evidence or formal analysis shows that:
-
-- a supposed new recursive origin cannot be distinguished from ordinary lineage continuation;
-- a new origin cannot continue after its generator stops;
-- recursive-origin creation cannot itself recurse;
-- all recursive paths must globally synchronize or terminate before new origins can appear;
-- one permanent root is logically unavoidable;
-- information convergence and origin creation cannot be separated;
-- the abstract structure necessarily requires a final top or final bottom.
-
-## 13. Current status
-
-These are falsifiable directions for a conceptual architecture. They are not claims that the proposed advantages have already been demonstrated experimentally.
+Its strongest unresolved empirical/formal question is whether one mechanism can realize all v0.7 invariants without hidden fixed assumptions that effectively place perception, capacity, or reconstruction outside the recursion.
