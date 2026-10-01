@@ -34,6 +34,10 @@ In the theory's epistemic vocabulary:
 
 Here, *stage-truth* means the best currently validated model available at a given stage. It is not asserted to be absolute or final truth.
 
+Long-lived stability therefore does not require an immutable truth or frozen state. A recurring relation can remain approximately stable while its concrete instances continue to change. The specification calls such a pattern a **relational quasi-invariant**.
+
+> **What persists may be the relation repeatedly instantiated by changing states, not an unchanging state itself.**
+
 ## The complete recursive relation
 
 ### 1. Persistent lower-level operation
@@ -165,7 +169,7 @@ Current status: **no equivalent complete framework has yet been identified in th
 ## Repository map
 
 - [`BIDIRECTIONAL_RECURSION.md`](BIDIRECTIONAL_RECURSION.md) — current minimum mechanism
-- [`SPEC.md`](SPEC.md) — v0.7 terminology, rules, and invariants
+- [`SPEC.md`](SPEC.md) — v0.7 terminology, rules, invariants, and relational quasi-invariants
 - [`ARCHITECTURE.md`](ARCHITECTURE.md) — structural explanation and information flow
 - [`PROVENANCE_RECONSTRUCTION.md`](PROVENANCE_RECONSTRUCTION.md) — provenance discontinuity, reconstruction, replay, and reversal
 - [`DIMENSIONAL_RECURSION.md`](DIMENSIONAL_RECURSION.md) — hypothesis-level dimensional recursion extension
@@ -178,4 +182,4 @@ Current status: **no equivalent complete framework has yet been identified in th
 
 ## Shortest form
 
-> **Reality produces model; model reshapes reality. Quantity produces quality; quality reshapes quantity. Higher structures can preserve lower structures without becoming identical to their earlier historical state.**
+> **Reality produces model; model reshapes reality. Quantity produces quality; quality reshapes quantity. Stage-truth can change, while some relations may remain approximately stable across changing instances. Higher structures can preserve lower structures without becoming identical to their earlier historical state.**
