@@ -25,6 +25,18 @@ A system or process capable of becoming the starting point of its own continuing
 ### 1.7 Expanding closed loop
 A loop in which output becomes part of the conditions for a later input cycle, while the reachable model/capability space can increase across cycles.
 
+### 1.8 Provenance
+Information describing the generating lineage, prior states, transformations, or causes from which a current structure emerged.
+
+### 1.9 Provenance discontinuity
+A condition in which the current recursive structure continues even though part or all of its generating lineage is no longer continuously accessible.
+
+### 1.10 Theoretical reconstruction
+A present-time model or inference about an earlier state or process. It is descriptive and does not itself reinstate the earlier causal process.
+
+### 1.11 Process replay
+Execution of a reconstructed earlier-like state in the present. Unless a stronger reversal mechanism is separately demonstrated, process replay is treated as creation of a new recursive branch.
+
 ## 2. Core recursive rule
 
 ```text
@@ -91,6 +103,24 @@ The abstract mechanism does not require a final top, bottom, perceptual scheme, 
 
 ### PR-I15 — Closed loop, expanding space
 The recursive mechanism MAY close structurally while the reachable/explanatory state space expands across cycles.
+
+### PR-I16 — Provenance continuity is not required
+A recursive process MAY continue even when parts of its generating lineage are inaccessible, compressed, lost, or intentionally not replayed.
+
+### PR-I17 — Generator persistence is not always required
+Once a higher-level recursive structure is sufficiently autonomous, the lower structure that generated it MAY disappear without forcing the higher structure to stop.
+
+### PR-I18 — Historical reconstruction is descriptive by default
+A reconstructed earlier state is a present model of history and MUST NOT be treated as the original historical causal event merely because the state description matches.
+
+### PR-I19 — Process replay creates a branch
+Executing a reconstructed earlier-like state SHOULD be treated as generation of a new recursive branch unless literal causal reversal is separately demonstrated.
+
+### PR-I20 — Replayed branches do not auto-merge
+A replayed branch MUST NOT automatically overwrite or merge into the active branch. Any transfer SHOULD occur through an explicit validation or merge protocol.
+
+### PR-I21 — Full historical replay is not a runtime requirement
+Continued recursion MUST NOT require replaying the complete generating history at every stage.
 
 ## 4. Multi-source semantics
 
@@ -173,7 +203,68 @@ R may create R'
 
 `R'` counts as a new recursive origin if it can become a source of its own recursively continuing structure rather than merely being the next ordinary state of `R`.
 
-## 10. Epistemic boundary
+## 10. Provenance discontinuity
+
+The model distinguishes a historical generating chain from the current runtime dependency graph.
+
+A structure may have arisen through:
+
+```text
+R0 -> R1 -> R2 -> H
+```
+
+while at a later stage only `H` remains active or accessible.
+
+`R0..R2` may be:
+
+- lost;
+- compressed into `H`;
+- archived externally;
+- only partially reconstructable;
+- intentionally not replayed.
+
+This does not by itself break recursive continuity.
+
+## 11. Reconstruction versus replay
+
+Theoretical reconstruction:
+
+```text
+current C
+  -> infer historical model H*
+```
+
+Process replay:
+
+```text
+current C
+  -> instantiate R0'
+  -> R1'
+  -> R2'
+  -> C'
+```
+
+The second process creates a present causal branch `C'`. It is not equivalent to returning to the original historical chain.
+
+Therefore:
+
+> **theory may be reconstructed backward; executed process moves forward causally.**
+
+## 12. Branch merge discipline
+
+A replayed branch may contain state claims incompatible with the active branch.
+
+Potential conflicts include:
+
+- duplicated identities;
+- incompatible object versions;
+- obsolete rules reactivated as current rules;
+- contradictory causal dependencies;
+- duplicated downstream effects.
+
+A conforming implementation SHOULD isolate replayed branches by default and MAY transfer validated conclusions back to the active branch through explicit higher-level integration.
+
+## 13. Epistemic boundary
 
 The model MUST distinguish possibility from inevitability.
 
@@ -184,7 +275,7 @@ possible != inevitable
 
 A future event becomes empirically established as realizable only after occurrence or equivalent evidence. The architecture's openness alone does not prove that every specific possibility will eventually occur.
 
-## 11. Conformance summary
+## 14. Conformance summary
 
 A conforming implementation or formal analogue should preserve:
 
@@ -198,8 +289,11 @@ A conforming implementation or formal analogue should preserve:
 - tolerance of local loss and local cessation;
 - possibility of new recursive origins;
 - absence of a built-in final layer;
-- expansion of the recursive closed loop.
+- expansion of the recursive closed loop;
+- provenance discontinuity;
+- separation of theoretical reconstruction from process replay;
+- branch isolation or explicit merge control for replayed histories.
 
-## 12. Compact definition
+## 15. Compact definition
 
-> **Perfect Recursion is a closed but expanding bidirectional recursive architecture in which reality-facing lower processes continue to generate information, higher structures integrate and reconstruct that information, higher-level qualitative change reshapes future lower-level variation, and the architecture keeps its own perception, capacity, limits, and recursive origins open to further recursion.**
+> **Perfect Recursion is a closed but expanding bidirectional recursive architecture in which reality-facing lower processes continue to generate information, higher structures integrate and reconstruct that information, higher-level qualitative change reshapes future lower-level variation, the architecture keeps its own perception, capacity, limits, recursive origins, and provenance open to further recursion, and continued operation does not require replaying the complete causal history that produced the current structure.**

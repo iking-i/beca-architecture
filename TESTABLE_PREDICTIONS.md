@@ -158,3 +158,73 @@ For each implementation or formalization, the recursive variables and reconstruc
 The theory is currently a conceptual architecture with testable structural claims, not an experimentally established universal law.
 
 Its strongest unresolved empirical/formal question is whether one mechanism can realize all v0.7 invariants without hidden fixed assumptions that effectively place perception, capacity, or reconstruction outside the recursion.
+
+## 15. Provenance discontinuity test
+
+Prediction: a higher-level recursive structure can continue after part of its generating provenance becomes inaccessible, provided the current structure retains sufficient recursive capability.
+
+Minimal test:
+
+```text
+L0 -> L1 -> H
+```
+
+1. construct `H` from `L0/L1`;
+2. remove runtime access to `L0/L1`;
+3. test whether `H` can continue generating valid later states.
+
+If every higher-level structure necessarily requires the complete lower generating chain to remain active and accessible forever, the provenance-discontinuity extension must be narrowed.
+
+## 16. Reconstruction-versus-replay test
+
+Prediction: reconstructing an earlier state description and executing it in the present creates a new causal branch rather than restoring the original historical event.
+
+Test:
+
+```text
+original: R0 -> R1 -> R2 -> C
+replay:   C -> R0' -> R1' -> R2' -> C'
+```
+
+Compare `C'` with the realized `C` under controlled and perturbed current conditions.
+
+The test should distinguish:
+
+- state equivalence;
+- causal identity;
+- environmental context;
+- downstream divergence.
+
+A result showing that exact state reconstruction automatically restores the original causal position, with no new branch semantics required, would directly challenge PR-I19.
+
+## 17. Replay-merge conflict test
+
+Prediction: direct merging of a replayed branch into an active branch is not generically neutral.
+
+Construct two branches with shared ancestry but divergent later state. Attempt direct merge and measure:
+
+- identity collisions;
+- incompatible object versions;
+- causal inconsistencies;
+- duplicate effects;
+- rule conflicts;
+- information overwrite.
+
+Compare against an isolated-replay protocol in which only validated conclusions are integrated through the higher level.
+
+If direct full-state replay merge is always lossless and conflict-free by construction across the target class of systems, PR-I20 should be narrowed.
+
+## 18. Historical-load test
+
+Prediction: requiring full provenance replay at every stage creates growing runtime cost that is unnecessary when historical results are compressed into current structure.
+
+Compare:
+
+```text
+A. full-history replay before each new step
+B. compressed-current-state continuation
+```
+
+Measure compute, storage, latency, and conflict frequency as history length grows.
+
+The model predicts that recursive continuation does not require architecture A as a universal condition.

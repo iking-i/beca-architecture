@@ -180,6 +180,36 @@ The intended strong form is therefore:
 
 > **The loop closes structurally while its model space, capability space, and reachable variation can continue to expand.**
 
+## Provenance discontinuity and historical replay
+
+Perfect Recursion does not require the complete generating history to remain continuously accessible.
+
+A higher-level structure may continue after the lower structure that generated it disappears or becomes inaccessible. The current system may preserve the structural result of history without carrying the entire historical process as a permanent runtime dependency.
+
+This creates a strict distinction:
+
+- **theoretical reconstruction** can model or infer an earlier state;
+- **process replay** instantiates an earlier-like state in the present;
+- replay therefore creates a **new recursive branch**, not the original past.
+
+```text
+original history:
+R0 -> R1 -> R2 -> C
+
+replay from present C:
+C -> R0' -> R1' -> R2' -> C'
+```
+
+`R0'` is a new present event, even if it perfectly copies the inferred state of `R0`.
+
+Therefore the model permits provenance discontinuity:
+
+> **recursive continuity does not require provenance continuity.**
+
+And it treats direct re-merging of a replayed branch as a non-trivial information/causal merge problem rather than as neutral restoration.
+
+See [`PROVENANCE_RECONSTRUCTION.md`](PROVENANCE_RECONSTRUCTION.md) for the formal extension.
+
 ## What “unbounded” means
 
 Unbounded does **not** mean that a present implementation already possesses infinity.
@@ -215,7 +245,7 @@ This is treated as an epistemic boundary rather than a failure of the recursive 
 
 ## Minimal compact definition
 
-> **Perfect Recursion is an expanding, bidirectionally unbounded recursive architecture in which persistent lower-level processes continuously generate reality-facing information; higher-level structures integrate sufficient validated information into revisable models; those models differentiate or reconstruct future lower-level processes; quantitative variation can generate qualitative transitions that in turn change the quality of later variation; and perception, capacity, model structure, failure, and recursive origins can themselves become objects of recursion.**
+> **Perfect Recursion is an expanding, bidirectionally unbounded recursive architecture in which persistent lower-level processes continuously generate reality-facing information; higher-level structures integrate sufficient validated information into revisable models; those models differentiate or reconstruct future lower-level processes; quantitative variation can generate qualitative transitions that in turn change the quality of later variation; perception, capacity, model structure, failure, recursive origins, and provenance can themselves become objects of recursion; and continued recursion does not require continuous access to the complete generating history.**
 
 ## Novelty discipline
 
@@ -232,6 +262,7 @@ The phrase **Perfect Recursion** is also used by an unrelated 2026 project descr
 - [`BIDIRECTIONAL_RECURSION.md`](BIDIRECTIONAL_RECURSION.md) — current minimum mechanism
 - [`SPEC.md`](SPEC.md) — v0.7 terminology, rules, and invariants
 - [`ARCHITECTURE.md`](ARCHITECTURE.md) — structural explanation and information flow
+- [`PROVENANCE_RECONSTRUCTION.md`](PROVENANCE_RECONSTRUCTION.md) — provenance discontinuity, theoretical reconstruction, and process replay rules
 - [`TESTABLE_PREDICTIONS.md`](TESTABLE_PREDICTIONS.md) — conformance tests, falsification targets, and boundary conditions
 - [`PRIOR_ART.md`](PRIOR_ART.md) — adjacent theories and novelty boundary
 - [`paper/BECA_v0.7.md`](paper/BECA_v0.7.md) — current conceptual paper
@@ -241,4 +272,4 @@ The phrase **Perfect Recursion** is also used by an unrelated 2026 project descr
 
 ## Shortest form
 
-> **Reality produces model; model reshapes reality. Quantity produces quality; quality reshapes quantity. The lower level never stops merely because a higher level exists, so the closed loop can continue expanding.**
+> **Reality produces model; model reshapes reality. Quantity produces quality; quality reshapes quantity. The lower level never stops merely because a higher level exists, and the higher level need not carry its complete origin history in order to continue.**
