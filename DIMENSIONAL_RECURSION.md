@@ -266,6 +266,9 @@ If the higher-order state remains while a lower-order object is generated, the o
 ### DR-H8 — Historical dimensional emergence remains unverified
 The sequence `D_n -> D_(n+1)` as a literal history of physical spacetime remains a hypothesis and MUST NOT be promoted to a core Perfect Recursion invariant without independent evidence.
 
+### DR-H9 — Same-level coupling is not automatic dimensional ascent
+An individual and its directly encountered environment MAY coexist and interact within the same recursive dimension. Mutual influence, mutual state change, or treating their relation as an experimental unit MUST NOT by itself be classified as generation of a higher dimension.
+
 ## 13. Test and falsification program
 
 The extension separates two kinds of claims.
@@ -277,7 +280,8 @@ A candidate system should distinguish:
 - ambient structural dimension from lower-dimensional expression;
 - projection from structural identity change;
 - generated lower-dimensional artifacts from reversal;
-- historical identity from local mathematical equivalence.
+- historical identity from local mathematical equivalence;
+- same-level interaction from genuine higher-order emergence.
 
 A formalism that cannot make these distinctions is insufficient for this extension.
 
@@ -292,6 +296,43 @@ To support literal dimensional emergence in nature, independent evidence would b
 
 Without such evidence, the dimensional-emergence part remains speculative.
 
-## 14. Compact formulation
+## 14. Same-dimension initialization of the minimal individual model
 
-> **Dimensional Recursion is a hypothesis-level extension of Perfect Recursion in which higher-order structures may contain lower-order structures without restoring their earlier historical identity. Lower-dimensional expression, projection, or simulation inside a higher-order system is not true dimensional return. If genuine structural downgrade exists, it must return the active higher-order state itself rather than preserve that state while generating a lower-dimensional representation or branch.**
+For the current minimal experimental model, the initial relation is explicitly:
+
+```text
+D0:
+A <-> E
+```
+
+`A` is the initial individual and `E` is its directly encountered environment.
+
+Both are treated as participants in the same initial recursive dimension `D0`.
+
+Therefore:
+
+```text
+A != automatically higher-dimensional than E
+E != automatically higher-dimensional than A
+A + E != automatically D1
+```
+
+Their mutual interaction may change both:
+
+```text
+A0 <-> E0
+↓      ↓
+A1 <-> E1
+↓      ↓
+A2 <-> E2
+```
+
+but same-level co-evolution is not by itself dimensional ascent.
+
+A `D1`-like structure must be identified by an additional higher-order relation or organization produced through recursion, not by relabeling the existence of interaction as a higher dimension.
+
+See [`MINIMAL_INDIVIDUAL_MODEL.md`](MINIMAL_INDIVIDUAL_MODEL.md).
+
+## 15. Compact formulation
+
+> **Dimensional Recursion is a hypothesis-level extension of Perfect Recursion in which higher-order structures may contain lower-order structures without restoring their earlier historical identity. Lower-dimensional expression, projection, or simulation inside a higher-order system is not true dimensional return. Same-level interaction between an individual and its environment does not automatically create a higher dimension. If genuine structural downgrade exists, it must return the active higher-order state itself rather than preserve that state while generating a lower-dimensional representation or branch.**
