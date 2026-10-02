@@ -35,7 +35,7 @@ A condition in which the current recursive structure continues even though part 
 A present-time model or inference about an earlier state or process. It is descriptive and does not itself reinstate the earlier causal process.
 
 ### 1.11 Historical replay
-Execution of a reconstructed earlier-like state while the current state remains part of the active causal structure. Historical replay is treated as generation of a new recursive branch.
+Generation of a historically reconstructed condition as a new recursive branch while the current state remains part of the active causal structure. The replayed branch has its own recursive identity, state, history, memory, and causal continuity.
 
 ### 1.12 True reversal
 A hypothetical return of the active system itself to an earlier state in which the later active state is no longer retained as the current state. Complete reversal requires that state internal to the reversed system which depends on the later interval also be returned.
@@ -117,10 +117,10 @@ Once a higher-level recursive structure is sufficiently autonomous, the lower st
 A reconstructed earlier state is a present model of history and MUST NOT be treated as the original historical causal event merely because the state description matches.
 
 ### PR-I19 — Historical replay creates a recursive branch
-Executing a reconstructed earlier-like state while the current state remains active SHOULD be treated as generation of a new recursive branch. Such branch creation is itself part of ongoing recursion.
+Executing a historically reconstructed condition while the current state remains active SHOULD be treated as generation of a new recursive branch. The new branch has its own recursive identity, state, history, memory, and causal continuity and is itself part of ongoing recursion.
 
 ### PR-I20 — Branch creation is not true reversal
-If the later/current state remains present while a past-like state is generated, the operation MUST NOT be classified as complete reversal.
+If the later/current state remains present while a historically reconstructed state is generated, the operation MUST NOT be classified as complete reversal.
 
 ### PR-I21 — True reversal requires return of current state
 For an operation to count as complete reversal to an earlier state, the later active state MUST cease to remain the current state within the reversed system.
@@ -128,8 +128,8 @@ For an operation to count as complete reversal to an earlier state, the later ac
 ### PR-I22 — Complete reversal cannot retain internal later-state evidence
 If information internal to the reversed system remains observable solely because the later interval occurred, the resulting state is not identical to the target earlier state and the reversal is incomplete.
 
-### PR-I23 — Replayed branches do not auto-merge
-A replayed branch MUST NOT automatically overwrite or merge into the active branch. Any transfer SHOULD occur through an explicit validation or merge protocol.
+### PR-I23 — Replay branches preserve recursive identity
+A replayed branch MUST be treated as a distinct recursive structure rather than as a continuation of the original historical event. Its branch-local state, memory, history, and causal continuity belong to the new branch. Any later interaction or higher-level integration is a new recursive relation and MUST preserve the provenance distinction.
 
 ### PR-I24 — Full historical replay is not a runtime requirement
 Continued recursion MUST NOT require replaying the complete generating history at every stage.
@@ -250,13 +250,15 @@ Historical replay:
 
 ```text
 current C
-  -> instantiate R0'
+  -> generate R0'
   -> R1'
   -> R2'
   -> C'
 ```
 
-Here the current branch remains part of the causal structure and `C'` is newly generated. This is recursion generating another branch, not causal reversal.
+Here `C'` belongs to a newly generated recursive branch. Its state, memory, history, and causal continuity belong to that branch rather than to the original historical event. The current branch remains present, so this is recursion generating recursion rather than causal reversal.
+
+The historical relation between the two branches does not by itself create direct causal continuity or shared identity between them.
 
 True reversal, by contrast, would require:
 
@@ -272,7 +274,7 @@ with `S3` no longer retained as the active state of the reversed system.
 
 Therefore:
 
-> **theory can be reconstructed backward; replay regenerates forward; true reversal would return the current state itself.**
+> **theory can be reconstructed backward; replay generates new recursion forward; true reversal would return the current state itself.**
 
 ## 12. Internal observability criterion
 
@@ -288,11 +290,15 @@ and therefore `S1' != S1` under the adopted state definition.
 
 This criterion applies only to the reversed domain. A larger external system that is not reversed MAY retain evidence of a local subsystem reset/reversal; from that larger level the local reversal remains an ordinary forward event.
 
-## 13. Branch merge discipline
+## 13. Replay branch identity and later interaction
 
-Branch-merge problems belong to historical replay, not true reversal.
+A replayed branch is distinct because it is a new recursion, not because an additional defensive isolation mechanism is imposed on it.
 
-A replayed branch may contain state claims incompatible with the active branch, including:
+If two branches coexist, they retain distinct branch-local state, memory, history, and causal continuity. Historical similarity or derivation does not make them one active state.
+
+A later architecture MAY define comparison, communication, information transfer, or higher-level integration between branches. Such an event is itself a new recursive relation and MUST preserve provenance rather than be interpreted as automatic continuation of the original historical event.
+
+If an implementation explicitly attempts a direct identity merge, practical conflicts may include:
 
 - duplicated identities;
 - incompatible object versions;
@@ -300,7 +306,7 @@ A replayed branch may contain state claims incompatible with the active branch, 
 - contradictory causal dependencies;
 - duplicated downstream effects.
 
-A conforming implementation SHOULD isolate replayed branches by default and MAY transfer validated conclusions back to the active branch through explicit higher-level integration.
+These are interaction or merge problems between distinct recursive structures, not the reason the branches are distinct.
 
 ## 14. Epistemic boundary
 
@@ -330,13 +336,13 @@ A conforming implementation or formal analogue should preserve:
 - expansion of the recursive closed loop;
 - provenance discontinuity;
 - separation of theoretical reconstruction, historical replay, and true reversal;
-- recognition that replayed histories are new recursive branches;
+- recognition that replayed histories are new recursive branches with their own recursive identity;
 - the state-return criterion for true reversal;
-- branch isolation or explicit merge control for replayed histories.
+- provenance-preserving treatment of any later branch interaction or integration.
 
 ## 16. Compact definition
 
-> **Perfect Recursion is a closed but expanding bidirectional recursive architecture in which reality-facing lower processes continue to generate information, higher structures integrate and reconstruct that information, higher-level qualitative change reshapes future lower-level variation, the architecture keeps its own perception, capacity, limits, recursive origins, and provenance open to further recursion, and continued operation does not require replaying the complete causal history that produced the current structure. Historical replay remains forward recursion; true reversal, if meaningful, requires the current state itself to be returned rather than duplicated beside a past-like branch.**
+> **Perfect Recursion is a closed but expanding bidirectional recursive architecture in which reality-facing lower processes continue to generate information, higher structures integrate and reconstruct that information, higher-level qualitative change reshapes future lower-level variation, the architecture keeps its own perception, capacity, limits, recursive origins, and provenance open to further recursion, and continued operation does not require replaying the complete causal history that produced the current structure. Historical replay remains forward recursion by generating a new recursive branch with its own identity; true reversal, if meaningful, requires the current state itself to be returned rather than preserved beside a regenerated historical branch.**
 
 ## 17. Dimensional Recursion extension status
 
