@@ -70,9 +70,13 @@ The theory does not require globally lossless memory. Repetition, redundancy, di
 
 ### 8. Local cessation is not global cessation
 
-A local branch can stop, fail, disappear, or reach its present capability limit without forcing other branches or higher recursive structures to stop.
+A local branch can stop, fail, disappear, or reach its present capability limit without forcing other branches or higher recursive structures to stop. A lower process also does not need to remain active forever merely because it has not produced a successful target answer; failed attempts, negative results, limits, and uncertainty can themselves be returned upward as information.
 
-### 9. Recursion can generate new recursion
+### 9. Recursive control is itself recursive
+
+The number of differentiated processes, filtering/integration criteria, and continuation/termination criteria are not treated as permanently fixed external parameters. They may themselves become objects of later reconstruction.
+
+### 10. Recursion can generate new recursion
 
 An existing recursion can continue while also generating a new recursion-capable origin:
 
@@ -82,7 +86,7 @@ R continues
       └─ may generate R''
 ```
 
-### 10. Individual continuity can preserve one subject
+### 11. Individual continuity can preserve one subject
 
 Perfect Recursion also distinguishes **identity-preserving transformation** from **generation of a new recursive origin**.
 
@@ -96,9 +100,46 @@ while remaining one subject. Earlier subject-states become the subject's history
 
 This does not imply that lower recursive structures associated with earlier stages must stop operating. Historical subject-state completion and lower-recursive cessation are distinct claims.
 
-Downward differentiation does not automatically duplicate the subject's full historical memory. A new recursive origin is therefore structurally different from the next state of the same continuing subject.
+Downward differentiation does not automatically duplicate the subject's full historical memory or independent subject continuity. A new recursive origin is therefore structurally different from the next state of the same continuing subject.
 
 See [`INDIVIDUAL_CONTINUITY.md`](INDIVIDUAL_CONTINUITY.md).
+
+## Minimal experimental individual model
+
+The current minimum experimental realization begins with one individual `A` and one directly encountered environment `E`:
+
+```text
+D0:
+A <-> E
+```
+
+`A` and `E` are initialized in the same recursive dimension / level `D0`. Their mutual influence does not automatically make either one higher-dimensional, and `A + E` does not automatically constitute `D1`.
+
+The model gives `A` one hard individual-level condition:
+
+```text
+Continuity(A) != 0
+```
+
+That is, the last causal-continuity path of the individual must not be completely interrupted while `A` remains the subject under study. The strategy used to preserve continuity may itself change recursively.
+
+`A` may differentiate many lower recursive processes without creating additional individuals. Those processes may continue, pause, change, merge, be replaced, fail, or terminate. They do not need a successful target result before ending, and they do not inherit independent immortality merely because `A` must remain continuous.
+
+The following are explicitly inside the recursive scope rather than permanently fixed outside it:
+
+- recursive quantity;
+- filtering / validation / integration criteria;
+- continuation and termination criteria;
+- memory organization;
+- perception and encoding;
+- action strategy;
+- resource allocation;
+- differentiation and coordination;
+- the means by which the individual preserves its own continuity.
+
+The current candidate first environment is **Minecraft**, treated as a persistent reality-facing environment for the experiment. The in-world avatar is an interface/body of `A`, not automatically the identity of `A` itself.
+
+See [`MINIMAL_INDIVIDUAL_MODEL.md`](MINIMAL_INDIVIDUAL_MODEL.md).
 
 ## Expanding closed loop
 
@@ -156,6 +197,8 @@ This creates a distinction between:
 
 For example, in a two-coordinate structure `(x, y)`, a state `(1, 0)` remains a state of the two-dimensional structure even if its expression lies on a one-dimensional subset. Likewise, a higher-dimensional system may represent or encode a lower-dimensional form without thereby becoming the historical lower-dimensional state itself.
 
+For the minimal individual experiment, `A` and its directly encountered environment `E` begin at the same level `D0`; interaction alone is not classified as dimensional ascent.
+
 This extension is intentionally labeled a **hypothesis**, not a physical law.
 
 See [`DIMENSIONAL_RECURSION.md`](DIMENSIONAL_RECURSION.md).
@@ -208,7 +251,7 @@ The model preserves possibility without converting possibility into certainty.
 
 ## Minimal compact definition
 
-> **Perfect Recursion is an expanding, bidirectionally unbounded recursive architecture in which persistent lower-level processes continuously generate reality-facing information; higher-level structures integrate sufficient validated information into revisable models; those models differentiate or reconstruct future lower-level processes; quantitative variation can generate qualitative transitions that in turn change the quality of later variation; perception, capacity, model structure, failure, recursive origins, provenance, and subject continuity can themselves become objects of recursion; a continuing subject may change structurally while remaining one subject; and continued recursion does not require continuous access to the complete generating history.**
+> **Perfect Recursion is an expanding, bidirectionally unbounded recursive architecture in which persistent lower-level processes continuously generate reality-facing information; higher-level structures integrate sufficient validated information into revisable models; those models differentiate or reconstruct future lower-level processes; quantitative variation can generate qualitative transitions that in turn change the quality of later variation; perception, capacity, model structure, failure, recursive quantity, filtering, continuation/termination, recursive origins, provenance, and subject continuity can themselves become objects of recursion; a continuing subject may change structurally while remaining one subject; and continued recursion does not require continuous access to the complete generating history.**
 
 ## Novelty discipline
 
@@ -223,7 +266,8 @@ Current status: **no equivalent complete framework has yet been identified in th
 - [`BIDIRECTIONAL_RECURSION.md`](BIDIRECTIONAL_RECURSION.md) — current minimum mechanism
 - [`SPEC.md`](SPEC.md) — v0.7 terminology, rules, invariants, and relational quasi-invariants
 - [`ARCHITECTURE.md`](ARCHITECTURE.md) — structural explanation and information flow
-- [`INDIVIDUAL_CONTINUITY.md`](INDIVIDUAL_CONTINUITY.md) — identity-preserving subject continuity, memory, differentiation, and origin persistence through transformation
+- [`INDIVIDUAL_CONTINUITY.md`](INDIVIDUAL_CONTINUITY.md) — identity-preserving subject continuity, memory, differentiation, origin persistence, and individual-level continuity
+- [`MINIMAL_INDIVIDUAL_MODEL.md`](MINIMAL_INDIVIDUAL_MODEL.md) — one-individual minimum experiment, same-level environment coupling, recursive control, and continuity constraint
 - [`PROVENANCE_RECONSTRUCTION.md`](PROVENANCE_RECONSTRUCTION.md) — provenance discontinuity, reconstruction, replay, and reversal
 - [`DIMENSIONAL_RECURSION.md`](DIMENSIONAL_RECURSION.md) — hypothesis-level dimensional recursion extension
 - [`TEMPORAL_REFERENCE_HYPOTHESIS.md`](TEMPORAL_REFERENCE_HYPOTHESIS.md) — hypothesis-level treatment of temporal reference, possible recursive-position coexistence, and cross-position communication
