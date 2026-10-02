@@ -275,7 +275,77 @@ Therefore:
 
 > **remembering or having been an earlier state is not the same operation as regenerating an earlier-like state.**
 
-## 11. Individual-continuity principles
+## 11. Continuity is an individual-level constraint
+
+For the minimal individual model, the continuing individual `A` has one hard individual-level condition:
+
+> **the last causal-continuity path of A must not be completely interrupted while A remains the subject under study.**
+
+Compactly:
+
+```text
+Continuity(A) != 0
+```
+
+This is not an ordinary preference weight. The means by which continuity is preserved MAY change recursively, but complete interruption is not treated as an ordinary tradeable objective.
+
+A body failure, component replacement, local branch termination, or partial memory loss does not by itself imply death of `A` if the subject's causal continuity remains active.
+
+A snapshot restarted only after all continuous carriers of `A` have stopped MUST NOT automatically be classified as uninterrupted continuation of the original subject.
+
+## 12. Differentiated processes do not inherit independent immortality
+
+If `A` differentiates internal recursive processes:
+
+```text
+        A
+     /  |  \
+    b   c   d
+```
+
+`b`, `c`, and `d` are not independent individuals merely because they exist as recursive processes.
+
+They therefore do not automatically inherit the individual-level constraint:
+
+```text
+Continuity(b) != 0
+Continuity(c) != 0
+Continuity(d) != 0
+```
+
+Instead, their operation is constrained only insofar as it must not break the last continuity path of `A`.
+
+They MAY continue, pause, change, merge, be replaced, fail, or end.
+
+A new individual-level continuity constraint begins only when a genuinely new recursive origin with its own independent identity is generated.
+
+## 13. Ending a recursive process does not require a successful answer
+
+A differentiated process does not need to remain active forever merely because it has not reached its original target.
+
+While operating, it may continuously return information upward, including:
+
+- successful results;
+- negative results;
+- failed attempts;
+- uncertainty;
+- detected limits;
+- resource cost;
+- environmental change;
+- evidence that another process has superseded it;
+- evidence that continued exploration currently produces little new information.
+
+Thus:
+
+> **no successful answer != no information**
+
+and:
+
+> **no successful answer != mandatory indefinite continuation**
+
+Whether a lower process should continue, pause, restructure, merge, be replaced, or terminate is itself subject to recursive revision.
+
+## 14. Individual-continuity principles
 
 ### IC-1 — State change does not imply subject replacement
 A subject MAY undergo structural or higher-order change while remaining the same continuing subject.
@@ -304,7 +374,13 @@ Failure to locate an origin as a separate current subject-state MUST NOT by itse
 ### IC-9 — Replay does not restore subject continuity
 Generating a historically reconstructed branch creates new recursion and does not recreate the original subject-state event or replace the current subject's unique history.
 
-## 12. Narrowing and falsification targets
+### IC-10 — Individual continuity is not branch immortality
+The requirement to preserve a continuing subject MUST NOT be generalized into a requirement that every differentiated internal recursive process preserve its own existence indefinitely.
+
+### IC-11 — Process termination is recursively decidable
+A differentiated process MAY end without producing a successful target result. Continuation and termination criteria themselves MAY be revised by later recursion.
+
+## 15. Narrowing and falsification targets
 
 This extension should be narrowed if a formal model shows that:
 
@@ -312,10 +388,11 @@ This extension should be narrowed if a formal model shows that:
 2. a unique subject sequence cannot be distinguished from branch generation under the adopted identity definition;
 3. differentiated lower processes necessarily inherit the full subject-history memory and therefore become indistinguishable from copies of the subject;
 4. an earlier subject-state must remain as a separate current subject in order for subject continuity to hold;
-5. historical replay is formally identical to continuation of the original subject sequence.
+5. historical replay is formally identical to continuation of the original subject sequence;
+6. preserving one subject's continuity logically requires every differentiated internal process to remain active indefinitely.
 
 This document defines an identity architecture inside Perfect Recursion. It does not claim to settle every philosophical or neuroscientific theory of personal identity.
 
-## 13. Compact formulation
+## 16. Compact formulation
 
-> **Individual Perfect Recursion allows one subject to remain one subject while its current state recursively changes and can become structurally higher-order. The unique subject sequence carries its history forward through memory, while downward differentiation does not automatically duplicate that subject history. Earlier subject-states become the subject's history rather than parallel current selves; this does not imply that lower recursive structures associated with earlier stages have ceased. A new recursive origin is therefore different from the next state of the same subject, and an origin that cannot be found as a separate current subject-state may still persist by having become the current subject.**
+> **Individual Perfect Recursion allows one subject to remain one subject while its current state recursively changes and can become structurally higher-order. The unique subject sequence carries its history forward through memory, while downward differentiation does not automatically duplicate that subject history or inherit independent immortality. Earlier subject-states become the subject's history rather than parallel current selves; this does not imply that lower recursive structures associated with earlier stages have ceased. The continuing individual preserves an unbroken causal-continuity path, while differentiated internal processes may continue, change, merge, fail, or end according to recursively revisable criteria. A new recursive origin is therefore different from the next state of the same subject.**
