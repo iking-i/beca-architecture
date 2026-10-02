@@ -11,7 +11,7 @@ Perfect Recursion is an **expanding bidirectional recursive structure** in which
 3. a higher-level structure compares, classifies, validates, and reconstructs its model when sufficient information justifies change;
 4. the reconstructed higher level can differentiate or reorganize future lower-level processes;
 5. quantitative variation can produce qualitative transitions, and qualitative transitions can change the quality of subsequent variation;
-6. perception, capacity, model structure, failure, recursive origins, provenance, and subject continuity can themselves become objects of recursion;
+6. perception, capacity, model structure, failure, recursive origins, provenance, subject continuity, recursive quantity, filtering, and continuation/termination criteria can themselves become objects of recursion;
 7. the structural loop closes while its reachable and explanatory space may expand.
 
 Compactly:
@@ -68,7 +68,7 @@ The higher level uses current validated information to determine whether new obs
 - a previously unknown condition;
 - evidence that the current model lacks a necessary distinction.
 
-Reconstruction is delayed until sufficient information exists. The exact threshold is implementation-dependent.
+Reconstruction is delayed until sufficient information exists. The exact threshold is not assumed to be permanently external; a current implementation may begin with a provisional threshold, while the criterion for sufficiency can itself become a later recursive target.
 
 ## 5. Top-down differentiation
 
@@ -82,7 +82,9 @@ A qualitative change at the higher level may alter:
 - resource allocation;
 - coordination;
 - branching rules;
-- generative conditions.
+- generative conditions;
+- the number of active differentiated processes;
+- the criteria by which those processes continue, change, merge, or terminate.
 
 Thus:
 
@@ -146,17 +148,61 @@ Information can be lost in one branch while:
 - redundant conclusions survive elsewhere;
 - continued observation recovers the missing relation later.
 
-Robustness therefore comes from distributed recurrence and redundancy, not an assumption of globally lossless memory.
+Robustness therefore comes from distributed recurrence, reconstruction, and redundancy rather than an assumption of globally lossless memory.
 
 ## 10. Local cessation and disappearance
 
-A lower-level process may stop changing, fail, disappear, or reach the limit of its present capability.
+A lower-level process may continue, pause, fail, disappear, be replaced, merge, or terminate without forcing the entire architecture to stop.
 
-That does not imply global failure.
+Termination does not require that the process first produce a successful target result.
 
-Its final state, failure, disappearance, or produced information may itself contribute to higher-level integration, while other branches continue.
+A process may return useful information while it runs, including:
 
-## 11. Recursion can generate recursion
+- successful results;
+- failed attempts;
+- negative evidence;
+- uncertainty;
+- discovered boundaries;
+- resource cost;
+- evidence that the original condition changed;
+- evidence that another process superseded it.
+
+Therefore:
+
+> **no successful answer != no information**
+
+and:
+
+> **no successful answer != mandatory indefinite continuation**
+
+Its final state, failure, disappearance, or produced information may itself contribute to higher-level integration while other branches continue.
+
+## 11. Recursive quantity, filtering, and termination are inside the recursion
+
+Perfect Recursion does not treat the following as permanently fixed external control parameters:
+
+- how many lower recursive processes are generated;
+- how outcomes are classified, validated, prioritized, or integrated;
+- how long a lower process should continue;
+- when a process should pause, restructure, merge, be replaced, or terminate.
+
+Conceptually:
+
+```text
+recursive quantity:   k_n -> k_(n+1)
+filtering/integration: F_n -> F_(n+1)
+termination/control:  S_n -> S_(n+1)
+```
+
+A current implementation may require provisional initialization rules, but those rules are not protected from later recursive revision merely because they were present at startup.
+
+Filtering MUST NOT collapse into majority deletion. A rare result remains potentially significant if it reveals a missing condition or higher-resolution relation.
+
+Likewise, the system need not retain every lower recursive process forever. The criteria used to decide continuation are themselves part of the evolving architecture.
+
+This prevents a hidden external scheduler from permanently determining the recursive structure while claiming that only the contents inside it are recursive.
+
+## 12. Recursion can generate recursion
 
 The earlier BER mechanism remains valid:
 
@@ -170,7 +216,7 @@ R
 
 `R'` is a new recursive origin when it can become a source of its own continuing recursive structure rather than only the next ordinary state of `R`.
 
-## 12. A subject can change without generating another subject
+## 13. A subject can change without generating another subject
 
 Perfect Recursion must distinguish new-recursion generation from identity-preserving transformation.
 
@@ -191,6 +237,8 @@ Earlier states become history rather than parallel current subjects. Subject-his
 
 Downward differentiation does not automatically copy the subject's complete historical memory into every lower process. Those lower processes may contribute outcomes back to the continuing subject without becoming copies of it.
 
+For the current minimal individual model, the continuing subject preserves at least one causal-continuity path. Differentiated internal processes do not thereby inherit independent immortality; they may terminate according to recursively revisable criteria as long as the continuing subject's last continuity path is not broken.
+
 Therefore:
 
 > **structural ascent does not require subject multiplication.**
@@ -199,9 +247,9 @@ and:
 
 > **the next state of one subject is not the same operation as generation of a new recursive origin.**
 
-See [`INDIVIDUAL_CONTINUITY.md`](INDIVIDUAL_CONTINUITY.md).
+See [`INDIVIDUAL_CONTINUITY.md`](INDIVIDUAL_CONTINUITY.md) and [`MINIMAL_INDIVIDUAL_MODEL.md`](MINIMAL_INDIVIDUAL_MODEL.md).
 
-## 13. Expanding closed loop
+## 14. Expanding closed loop
 
 Perfect Recursion is closed in mechanism but not fixed in scale.
 
@@ -223,7 +271,7 @@ Each completed cycle can alter the conditions of the next cycle.
 
 The loop therefore grows rather than merely repeats.
 
-## 14. Stage-truth
+## 15. Stage-truth
 
 The theory uses **stage-truth** for the strongest currently validated model available at a given stage.
 
@@ -238,7 +286,7 @@ A new observation may:
 
 An older model may therefore remain locally valid inside a more complete later model.
 
-## 15. Epistemic boundary: unrealized possibility
+## 16. Epistemic boundary: unrealized possibility
 
 The current architecture does not prove that every specific unrealized possibility will eventually occur.
 
@@ -254,7 +302,7 @@ Until reality supplies the event or stronger conditional evidence, the model pre
 
 This is treated as an epistemic boundary, not as a break in the recursive mechanism.
 
-## 16. Minimum invariants
+## 17. Minimum invariants
 
 A system is minimally compatible with the current theory if:
 
@@ -268,12 +316,16 @@ A system is minimally compatible with the current theory if:
 8. perception can itself change;
 9. capacity can itself change;
 10. local loss or cessation does not require global cessation;
-11. recursion can generate new recursive origins;
-12. identity-preserving transformation can be distinguished from generation of a new recursive identity;
-13. a continuing subject may retain one subject identity across changing states;
-14. no final top, bottom, perceptual scheme, capacity, or model is built into the abstract structure;
-15. the loop can close while its state/model space continues to expand.
+11. a lower process need not continue indefinitely merely because it has not produced a successful answer;
+12. recursive quantity can itself change;
+13. filtering/integration criteria can themselves change;
+14. continuation and termination criteria can themselves change;
+15. recursion can generate new recursive origins;
+16. identity-preserving transformation can be distinguished from generation of a new recursive identity;
+17. a continuing subject may retain one subject identity across changing states;
+18. no final top, bottom, perceptual scheme, capacity, control criterion, or model is built into the abstract structure;
+19. the loop can close while its state/model space continues to expand.
 
-## 17. Compact definition
+## 18. Compact definition
 
-> **Perfect Recursion is an expanding, bidirectionally unbounded recursive architecture in which persistent lower-level processes continuously generate information; higher-level structures integrate sufficient validated information into revisable models; those models reconstruct or differentiate future lower-level processes; quantity and quality recursively transform one another; recursion may generate new recursive origins; and a continuing subject may itself change structurally while remaining one subject whose earlier states become history rather than parallel current selves.**
+> **Perfect Recursion is an expanding, bidirectionally unbounded recursive architecture in which persistent lower-level processes continuously generate information; higher-level structures integrate sufficient validated information into revisable models; those models reconstruct or differentiate future lower-level processes; quantity and quality recursively transform one another; the number, filtering, continuation, and termination of recursive processes can themselves become targets of recursion; recursion may generate new recursive origins; and a continuing subject may itself change structurally while remaining one subject whose earlier states become history rather than parallel current selves.**
