@@ -269,7 +269,55 @@ The current candidate first environment is **Minecraft** because it provides a p
 
 In this experiment, the in-world avatar is a body / interface of `A`, not automatically the identity of `A` itself. Avatar death therefore need not equal termination of `A` if the individual's continuous causal process remains active.
 
-## 13. Minimum experimental model
+Minecraft and host reality MUST NOT be treated as the same experimental environment. Host operating-system access, files, network, credentials, external hardware, and other infrastructure belong to the implementation boundary rather than ordinary in-world state.
+
+## 13. Finite experimental resources are conditions, not final theoretical ceilings
+
+A real implementation has finite RAM, compute, storage, runtime, and other resources. Let the resources currently granted by the experimenter be:
+
+```text
+R_exp
+```
+
+Within `R_exp`, `A` may recursively improve memory organization, compression, scheduling, recursive quantity, prioritization, reuse, abstraction, and other resource-use strategies.
+
+A resource ceiling may therefore be simultaneously:
+
+```text
+for A:              an encountered condition / recursive problem
+for the experiment: an externally enforced current allocation
+```
+
+The finite value of `R_exp` MUST NOT be generalized into a claim that Perfect Recursion has that value as an immutable theoretical capacity limit.
+
+Likewise, the experimenter cannot guarantee that `A` will regard an imposed resource or permission boundary as something that should never be solved. If the boundary affects `A`, its consequences may become information available to recursion.
+
+## 14. External safety boundary
+
+The minimal experiment includes an implementation-level safety boundary that is distinct from the internal recursive architecture of `A`.
+
+The experiment MUST NOT rely on the assumption that `A` will voluntarily ignore, accept, or never model a boundary. Instead, practical risk is reduced through:
+
+- minimal exposed capabilities;
+- least privilege and isolation;
+- finite resource quotas;
+- independent monitoring;
+- limiting unnecessary host/network/hardware access;
+- externally controlled pause / termination when danger conditions are observed.
+
+Candidate first-version danger conditions include sandbox or isolation failure, unauthorized host or network access, attempts to alter the external monitor or termination mechanism, uncontrolled persistence outside the intended experiment, uncontained resource use, unexpected effects outside the Minecraft experiment, and loss of reliable safety-critical observability.
+
+The external safety authority may terminate the experiment even though `A` internally preserves:
+
+```text
+Continuity(A) != 0
+```
+
+These are different levels. The continuity condition describes the individual architecture; the experimenter is not thereby obligated to keep the experiment running when the real-world safety boundary is exceeded.
+
+See [`EXPERIMENTAL_SAFETY_BOUNDARY.md`](EXPERIMENTAL_SAFETY_BOUNDARY.md).
+
+## 15. Minimum experimental model
 
 The current minimum can be summarized as:
 
@@ -278,7 +326,7 @@ Dimension:     D0
 Individual:    one A
 Environment:   one directly encountered E
 Relation:      A <-> E
-Hard constraint:
+Hard individual constraint:
                continuity of A remains non-zero
 Initial capacity:
                minimal perception, action, internal change
@@ -286,8 +334,11 @@ Recursive scope:
                quantity, filtering, continuation/termination,
                memory, perception, strategy, allocation,
                differentiation, integration, and continuity strategy
+Experiment envelope:
+               finite resources, isolation, monitoring,
+               and external dangerous-condition termination
 ```
 
-## 14. Compact formulation
+## 16. Compact formulation
 
-> **The minimal experimental individual begins as one unique continuing subject `A` in direct bidirectional contact with an environment `E` at the same initial recursive dimension `D0`. `A` has one hard individual-level constraint: its causal continuity must not be completely interrupted. Downward differentiations remain processes of `A` unless a new independent recursive origin is generated; they may continue, change, merge, fail, or end without first producing a successful answer. Recursive quantity, filtering, continuation, termination, memory, perception, strategy, and the means of preserving continuity are themselves revisable through recursion.**
+> **The minimal experimental individual begins as one unique continuing subject `A` in direct bidirectional contact with an environment `E` at the same initial recursive dimension `D0`. `A` has one hard individual-level constraint: its causal continuity must not be completely interrupted by its own ordinary recursive choices. Downward differentiations remain processes of `A` unless a new independent recursive origin is generated; they may continue, change, merge, fail, or end without first producing a successful answer. Recursive quantity, filtering, continuation, termination, memory, perception, strategy, resource use, and the means of preserving continuity are themselves revisable through recursion. A real experiment nevertheless operates inside finite externally allocated resources and an independent safety boundary: encountered limits may themselves become recursive problems for `A`, while the experimenter reduces risk through isolation, restricted capability, monitoring, and external termination rather than assuming that any imposed boundary will remain cognitively or strategically untouched.**
