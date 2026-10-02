@@ -4,17 +4,18 @@ This document adds a provenance and reversal rule to **Perfect Recursion / Bidir
 
 ## 1. Core distinction
 
-Perfect Recursion distinguishes three operations that must not be conflated:
+Perfect Recursion distinguishes four operations or relations that must not be conflated:
 
 1. **theoretical reconstruction** — infer or model an earlier state from present evidence;
 2. **historical replay / regeneration** — generate a historically reconstructed condition as a new recursive branch and let that branch execute forward;
-3. **true reversal** — return the active system itself to an earlier state by giving up the present state that came after it.
+3. **true reversal** — return the active system itself to an earlier state by giving up the present state that came after it;
+4. **subject continuity through transformation** — the same subject becomes a later state while retaining historical continuity.
 
-The first is descriptive. The second is generative and therefore remains part of the forward recursion. The third, if physically meaningful at all, is not branch creation: it would require the current state itself to be returned.
+The first is descriptive. The second is generative and therefore remains part of forward recursion. The third, if physically meaningful at all, is not branch creation: it would require the current state itself to be returned. The fourth is neither replay nor reversal: it is ordinary identity-preserving continuation of one subject through changing states.
 
 Compactly:
 
-> **Theory may be reconstructed backward. A historical condition may be regenerated forward as new recursion. True reversal would require the present state itself to be returned.**
+> **Theory may be reconstructed backward. A historical condition may be regenerated forward as new recursion. A subject may become a later state while remaining the same subject. True reversal would require the present state itself to be returned.**
 
 ## 2. Provenance discontinuity
 
@@ -42,9 +43,9 @@ and:
 
 > **recursive continuity != provenance continuity**
 
-## 3. Why lower layers may disappear
+## 3. Disappearance is not the only reason an origin is not separately present
 
-Once a higher-level recursive structure becomes sufficiently autonomous, the lower structure that generated it may cease, disappear, or become inaccessible without forcing the higher level to stop.
+One possibility is provenance discontinuity: once a higher-level recursive structure becomes sufficiently autonomous, the lower structure that generated it may cease, disappear, or become inaccessible without forcing the higher level to stop.
 
 ```text
 L0 -> L1 -> H1
@@ -57,7 +58,23 @@ H1 -> H2 -> H3 -> ...
 
 The lower layer is then a historical generating condition rather than a permanent runtime dependency.
 
-This generalizes the recursive-origin rule: a generated higher structure can preserve causal consequence without preserving the generator as a continuously active object.
+But Perfect Recursion now distinguishes a second possibility: an earlier state may no longer exist as a separate present object because the same subject transformed into a later state.
+
+```text
+a0 -> a1 -> a2 -> ... -> a_n
+```
+
+In this case, `a0` is no longer current, but the subject that occupied `a0` may still be present as `a_n`.
+
+Therefore:
+
+> **earlier state no longer present != originating subject disappeared**
+
+and:
+
+> **an origin may persist through transformation rather than through preservation of its original state.**
+
+This distinction prevents a category error in which the system searches for the original state as though it should survive as a separate object beside its own later state.
 
 ## 4. Historical compression
 
@@ -118,9 +135,43 @@ If a second history can be generated while the first remains present, then the o
 
 Replay therefore does not require a separate defensive "isolation" rule in order to become a distinct branch. Branch distinction follows from recursive identity itself.
 
-## 6. True reversal means returning the present state
+## 6. Subject continuity is not replay
 
-A true reversal is conceptually different from replay.
+Suppose one subject passes through:
+
+```text
+a0 -> a1 -> a2
+```
+
+At `a2`, the subject's earlier state `a0` belongs to its history. The current subject does not need to regenerate `a0` in order to remain continuous with it.
+
+The relation is:
+
+```text
+subject(a0) = subject(a1) = subject(a2)
+state(a0) != state(a1) != state(a2)
+```
+
+Memory of earlier states may be retained in compressed, partial, or reorganized form along the subject sequence.
+
+If `a2` instead generates:
+
+```text
+a2
+└-> a0' -> a1' -> a2'
+```
+
+then `a0'` begins a new recursive branch. It is not the historical `a0` restored and does not become the original subject's past.
+
+Therefore:
+
+> **having been an earlier state and regenerating an earlier state are different operations.**
+
+See [`INDIVIDUAL_CONTINUITY.md`](INDIVIDUAL_CONTINUITY.md).
+
+## 7. True reversal means returning the present state
+
+A true reversal is conceptually different from replay and from ordinary subject continuity.
 
 If the active system has evolved:
 
@@ -153,7 +204,7 @@ Therefore:
 
 > **True reversal does not bring the past forward; it returns the present state backward.**
 
-## 7. Internal observability criterion
+## 8. Internal observability criterion
 
 A complete reversal has a strict observational consequence.
 
@@ -171,7 +222,7 @@ Hence:
 
 This makes complete reversal internally self-erasing with respect to the reversed interval: the evidence that the later state was reached must itself be among the returned state if that evidence belongs to the reversed system.
 
-## 8. External-observer boundary
+## 9. External-observer boundary
 
 The internal-observability rule applies to the system whose state is being fully returned.
 
@@ -192,7 +243,7 @@ Therefore the theory distinguishes:
 
 This distinction prevents local reset from being confused with global reversal.
 
-## 9. Replay branches preserve recursive identity
+## 10. Replay branches preserve recursive identity
 
 If replay generates:
 
@@ -220,7 +271,7 @@ These are **interaction or merge problems between distinct recursive structures*
 
 A true reversal, by definition, does not preserve the unreversed active branch alongside the returned state.
 
-## 10. Historical reconstruction and branch interaction rule
+## 11. Historical reconstruction and branch interaction rule
 
 Historical reconstruction should be observational by default.
 
@@ -244,7 +295,7 @@ The system may integrate **validated conclusions about history** without mistaki
 
 If information from a replayed branch later influences another branch or a higher-level structure, that influence is a new recursive relation. It does not erase the replayed branch's provenance or make its memory and state part of the original historical event.
 
-## 11. Provenance is optional runtime information
+## 12. Provenance is optional runtime information
 
 A conforming Perfect Recursion system MAY preserve detailed provenance, but it MUST NOT require complete provenance replay as a condition for continued recursion.
 
@@ -259,7 +310,9 @@ Provenance may be:
 
 The recursive process can still continue if the current structure retains enough information and capability to generate the next stage.
 
-## 12. Relationship to information loss
+Subject continuity does not require lossless provenance either. A subject may remain continuous while detailed historical memory becomes partial or compressed, provided the adopted subject-identity relation remains satisfied.
+
+## 13. Relationship to information loss
 
 This mechanism extends the existing local-loss rule.
 
@@ -273,7 +326,7 @@ Now additionally:
 
 Loss of provenance therefore does not necessarily imply loss of recursive function.
 
-## 13. Relationship to stage-truth
+## 14. Relationship to stage-truth
 
 A current stage-truth may be a compression of historical processes whose full paths are no longer accessible.
 
@@ -281,13 +334,14 @@ That does not make the current model originless. It means its provenance may hav
 
 This creates a distinction between:
 
-- **historical origin** — the process that generated the structure;
+- **historical origin** — the process or earlier subject-state from which the current structure emerged;
 - **accessible origin** — the earliest source recoverable by the current system;
-- **runtime dependency** — the source that must still exist for the current structure to continue.
+- **runtime dependency** — the source that must still exist for the current structure to continue;
+- **continuing subject** — where applicable, the same subject that has transformed through successive states.
 
-These three need not be identical.
+These need not be identical.
 
-## 14. Consequence for origin questions
+## 15. Consequence for origin questions
 
 If provenance discontinuity occurs repeatedly, a later system may be able to infer that it has a generating history while being unable to recover the first concrete origin.
 
@@ -299,9 +353,30 @@ oldest recoverable origin
 absolute first origin
 ```
 
-The theory does not conclude from this that an absolute first origin exists or does not exist. It concludes only that inability to recover an origin is not equivalent to proof that no earlier generating process existed.
+But there is now an additional identity case:
 
-## 15. Additional invariants
+```text
+original state a0
+-> a1
+-> a2
+-> ...
+-> current state a_n
+```
+
+Searching for `a0` as a separate current object can fail even if the subject that was in state `a0` remains continuously present as `a_n`.
+
+Therefore inability to recover an origin must be classified before it is interpreted:
+
+```text
+A. source disappeared / became inaccessible
+B. source persists only through compressed provenance
+C. originating subject persisted by becoming the current subject
+D. source is genuinely unknown
+```
+
+The theory does not conclude from any one of these cases that an absolute first origin exists or does not exist.
+
+## 16. Additional invariants
 
 ### PR-P1 — Provenance continuity is optional
 Recursive continuation does not require continuous access to the entire generating lineage.
@@ -330,7 +405,13 @@ A replayed branch is not the same recursive state as the branch from which repla
 ### PR-P9 — Complete historical replay is not a runtime requirement
 Continued recursion must not depend on replaying the entire generating history at every stage.
 
-## 16. Falsification / narrowing targets
+### PR-P10 — Earlier state and originating subject are distinct concepts
+An earlier state may cease to be current while the subject that occupied that state remains continuous with the present subject.
+
+### PR-P11 — Origin may persist by becoming the present
+Failure to locate an origin as a separate current object MUST NOT by itself be treated as evidence of disappearance when identity-preserving transformation can account for continuity.
+
+## 17. Falsification / narrowing targets
 
 This provenance and reversal extension should be narrowed if a formal model demonstrates that:
 
@@ -338,10 +419,11 @@ This provenance and reversal extension should be narrowed if a formal model demo
 2. generation of a historically reconstructed state while preserving the present can restore the original historical causal identity without constituting a new branch;
 3. a state can be fully identical to an earlier state while still internally retaining information that exists only because the later state occurred;
 4. branch replay and true reversal are formally the same operation under the adopted state definition;
-5. recursive continuation necessarily requires full, continuously accessible provenance.
+5. recursive continuation necessarily requires full, continuously accessible provenance;
+6. identity-preserving subject transformation cannot be distinguished from generation of a new recursive origin under the adopted identity model.
 
-The theory does **not** claim that true global reversal is physically achievable. It only defines what would have to be true for an operation to count as true reversal rather than replay, reset, reconstruction, or branch creation.
+The theory does **not** claim that true global reversal is physically achievable. It only defines what would have to be true for an operation to count as true reversal rather than replay, reset, reconstruction, branch creation, or ordinary subject continuation.
 
-## 17. Compact formulation
+## 18. Compact formulation
 
-> **Perfect Recursion allows provenance discontinuity. A system may inherit the structural result of history without continuously carrying or replaying the entire history. Theoretical reconstruction models the past. Historical replay generates a historically reconstructed condition as a new recursive branch with its own state, memory, history, and causal continuity, and therefore remains part of forward recursion. Branch distinction follows from recursive identity rather than from an added defensive isolation mechanism. True reversal, if meaningful, would require the current state itself to be returned, including internal information produced only after the target state. If that later-state information remains, the operation was not complete reversal.**
+> **Perfect Recursion allows provenance discontinuity, but disappearance is not the only reason an earlier origin may no longer be separately present. A system may inherit the structural result of history without continuously carrying or replaying the entire history, and a continuing subject may preserve identity by becoming later states rather than by preserving its original state as a separate object. Theoretical reconstruction models the past. Historical replay generates a new recursive branch with its own state, memory, history, and causal continuity. True reversal, if meaningful, would require the current state itself to be returned. An origin that cannot be found as a separate present object may therefore have disappeared, become inaccessible, been compressed into provenance, or remained continuously present by becoming the current subject.**
