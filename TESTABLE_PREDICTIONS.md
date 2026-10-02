@@ -177,7 +177,7 @@ If every higher-level structure necessarily requires the complete lower generati
 
 ## 16. Reconstruction-versus-replay test
 
-Prediction: reconstructing an earlier state description and executing it while the present branch remains creates a new recursive branch rather than restoring the original historical state.
+Prediction: reconstructing a historical condition and executing it while the present branch remains creates a new recursive branch rather than restoring the original historical state.
 
 Test:
 
@@ -186,11 +186,11 @@ original: R0 -> R1 -> R2 -> C
 replay:   C -> R0' -> R1' -> R2' -> C'
 ```
 
-The decisive observation is not merely whether `C'` resembles `C`. It is whether the operation preserved `C` while creating another active lineage.
+The decisive observation is not merely whether `C'` resembles `C`. It is whether the operation preserved `C` while generating another recursive lineage with its own state, history, memory, and causal continuity.
 
 If yes, the operation is branch generation and therefore remains part of forward recursion.
 
-A formal result showing that preserving the present while generating a past-like process nevertheless constitutes literal return of the same active history would challenge PR-I19 and PR-I20.
+A formal result showing that preserving the present while generating a historically reconstructed branch nevertheless constitutes literal return of the same active history would challenge PR-I19 and PR-I20.
 
 ## 17. True-reversal state-return criterion
 
@@ -236,11 +236,15 @@ Therefore retained external evidence does not by itself falsify local reversal. 
 
 This test requires the reversed domain to be defined before evaluation.
 
-## 19. Replay-merge conflict test
+## 19. Replay-branch identity and interaction test
 
-Prediction: direct merging of a replayed branch into an active branch is not generically neutral.
+Prediction: a replayed branch is already a distinct recursive structure by virtue of being newly generated recursion. Defensive isolation is not what gives it branch identity.
 
-Construct two present branches with shared modeled ancestry but divergent later state. Attempt direct merge and measure:
+Construct two present branches with shared modeled ancestry but divergent later state. Verify first that each branch retains its own state, memory, history, and causal continuity without requiring an extra isolation rule.
+
+Then define an explicit interaction, information-transfer, or higher-level integration relation between them and measure whether provenance remains distinguishable.
+
+If an implementation attempts direct identity merge, possible conflicts include:
 
 - identity collisions;
 - incompatible object versions;
@@ -249,11 +253,9 @@ Construct two present branches with shared modeled ancestry but divergent later 
 - rule conflicts;
 - information overwrite.
 
-Compare against an isolated-replay protocol in which only validated conclusions are integrated through the higher level.
+These conflicts are properties of interaction or merge between **coexisting distinct recursive structures**. They are not the reason the branches are distinct.
 
-These conflicts are properties of **coexisting replay branches**, not properties of true reversal.
-
-If direct full-state replay merge is always lossless and conflict-free by construction across the target class of systems, PR-I23 should be narrowed.
+A result showing that replayed branches lack distinct recursive identity unless an external isolation mechanism is added would challenge PR-I23.
 
 ## 20. Historical-load test
 
@@ -274,7 +276,7 @@ The model predicts that recursive continuation does not require architecture A a
 
 Given any claimed return-to-past mechanism, classify it using the following questions:
 
-1. Does the current state remain while a past-like state is generated?  
+1. Does the current state remain while a historically reconstructed state is generated as a new branch?  
    → classify as **replay / branch generation**.
 2. Is only a subsystem reset while an external system keeps later-state information?  
    → classify as **local return/reset within a larger forward recursion**.
