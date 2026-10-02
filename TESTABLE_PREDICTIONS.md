@@ -157,7 +157,7 @@ For each implementation or formalization, the recursive variables and reconstruc
 
 The theory is currently a conceptual architecture with testable structural claims, not an experimentally established universal law.
 
-Its strongest unresolved empirical/formal question is whether one mechanism can realize all v0.7 invariants without hidden fixed assumptions that effectively place perception, capacity, reconstruction, or state identity outside the recursion.
+Its strongest unresolved empirical/formal question is whether one mechanism can realize all v0.7 invariants without hidden fixed assumptions that effectively place perception, capacity, reconstruction, state identity, or subject identity outside the recursion.
 
 ## 15. Provenance discontinuity test
 
@@ -366,3 +366,107 @@ must remain provisional unless it produces independent, discriminating evidence 
 - a model connecting lower-dimensional predecessor states to measured current spacetime structure.
 
 Analogies involving points, lines, surfaces, images, text, or video are insufficient by themselves to establish this physical history.
+
+## 23. Individual continuity and origin-persistence tests
+
+These tests apply to the individual-continuity extension in `INDIVIDUAL_CONTINUITY.md`.
+
+### 23.1 Unique-subject sequence test
+
+Construct or formalize a sequence:
+
+```text
+a0 -> a1 -> a2 -> ... -> a_n
+```
+
+and define the identity criterion independently of the conclusion being tested.
+
+Prediction: the system can satisfy:
+
+```text
+subject(a0) = subject(a1) = ... = subject(a_n)
+```
+
+while also satisfying:
+
+```text
+state(a0) != state(a1) != ... != state(a_n)
+```
+
+If every structural state transition necessarily creates a new recursive identity, PR-I25 must be narrowed.
+
+### 23.2 Subject-memory versus differentiation test
+
+From a current subject `a_n`, generate differentiated lower processes:
+
+```text
+          a_n
+      /    |    \
+     b     c     d
+```
+
+Test whether `b`, `c`, and `d` can operate with local generative conditions without inheriting the subject's complete historical memory.
+
+Then return their outcomes to the continuing subject and test whether the subject can become `a_(n+1)` while preserving its own subject-history continuity.
+
+A result showing that every differentiated process must become a full copy of the subject would challenge PR-I27.
+
+### 23.3 Next-state versus new-origin classification test
+
+Compare two transitions:
+
+```text
+A. a_n -> a_(n+1)
+
+B. a_n continues
+   └-> b0 -> b1 -> ...
+```
+
+The model predicts that A can be an identity-preserving state transition while B can create a distinct recursive origin.
+
+A formalism that cannot distinguish these operations under its own identity criteria is insufficient for PR-I28.
+
+### 23.4 Past-state versus parallel-self test
+
+At current state `a_n`, represent memory or provenance of `a0..a_(n-1)`.
+
+Prediction: retaining representations of earlier states does not by itself imply that those earlier states are additional current subjects.
+
+If the formalism necessarily counts remembered prior states as coexisting subjects, PR-I26 must be narrowed or the subject definition revised.
+
+### 23.5 Origin-persistence-through-transformation test
+
+Given:
+
+```text
+a0 -> a1 -> a2 -> ... -> a_n
+```
+
+attempt to locate `a0` as a separate present object.
+
+Prediction: failure to find a separate `a0` is compatible with two different classes of explanation:
+
+```text
+A. a0 disappeared / became inaccessible
+B. the subject that was in state a0 remained continuous and is now in state a_n
+```
+
+The test therefore requires an identity criterion, not merely object-location failure.
+
+A result showing that case B is formally impossible under every admissible subject definition would challenge PR-I29.
+
+### 23.6 Replay-versus-subject-history test
+
+Compare:
+
+```text
+subject history:
+a0 -> a1 -> a2
+
+replay from a2:
+a2 -> a0' -> a1' -> a2'
+```
+
+Prediction: `a0'` belongs to a new recursive branch and is not the original `a0`, even if its state description resembles it.
+
+If replay and original subject continuation are formally identical under the adopted identity relation, IC-8 and the replay/continuity distinction must be narrowed.
