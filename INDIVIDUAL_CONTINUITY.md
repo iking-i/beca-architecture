@@ -28,6 +28,8 @@ and:
 
 At any current stage, only the latest state is the current state of that subject. Earlier states belong to its history.
 
+This statement concerns **subject-state identity**. It does not imply that lower recursive structures associated with earlier stages must stop operating when a higher-order subject state appears.
+
 ## 2. Unique subject sequence
 
 For an identity-preserving individual recursion:
@@ -65,11 +67,13 @@ a0 -> a1 -> a2 -> a3 -> ...
              current subject
 ```
 
-The earlier states are not additional present individuals. They are completed states in the unique history of the current subject.
+The earlier states are not additional current subjects. They are completed states in the unique history of the current subject.
 
 Thus, within this model:
 
 > **higher-order development can preserve singular subject identity.**
+
+This does not mean that every lower recursive layer related to earlier stages has ceased. Perfect Recursion independently allows lower layers to remain active after higher-order formation.
 
 This document uses "higher-order" or "dimensional" change structurally. It does not by itself claim a literal change in physical spatial dimension.
 
@@ -165,7 +169,7 @@ For a continuous subject:
 a0 -> a1 -> a2 -> a3
 ```
 
-at `a3`, the earlier `a0` is no longer an independently current low-order subject.
+at `a3`, the earlier `a0` is no longer an independently current subject-state.
 
 It persists through:
 
@@ -176,9 +180,15 @@ It persists through:
 
 Thus:
 
-> **the past state is retained as history, not as another current self.**
+> **the past subject-state is retained as history, not as another current self.**
 
-This prevents a category error in which every previous state is treated as a still-existing lower subject.
+This prevents a category error in which every previous subject-state is treated as a still-existing current subject.
+
+It must not be generalized into a claim that all lower recursive structures associated with earlier stages have stopped. In Perfect Recursion:
+
+> **historical state completion != lower-recursive cessation**
+
+A lower recursive structure may remain active even though the subject's earlier state is no longer its current state.
 
 ## 8. Origin persistence through transformation
 
@@ -194,24 +204,26 @@ Suppose:
 a0 -> a1 -> a2 -> ... -> a_n
 ```
 
-Searching for `a0` as a separate surviving object may fail even though the subject that was in state `a0` never ceased to continue.
+Searching for `a0` as a separate surviving subject-state may fail even though the subject that was in state `a0` never ceased to continue.
 
 The correct distinction is:
 
 ```text
-original state a0: no longer current
-original subject:  may still be current as a_n
+original subject-state a0: no longer current
+original subject:          may still be current as a_n
 ```
 
 Therefore:
 
-> **failure to find the origin as a separate present object does not by itself show that the originating subject disappeared.**
+> **failure to find the origin as a separate current subject-state does not by itself show that the originating subject disappeared.**
 
-In an identity-preserving sequence, the origin may persist by transformation rather than by preservation of its original state.
+In an identity-preserving sequence, the origin may persist by transformation rather than by preservation of its original subject-state.
+
+This claim does not require lower recursive layers associated with earlier stages to disappear; those layers may continue independently under the broader Perfect Recursion architecture.
 
 ## 9. Relation to provenance discontinuity
 
-Perfect Recursion now distinguishes at least two reasons an early source may not be recoverable as a present object.
+Perfect Recursion now distinguishes at least two reasons an early source may not be recoverable as a present subject-state.
 
 ### A. Provenance discontinuity
 
@@ -228,7 +240,7 @@ H continues
 
 ### B. Subject continuity through transformation
 
-The earlier state ceased to be current because the same subject became the later state.
+The earlier subject-state ceased to be current because the same subject became the later state.
 
 ```text
 a0 -> a1 -> a2 -> ... -> a_n
@@ -236,7 +248,7 @@ a0 -> a1 -> a2 -> ... -> a_n
 
 Here `a0` is not missing in the same sense as a lost independent generator. The subject that occupied `a0` remains continuous with `a_n`.
 
-These cases must not be conflated.
+These cases must not be conflated. Neither case should be used to deny the separate Perfect Recursion principle that some lower recursive structures may remain active after higher-order formation.
 
 ## 10. Relation to historical replay
 
@@ -248,7 +260,7 @@ The subject's own history:
 a0 -> a1 -> a2
 ```
 
-is one continuous sequence.
+is one continuous subject sequence.
 
 A replay generated from `a2`:
 
@@ -280,13 +292,16 @@ Lower differentiated processes SHOULD inherit only the generative state required
 ### IC-5 — New recursive origins are distinct from later states of one subject
 A new recursive origin begins a distinct recursive identity. An identity-preserving state transition continues the existing subject sequence.
 
-### IC-6 — Past state is not parallel self
-An earlier state of a continuing subject is historical state, not an additional current subject.
+### IC-6 — Past subject-state is not parallel self
+An earlier state of a continuing subject is historical subject-state, not an additional current subject.
 
-### IC-7 — Origin can persist through transformation
-Failure to locate an origin as a separate current object MUST NOT by itself be interpreted as evidence that the originating subject disappeared. The origin may be continuous with the current subject through identity-preserving transformation.
+### IC-7 — Historical state completion does not imply lower-recursive cessation
+The fact that an earlier subject-state is no longer current MUST NOT be interpreted as requiring every lower recursive structure associated with that stage to stop operating.
 
-### IC-8 — Replay does not restore subject continuity
+### IC-8 — Origin can persist through transformation
+Failure to locate an origin as a separate current subject-state MUST NOT by itself be interpreted as evidence that the originating subject disappeared. The origin may be continuous with the current subject through identity-preserving transformation.
+
+### IC-9 — Replay does not restore subject continuity
 Generating a historically reconstructed branch creates new recursion and does not recreate the original subject-state event or replace the current subject's unique history.
 
 ## 12. Narrowing and falsification targets
@@ -296,11 +311,11 @@ This extension should be narrowed if a formal model shows that:
 1. every structural or higher-order transition necessarily creates a new recursive identity rather than allowing identity-preserving transformation;
 2. a unique subject sequence cannot be distinguished from branch generation under the adopted identity definition;
 3. differentiated lower processes necessarily inherit the full subject-history memory and therefore become indistinguishable from copies of the subject;
-4. an earlier subject state must remain as a separate current object in order for subject continuity to hold;
+4. an earlier subject-state must remain as a separate current subject in order for subject continuity to hold;
 5. historical replay is formally identical to continuation of the original subject sequence.
 
 This document defines an identity architecture inside Perfect Recursion. It does not claim to settle every philosophical or neuroscientific theory of personal identity.
 
 ## 13. Compact formulation
 
-> **Individual Perfect Recursion allows one subject to remain one subject while its current state recursively changes and can become structurally higher-order. The unique subject sequence carries its history forward through memory, while downward differentiation does not automatically duplicate that subject history. Earlier states become the subject's past rather than parallel current selves. A new recursive origin is therefore different from the next state of the same subject, and an origin that cannot be found as a separate present object may still persist by having become the current subject.**
+> **Individual Perfect Recursion allows one subject to remain one subject while its current state recursively changes and can become structurally higher-order. The unique subject sequence carries its history forward through memory, while downward differentiation does not automatically duplicate that subject history. Earlier subject-states become the subject's history rather than parallel current selves; this does not imply that lower recursive structures associated with earlier stages have ceased. A new recursive origin is therefore different from the next state of the same subject, and an origin that cannot be found as a separate current subject-state may still persist by having become the current subject.**
