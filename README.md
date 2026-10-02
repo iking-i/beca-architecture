@@ -111,10 +111,12 @@ A higher-level structure may continue after the lower structure that generated i
 The theory distinguishes:
 
 - **theoretical reconstruction** — model an earlier state;
-- **historical replay** — generate an earlier-like state in the present, creating a new recursive branch;
+- **historical replay** — generate a historically reconstructed condition as a new recursive branch and let it execute forward;
 - **true reversal** — hypothetically return the active current state itself to an earlier state.
 
-A second history is branch generation, not reversal. If later-state information remains internally observable after an alleged complete reversal, then the resulting state is not identical to the target earlier state.
+A replayed branch is not the original historical state restored. It is a new recursive structure with its own state, history, memory, and causal continuity. Its distinction from the originating branch follows from recursive identity itself rather than from an added defensive isolation mechanism. Later interaction, comparison, or higher-level integration between branches is a new recursive relation and does not turn replay into reversal.
+
+If later-state information remains internally observable after an alleged complete reversal, then the resulting state is not identical to the target earlier state.
 
 See [`PROVENANCE_RECONSTRUCTION.md`](PROVENANCE_RECONSTRUCTION.md).
 
