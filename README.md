@@ -92,7 +92,9 @@ A single subject may move through:
 a0 -> a1 -> a2 -> a3 -> ...
 ```
 
-while remaining one subject. Earlier states become the subject's history rather than parallel current selves, and subject-history memory continues along the unique subject sequence.
+while remaining one subject. Earlier subject-states become the subject's history rather than parallel current selves, and subject-history memory continues along the unique subject sequence.
+
+This does not imply that lower recursive structures associated with earlier stages must stop operating. Historical subject-state completion and lower-recursive cessation are distinct claims.
 
 Downward differentiation does not automatically duplicate the subject's full historical memory. A new recursive origin is therefore structurally different from the next state of the same continuing subject.
 
@@ -139,7 +141,7 @@ See [`PROVENANCE_RECONSTRUCTION.md`](PROVENANCE_RECONSTRUCTION.md).
 
 ## Dimensional recursion hypothesis
 
-A new hypothesis-level extension applies the same architecture to dimensional and structural identity.
+A hypothesis-level extension applies the same architecture to dimensional and structural identity.
 
 The core proposal is not that current physics has established a historical sequence `0D -> 1D -> 2D -> 3D`. That remains unverified. The narrower hypothesis is:
 
@@ -157,6 +159,37 @@ For example, in a two-coordinate structure `(x, y)`, a state `(1, 0)` remains a 
 This extension is intentionally labeled a **hypothesis**, not a physical law.
 
 See [`DIMENSIONAL_RECURSION.md`](DIMENSIONAL_RECURSION.md).
+
+## Temporal reference hypothesis
+
+A separate hypothesis-level extension asks whether time can be treated inside Perfect Recursion as an abstract reference relation rather than as an independently flowing physical entity.
+
+The proposal is divided into three levels:
+
+```text
+T1 — structural claim
+Time is a reference relation for describing order, change, and relative position.
+
+T2 — physical hypothesis
+Different time-labeled recursive positions may coexist physically and continue evolving.
+
+T3 — communication hypothesis
+If those positions possess a realizable information coupling,
+cross-recursive-position communication may occur.
+```
+
+The temporal hypothesis reuses an existing Perfect Recursion premise rather than introducing it: **higher-order formation does not require lower-order recursion to stop**.
+
+Therefore, if temporal labels are reference relations, an earlier-labeled recursive position need not be interpreted as physically erased merely because a later-labeled position exists.
+
+This does **not** establish T2 or T3 as physical facts. The theory explicitly preserves:
+
+```text
+T1 != proof of T2
+T2 != proof of T3
+```
+
+See [`TEMPORAL_REFERENCE_HYPOTHESIS.md`](TEMPORAL_REFERENCE_HYPOTHESIS.md).
 
 ## What “unbounded” means
 
@@ -193,6 +226,7 @@ Current status: **no equivalent complete framework has yet been identified in th
 - [`INDIVIDUAL_CONTINUITY.md`](INDIVIDUAL_CONTINUITY.md) — identity-preserving subject continuity, memory, differentiation, and origin persistence through transformation
 - [`PROVENANCE_RECONSTRUCTION.md`](PROVENANCE_RECONSTRUCTION.md) — provenance discontinuity, reconstruction, replay, and reversal
 - [`DIMENSIONAL_RECURSION.md`](DIMENSIONAL_RECURSION.md) — hypothesis-level dimensional recursion extension
+- [`TEMPORAL_REFERENCE_HYPOTHESIS.md`](TEMPORAL_REFERENCE_HYPOTHESIS.md) — hypothesis-level treatment of temporal reference, possible recursive-position coexistence, and cross-position communication
 - [`TESTABLE_PREDICTIONS.md`](TESTABLE_PREDICTIONS.md) — conformance tests, falsification targets, and boundary conditions
 - [`PRIOR_ART.md`](PRIOR_ART.md) — adjacent theories and novelty boundary
 - [`paper/BECA_v0.7.md`](paper/BECA_v0.7.md) — current conceptual paper
