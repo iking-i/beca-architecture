@@ -11,7 +11,7 @@ Perfect Recursion is an **expanding bidirectional recursive structure** in which
 3. a higher-level structure compares, classifies, validates, and reconstructs its model when sufficient information justifies change;
 4. the reconstructed higher level can differentiate or reorganize future lower-level processes;
 5. quantitative variation can produce qualitative transitions, and qualitative transitions can change the quality of subsequent variation;
-6. perception, capacity, model structure, failure, and recursive origins can themselves become objects of recursion;
+6. perception, capacity, model structure, failure, recursive origins, provenance, and subject continuity can themselves become objects of recursion;
 7. the structural loop closes while its reachable and explanatory space may expand.
 
 Compactly:
@@ -170,7 +170,38 @@ R
 
 `R'` is a new recursive origin when it can become a source of its own continuing recursive structure rather than only the next ordinary state of `R`.
 
-## 12. Expanding closed loop
+## 12. A subject can change without generating another subject
+
+Perfect Recursion must distinguish new-recursion generation from identity-preserving transformation.
+
+A single subject may continue as:
+
+```text
+a0 -> a1 -> a2 -> a3 -> ...
+```
+
+with:
+
+```text
+subject(a0) = subject(a1) = subject(a2) = ...
+state(a0) != state(a1) != state(a2) != ...
+```
+
+Earlier states become history rather than parallel current subjects. Subject-history memory continues along the unique subject sequence.
+
+Downward differentiation does not automatically copy the subject's complete historical memory into every lower process. Those lower processes may contribute outcomes back to the continuing subject without becoming copies of it.
+
+Therefore:
+
+> **structural ascent does not require subject multiplication.**
+
+and:
+
+> **the next state of one subject is not the same operation as generation of a new recursive origin.**
+
+See [`INDIVIDUAL_CONTINUITY.md`](INDIVIDUAL_CONTINUITY.md).
+
+## 13. Expanding closed loop
 
 Perfect Recursion is closed in mechanism but not fixed in scale.
 
@@ -192,7 +223,7 @@ Each completed cycle can alter the conditions of the next cycle.
 
 The loop therefore grows rather than merely repeats.
 
-## 13. Stage-truth
+## 14. Stage-truth
 
 The theory uses **stage-truth** for the strongest currently validated model available at a given stage.
 
@@ -207,7 +238,7 @@ A new observation may:
 
 An older model may therefore remain locally valid inside a more complete later model.
 
-## 14. Epistemic boundary: unrealized possibility
+## 15. Epistemic boundary: unrealized possibility
 
 The current architecture does not prove that every specific unrealized possibility will eventually occur.
 
@@ -223,7 +254,7 @@ Until reality supplies the event or stronger conditional evidence, the model pre
 
 This is treated as an epistemic boundary, not as a break in the recursive mechanism.
 
-## 15. Minimum invariants
+## 16. Minimum invariants
 
 A system is minimally compatible with the current theory if:
 
@@ -238,9 +269,11 @@ A system is minimally compatible with the current theory if:
 9. capacity can itself change;
 10. local loss or cessation does not require global cessation;
 11. recursion can generate new recursive origins;
-12. no final top, bottom, perceptual scheme, capacity, or model is built into the abstract structure;
-13. the loop can close while its state/model space continues to expand.
+12. identity-preserving transformation can be distinguished from generation of a new recursive identity;
+13. a continuing subject may retain one subject identity across changing states;
+14. no final top, bottom, perceptual scheme, capacity, or model is built into the abstract structure;
+15. the loop can close while its state/model space continues to expand.
 
-## 16. Compact definition
+## 17. Compact definition
 
-> **Perfect Recursion is an expanding, bidirectionally unbounded recursive architecture in which persistent lower-level processes continuously generate information; higher-level structures integrate sufficient validated information into revisable models; those models reconstruct or differentiate future lower-level processes; quantity and quality recursively transform one another; and the system's own perception, capacity, limitations, and recursive origins remain available to further recursion.**
+> **Perfect Recursion is an expanding, bidirectionally unbounded recursive architecture in which persistent lower-level processes continuously generate information; higher-level structures integrate sufficient validated information into revisable models; those models reconstruct or differentiate future lower-level processes; quantity and quality recursively transform one another; recursion may generate new recursive origins; and a continuing subject may itself change structurally while remaining one subject whose earlier states become history rather than parallel current selves.**
