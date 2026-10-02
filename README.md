@@ -82,6 +82,22 @@ R continues
       └─ may generate R''
 ```
 
+### 10. Individual continuity can preserve one subject
+
+Perfect Recursion also distinguishes **identity-preserving transformation** from **generation of a new recursive origin**.
+
+A single subject may move through:
+
+```text
+a0 -> a1 -> a2 -> a3 -> ...
+```
+
+while remaining one subject. Earlier states become the subject's history rather than parallel current selves, and subject-history memory continues along the unique subject sequence.
+
+Downward differentiation does not automatically duplicate the subject's full historical memory. A new recursive origin is therefore structurally different from the next state of the same continuing subject.
+
+See [`INDIVIDUAL_CONTINUITY.md`](INDIVIDUAL_CONTINUITY.md).
+
 ## Expanding closed loop
 
 Perfect Recursion is closed in mechanism but not fixed in scale:
@@ -106,13 +122,14 @@ The loop can therefore close structurally while its model space, capability spac
 
 Perfect Recursion does not require complete generating history to remain continuously accessible.
 
-A higher-level structure may continue after the lower structure that generated it disappears or becomes inaccessible. The current system may preserve the structural result of history without carrying the entire historical process as a permanent runtime dependency.
+A higher-level structure may continue after the lower structure that generated it disappears or becomes inaccessible. But disappearance is not the only explanation for why an earliest state is no longer present as a separate object: in an identity-preserving subject sequence, the originating subject may remain continuously present by having become the current subject.
 
 The theory distinguishes:
 
 - **theoretical reconstruction** — model an earlier state;
 - **historical replay** — generate a historically reconstructed condition as a new recursive branch and let it execute forward;
-- **true reversal** — hypothetically return the active current state itself to an earlier state.
+- **true reversal** — hypothetically return the active current state itself to an earlier state;
+- **subject continuity through transformation** — the same subject becomes a later state while retaining historical continuity.
 
 A replayed branch is not the original historical state restored. It is a new recursive structure with its own state, history, memory, and causal continuity. Its distinction from the originating branch follows from recursive identity itself rather than from an added defensive isolation mechanism. Later interaction, comparison, or higher-level integration between branches is a new recursive relation and does not turn replay into reversal.
 
@@ -158,7 +175,7 @@ The model preserves possibility without converting possibility into certainty.
 
 ## Minimal compact definition
 
-> **Perfect Recursion is an expanding, bidirectionally unbounded recursive architecture in which persistent lower-level processes continuously generate reality-facing information; higher-level structures integrate sufficient validated information into revisable models; those models differentiate or reconstruct future lower-level processes; quantitative variation can generate qualitative transitions that in turn change the quality of later variation; perception, capacity, model structure, failure, recursive origins, and provenance can themselves become objects of recursion; and continued recursion does not require continuous access to the complete generating history.**
+> **Perfect Recursion is an expanding, bidirectionally unbounded recursive architecture in which persistent lower-level processes continuously generate reality-facing information; higher-level structures integrate sufficient validated information into revisable models; those models differentiate or reconstruct future lower-level processes; quantitative variation can generate qualitative transitions that in turn change the quality of later variation; perception, capacity, model structure, failure, recursive origins, provenance, and subject continuity can themselves become objects of recursion; a continuing subject may change structurally while remaining one subject; and continued recursion does not require continuous access to the complete generating history.**
 
 ## Novelty discipline
 
@@ -173,6 +190,7 @@ Current status: **no equivalent complete framework has yet been identified in th
 - [`BIDIRECTIONAL_RECURSION.md`](BIDIRECTIONAL_RECURSION.md) — current minimum mechanism
 - [`SPEC.md`](SPEC.md) — v0.7 terminology, rules, invariants, and relational quasi-invariants
 - [`ARCHITECTURE.md`](ARCHITECTURE.md) — structural explanation and information flow
+- [`INDIVIDUAL_CONTINUITY.md`](INDIVIDUAL_CONTINUITY.md) — identity-preserving subject continuity, memory, differentiation, and origin persistence through transformation
 - [`PROVENANCE_RECONSTRUCTION.md`](PROVENANCE_RECONSTRUCTION.md) — provenance discontinuity, reconstruction, replay, and reversal
 - [`DIMENSIONAL_RECURSION.md`](DIMENSIONAL_RECURSION.md) — hypothesis-level dimensional recursion extension
 - [`TESTABLE_PREDICTIONS.md`](TESTABLE_PREDICTIONS.md) — conformance tests, falsification targets, and boundary conditions
@@ -184,4 +202,4 @@ Current status: **no equivalent complete framework has yet been identified in th
 
 ## Shortest form
 
-> **Reality produces model; model reshapes reality. Quantity produces quality; quality reshapes quantity. Stage-truth can change, while some relations may remain approximately stable across changing instances. Higher structures can preserve lower structures without becoming identical to their earlier historical state.**
+> **Reality produces model; model reshapes reality. Quantity produces quality; quality reshapes quantity. Stage-truth can change, while some relations may remain approximately stable across changing instances. Higher structures can preserve lower structures without becoming identical to their earlier historical state. A subject may recursively change its state and structure while remaining one continuous subject.**
